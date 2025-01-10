@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
 SECRET_KEY = 'your-secret-key'
-DEBUG = True
+DEBUG = True # False for production
 ALLOWED_HOSTS = ['*'] # Adjust for production
 
 # Installed apps
