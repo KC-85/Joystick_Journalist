@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+from decouple import config
+import dj_database_url
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,14 +58,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database (PostgreSQL)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'joystick_journalist', # PostgreSQL database name
-        'USER': 'postgres', # Your PostgreSQL username
-        'PASSWORD': 'your_password', #Your PostgreSQL password
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 # Password validation
