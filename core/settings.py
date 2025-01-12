@@ -61,8 +61,6 @@ DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
-print(config('DATABASE_URL'))
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
