@@ -1,1 +1,49 @@
+# Ignore all migrations
+*/migrations/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment directories (if you have one)
+venv/
+env/
+
+# Django settings local files
+.env
 env.py
+
+# Django migrations cache files
+*/migrations/__pycache__/
+
+# Static files (Django)
+staticfiles/
+media/
+
+# PostgreSQL specific
+pgdata/
+*.pgsql
+*.pg_backup
+
+# Logs
+*.log
+
+# Compiled code and cache files
+*.mo
+*.pot
+*.swp
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Node modules (if applicable)
+node_modules/
+
+# Git-specific files
+*.orig
