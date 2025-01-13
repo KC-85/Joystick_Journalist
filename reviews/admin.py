@@ -3,4 +3,4 @@ from .models import Game, Review
 
 # Register Models
 admin.site.register(Game)
-admin.site.register(Reviews)
+admin.site.register(Review)
