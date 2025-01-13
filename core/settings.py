@@ -7,7 +7,9 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
-SECRET_KEY = 'your-secret-key'
+
+# Fetch SECRET_KEY from environment variables
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 DEBUG = True # False for production
 ALLOWED_HOSTS = ['*'] # Adjust for production
 
@@ -58,7 +60,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database (PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3')
+    )
 }
 
 # Password validation
