@@ -74,17 +74,21 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,  # Maintain database connection for better performance
+        conn_max_age=600,  # Maintain database connection
         ssl_require=True   # Force SSL connection for security on Heroku
     )
 }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Internationalization
