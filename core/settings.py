@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
-DEBUG = True  # Set to False for production
+DEBUG = False  # Set to False for production
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net']
 
 # CSRF trusted origins
