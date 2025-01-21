@@ -9,11 +9,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 DEBUG = False  # Set to False for production
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net']
 
-# CSRF trusted origins
+# Allowed Hosts (Including Heroku)
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net',
+    'joystick-journalist.herokuapp.com',
+]
+
+# CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net',
+    'https://joystick-journalist.herokuapp.com',
 ]
 
 # Installed apps
@@ -24,12 +32,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'reviews',  # Your app
+    'reviews',
 ]
 
-# Middleware
+# Middleware (Include Whitenoise)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Whitenoise added
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,7 +73,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database (PostgreSQL)
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),  # Fetch DATABASE_URL from environment
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,  # Maintain database connection for better performance
         ssl_require=True   # Force SSL connection for security on Heroku
     )
@@ -72,18 +81,10 @@ DATABASES = {
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Internationalization
@@ -93,9 +94,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files
+# Static files with Whitenoise
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
