@@ -63,8 +63,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database (PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL')  # Ensure this is set in your environment
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),  # Fetch DATABASE_URL from environment
+        conn_max_age=600,  # Maintain database connection for better performance
+        ssl_require=True   # Force SSL connection for security on Heroku
     )
 }
 
