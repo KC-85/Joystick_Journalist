@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import os
 import sys
+from dotenv import load_dotenv
 
-# Load environment variables from .env
-if os.path.exists('.env'):
-    import env
-
+# Load environment variables from .env file
+load_dotenv()
 
 def main():
     """Run administrative tasks."""
