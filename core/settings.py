@@ -3,27 +3,27 @@ from decouple import config
 import dj_database_url
 
 
-# ✅ Build paths inside the project
+# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# ✅ Security settings (Load from `.env`)
+# Security settings (Load from `.env`)
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-# ✅ Allowed Hosts (Load from `.env`)
+# Allowed Hosts (Load from `.env`)
 ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
 
 
-# ✅ CSRF Trusted Origins (For Heroku & GitPod)
+# CSRF Trusted Origins (For Heroku & GitPod)
 CSRF_TRUSTED_ORIGINS = config(
     'CSRF_TRUSTED_ORIGINS',
     default='https://127.0.0.1, https://localhost',
 ).split(',')
 
 
-# ✅ Installed Apps
+# Installed Apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,7 +36,7 @@ INSTALLED_APPS = [
 ]
 
 
-# ✅ Middleware
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -49,11 +49,11 @@ MIDDLEWARE = [
 ]
 
 
-# ✅ Root URL configuration
+# Root URL configuration
 ROOT_URLCONF = 'core.urls'
 
 
-# ✅ Templates
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -71,17 +71,19 @@ TEMPLATES = [
 ]
 
 
-# ✅ WSGI Application (Required for Deployment)
+# WSGI Application (Required for Deployment)
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# ✅ Database (PostgreSQL)
+# Database (PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': (
+        dj_database_url.config(default=config('DATABASE_URL'))
+    )
 }
 
 
-# ✅ Password Validation
+# Password Validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': (
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-# ✅ Internationalization
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -119,11 +121,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-# ✅ Static Files (Configured for Heroku & Whitenoise)
+# Static Files (Configured for Heroku & Whitenoise)
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage'
+)
 
 
-# ✅ Default primary key field type
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
