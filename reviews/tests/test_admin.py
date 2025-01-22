@@ -2,6 +2,7 @@ from django.contrib.admin.sites import site
 from django.test import TestCase
 from reviews.models import Game, Review
 
+
 class AdminSiteTest(TestCase):
     """Test case for Django Admin Site"""
 
