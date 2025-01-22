@@ -77,10 +77,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database (PostgreSQL)
 DATABASES = {
-    'default': (
-        dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL'),
+        conn_max_age=900,  # Keep database connection alive
+        ssl_require=True   # Force SSL for Heroku & secure connections
     )
 }
+
 
 
 # Password Validation
