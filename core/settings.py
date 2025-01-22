@@ -3,28 +3,27 @@ from pathlib import Path
 from decouple import config
 import dj_database_url
 
-# Build paths inside the project
+
+# ✅ Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security settings
-SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False  # Set to False for production
 
-# Allowed Hosts (Including Heroku)
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    '8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net',
-    'joystick-journalist.herokuapp.com',
-]
+# ✅ Security settings (Load from `.env`)
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net',
-    'https://joystick-journalist.herokuapp.com',
-]
+# ✅ Allowed Hosts (Load from `.env`)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
 
-# Installed apps
+
+# ✅ CSRF Trusted Origins (For Heroku & GitPod)
+CSRF_TRUSTED_ORIGINS = config(
+    'CSRF_TRUSTED_ORIGINS',
+    default='https://127.0.0.1, https://localhost',
+).split(',')
+
+
+# ✅ Installed Apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,13 +31,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'reviews',
+    'whitenoise.runserver_nostatic',  # Static files support for Heroku
+    'reviews',  # Your custom app
 ]
 
-# Middleware (Include Whitenoise)
+
+# ✅ Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Whitenoise added
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Added for static files on Heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,10 +48,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Root URL configuration
+
+# ✅ Root URL configuration
 ROOT_URLCONF = 'core.urls'
 
-# Templates
+
+# ✅ Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -67,45 +70,39 @@ TEMPLATES = [
     },
 ]
 
-# WSGI application
+
+# ✅ WSGI Application (Required for Deployment)
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# Database (PostgreSQL)
+
+# ✅ Database (PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,  # Maintain database connection
-        ssl_require=True   # Force SSL connection for security on Heroku
-    )
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
-# Password validation
+
+# ✅ Password Validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME':
-        'django.contrib.auth.password_validation'
-        'UserAttributeSimilarityValidator'},
-    {'NAME':
-        'django.contrib.auth.password_validation'
-        'MinimumLengthValidator'},
-    {'NAME':
-        'django.contrib.auth.password_validation'
-        'CommonPasswordValidator'},
-    {'NAME':
-        'django.contrib.auth.password_validation'
-        'NumericPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+
+# ✅ Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files with Whitenoise
+
+# ✅ Static Files (Configured for Heroku & Whitenoise)
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Default primary key field type
+
+# ✅ Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
