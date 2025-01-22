@@ -2,6 +2,7 @@ from django.apps import apps
 from django.test import TestCase
 from reviews.apps import ReviewsConfig
 
+
 class ReviewsConfigTest(TestCase):
     """Test case for app configuration"""
 
