@@ -9,11 +9,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings (Load from `.env`)
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Allowed Hosts (Load from `.env`)
 ALLOWED_HOSTS = config(
-    'ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
+    'ALLOWED_HOSTS', default='127.0.0.1,localhost' '.herokuapp.com').split(',')
 
 
 # CSRF Trusted Origins (For Heroku & GitPod)
