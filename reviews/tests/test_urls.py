@@ -2,6 +2,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from reviews.views import landing_page, review_page, add_game, add_review
 
+
 class URLTests(SimpleTestCase):
     """Test case for URL resolutions"""
 
