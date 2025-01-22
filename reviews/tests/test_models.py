@@ -1,6 +1,7 @@
 from django.test import TestCase
 from reviews.models import Game, Review
 
+
 class GameModelTest(TestCase):
     """Test case for the Game model"""
 
@@ -16,6 +17,7 @@ class GameModelTest(TestCase):
         """Test that the game is created correctly"""
         self.assertEqual(str(self.game), "Super Metroid")
 
+
 class ReviewModelTest(TestCase):
     """Test case for the Review model"""
 
@@ -25,7 +27,7 @@ class ReviewModelTest(TestCase):
             release_year=1992,
             genre="Racing"
         )
-        
+
         self.review = Review.objects.create(
             game=self.game,
             reviewer_name="John Smith",
