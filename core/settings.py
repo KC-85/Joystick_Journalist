@@ -16,7 +16,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "0.0.0.0",
-    "joystick-journalist.herokuapp.com"
+    "joystick-journalist-3eda94de87b5.herokuapp.com"
     "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
 ]
 
