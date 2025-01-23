@@ -9,18 +9,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings (Load from `.env`)
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Allowed Hosts (Load from `.env`)
-ALLOWED_HOSTS = config(
-    'ALLOWED_HOSTS', default='127.0.0.1,localhost' '.herokuapp.com').split(',')
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "0.0.0.0",
+    "joystick-journalist.herokuapp.com"
+    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
+]
 
 
 # CSRF Trusted Origins (For Heroku & GitPod)
-CSRF_TRUSTED_ORIGINS = config(
-    'CSRF_TRUSTED_ORIGINS',
-    default='https://127.0.0.1, https://localhost',
-).split(',')
+CSRF_TRUSTED_ORIGINS = [
+    "https://127.0.0.1",
+    "https://localhost",
+    "https://joystick-journalist.herokuapp.com",
+    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
+]
 
 
 # Installed Apps
