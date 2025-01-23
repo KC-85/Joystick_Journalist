@@ -31,6 +31,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://localhost",
     "https://joystick-journalist-3eda94de87b5.herokuapp.com",
     "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
+    "https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
 ]
 
 
