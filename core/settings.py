@@ -16,8 +16,8 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "0.0.0.0",
-    "joystick-journalist-3eda94de87b5.herokuapp.com"
-    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
+    "joystick-journalist-3eda94de87b5.herokuapp.com",
+    "kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
 ]
 
 
@@ -25,8 +25,8 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://127.0.0.1",
     "https://localhost",
-    "https://joystick-journalist.herokuapp.com",
-    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
+    "https://joystick-journalist-3eda94de87b5.herokuapp.com",
+    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
 ]
 
 
