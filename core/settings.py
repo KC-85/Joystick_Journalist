@@ -1,10 +1,13 @@
 from pathlib import Path
-from decouple import config
+from decouple import config, Csv
 import dj_database_url
-
+from dotenv import load_dotenv
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load .env manually
+load_dotenv(BASE_DIR / ".env")
 
 
 # Security settings (Load from `.env`)
@@ -18,6 +21,7 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "joystick-journalist-3eda94de87b5.herokuapp.com",
     "kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
+    "8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
 ]
 
 
