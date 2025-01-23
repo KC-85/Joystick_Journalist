@@ -1,6 +1,3 @@
-# Ignore all migrations
-*/migrations/
-
 # Byte-compiled / optimized / DLL files
 *.pyc
 *.pyo
