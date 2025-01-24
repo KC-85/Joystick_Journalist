@@ -13,7 +13,7 @@ class URLTests(SimpleTestCase):
 
     def test_review_page_url(self):
         """Test review page URL with a valid game ID"""
-        url = reverse('review_page', args[1])
+        url = reverse('review_page', args=[1])
         self.assertEqual(resolve(url).func, review_page)
 
     def test_add_game_url(self):
