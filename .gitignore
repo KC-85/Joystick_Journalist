@@ -15,7 +15,6 @@ env.py
 */migrations/__pycache__/
 
 # Static files (Django)
-staticfiles/
 media/
 
 # PostgreSQL specific
