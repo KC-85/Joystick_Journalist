@@ -25,11 +25,6 @@ pgdata/
 # Logs
 *.log
 
-# Compiled code and cache files
-*.mo
-*.pot
-*.swp
-
 # IDE files
 .vscode/
 .idea/
@@ -40,6 +35,3 @@ Thumbs.db
 
 # Node modules (if applicable)
 node_modules/
-
-# Git-specific files
-*.orig
