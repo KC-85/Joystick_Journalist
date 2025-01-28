@@ -1,0 +1,26 @@
+{% extends 'reviews/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">📝 All Reviews</h1>
+    
+    {% if reviews %}
+        {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ review.reviewer_name }} reviewed <strong>{{ review.game.title }}</strong></h5>
+                <p class="card-text"><strong>Rating:</strong> ⭐ {{ review.rating }}/5</p>
+                <p class="card-text">{{ review.comment }}</p>
+                <p class="text-muted small">Reviewed on: {{ review.review_date }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted text-center">No reviews available yet. Be the first to add one! 🎮</p>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'landing_page' %}" class="btn btn-secondary">🏠 Back to Home</a>
+    </div>
+</div>
+{% endblock %}
