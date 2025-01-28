@@ -15,4 +15,5 @@ urlpatterns = [
         views.add_review,
         name='add_review'
     ),  # Add a review for a game
+    path('reviews/', views.all_reviews, name='all_reviews'),
 ]

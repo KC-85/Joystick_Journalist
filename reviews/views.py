@@ -58,3 +58,13 @@ def add_review(request, game_id):
         request, 'reviews/add_review.html',
         {'form': form, 'game': game}
     )
+
+
+"""View to display all reviews across all games"""
+def all_reviews(request):
+    """Fetch all reviews from the database and render the page."""
+    reviews = Review.objects.all()
+    return render(
+        request, 'reviews/all_reviews.html',
+        {'reviews': reviews}
+    )
