@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">🎮 90s Gaming Reviews</h1>
+
+    <!-- Display List of Games -->
+    <div class="row">
+        {% for game in games %}
+        <div class="col-md-4">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ game.title }}</h5>
+                    <p class="card-text">
+                        <strong>Release Year:</strong> {{ game.release_year }}<br>
+                        <strong>Genre:</strong> {{ game.genre.name }}
+                    </p>
+                    <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm">View Reviews</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted">No games available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Add New Game -->
+    <div class="text-center mt-4">
+        <a href="{% url 'add_game' %}" class="btn btn-success">➕ Add a New Game</a>
+    </div>
+</div>
+{% endblock %}
