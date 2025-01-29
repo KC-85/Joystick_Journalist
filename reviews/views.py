@@ -12,14 +12,25 @@ def landing_page(request):
     )
 
 
-"""View for the review page of a specific game"""
+"""View for the review page (includes review form)"""
 def review_page(request, game_id):
-    """Fetch game and its reviews, then render review page."""
+    """Fetch game, display reviews, and handle review submissions."""
     game = get_object_or_404(Game, id=game_id)
     reviews = game.reviews.all()
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.game = game
+            review.save()
+            return redirect('review_page', game_id=game.id)  # Redirect to refresh the page
+    else:
+        form = ReviewForm()
+
     return render(
         request, 'reviews/review_page.html',
-        {'game': game, 'reviews': reviews}
+        {'game': game, 'reviews': reviews, 'form': form}
     )
 
 
@@ -36,27 +47,6 @@ def add_game(request):
     
     return render(
         request, 'reviews/add_game.html', {'form': form}
-    )
-
-
-"""View to add a new review for a specific game"""
-def add_review(request, game_id):
-    """Handle form submission for adding a review to a game."""
-    game = get_object_or_404(Game, id=game_id)
-
-    if request.method == "POST":
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.game = game
-            review.save()
-            return redirect('review_page', game_id=game.id)
-    else:
-        form = ReviewForm()
-
-    return render(
-        request, 'reviews/add_review.html',
-        {'form': form, 'game': game}
     )
 
 
