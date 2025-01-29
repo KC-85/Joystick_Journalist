@@ -1,46 +1,14 @@
 from django.urls import path
 from . import views
 
-# URL patterns for the reviews app
 urlpatterns = [
-    path(
-        '', 
-        views.landing_page, 
-        name='landing_page'
-    ),  # Home page
-    path(
-        'game/add/', 
-        views.add_game, 
-        name='add_game'
-    ),  # Add a new game
-    path(
-        'review/<int:game_id>/',
-        views.review_page,
-        name='review_page'
-    ),  # View reviews for a game
-    path(
-        'reviews/', 
-        views.all_reviews, 
-        name='all_reviews'
-    ),
-    path(
-        'game/add/', 
-        views.game_form, 
-        name='add_game'
-    ),
-    path(
-        'game/<int:game_id>/edit/', 
-        views.game_form, 
-        name='edit_game'
-    ),
-    path(
-        'review/<int:game_id>/add/', 
-        views.review_form, 
-        name='add_review'
-    ),
-    path(
-        'review/<int:game_id>/<int:review_id>/edit/', 
-        views.review_form, 
-        name='edit_review'
-    ),
+    path('', views.landing_page, name='landing_page'),
+    path('game/add/', views.add_game, name='add_game'),
+    path('game/edit/<int:game_id>/', views.edit_game, name='edit_game'),
+    path('game/delete/<int:game_id>/', views.delete_game, name='delete_game'),
+    path('review/<int:game_id>/', views.review_page, name='review_page'),
+    path('review/<int:game_id>/add/', views.add_review, name='add_review'),
+    path('review/edit/<int:review_id>/', views.edit_review, name='edit_review'),
+    path('review/delete/<int:review_id>/', views.delete_review, name='delete_review'),
+    path('reviews/', views.all_reviews, name='all_reviews'),
 ]
