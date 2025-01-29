@@ -43,7 +43,7 @@ html, body {
     color: #ffcc00; /* Slight neon glow effect */
 }
 
-/* Make the review cards stretch */
+/* Game & Review Cards */
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
@@ -54,6 +54,47 @@ html, body {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Improve Text Visibility Inside Cards */
+.card-body {
+    background-color: transparent; /* Keep it consistent with card */
+    color: #00ff00; /* Neon green text */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Headings & Paragraphs Inside Cards */
+.card-body h5,
+.card-body p {
+    color: #00ff00; /* Green text */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Neon glow effect */
+    font-size: 18px; /* Slightly larger for better readability */
+}
+
+/* Buttons Inside Cards */
+.card .btn {
+    background-color: #000000; /* Black background */
+    color: #00ff00; /* Green text */
+    font-weight: bold;
+    border: 2px solid #00ff00;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8); /* Neon glow effect */
+}
+
+/* Button Hover Effect */
+.card .btn:hover {
+    background-color: #00ff00; /* Green background */
+    color: #000000; /* Black text */
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 1); /* Stronger glow effect */
+}
+
+/* Ensure Text Inside Cards Stands Out */
+.card p {
+    color: #00ff00;
+    font-size: 18px;
+    text-shadow: 0 0 8px #00ff00;
 }
 
 /* Buttons */
