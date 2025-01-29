@@ -42,11 +42,13 @@ def delete_game(request, game_id):
 def add_review(request, game_id):
     game = get_object_or_404(Game, id=game_id)
     if request.method == "POST":
+        print("🛠️ Received POST request:", request.POST)  # Debugging print
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.game = game
             review.save()
+            print("✅ Review saved successfully!")  # Debugging print
             return redirect('review_page', game_id=game.id)
     else:
         form = ReviewForm()
