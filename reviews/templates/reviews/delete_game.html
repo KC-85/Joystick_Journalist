@@ -1,0 +1,13 @@
+{% extends 'reviews/base.html' %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h1>Delete Game</h1>
+    <p>Are you sure you want to delete "<strong>{{ game.title }}</strong>"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'landing_page' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
