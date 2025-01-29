@@ -25,6 +25,10 @@
                 <p class="card-text"><strong>Rating:</strong> ⭐ {{ review.rating }}/5</p>
                 <p class="card-text">{{ review.comment }}</p>
                 <p class="text-muted small">Reviewed on: {{ review.review_date }}</p>
+
+                 <!-- 🛠️ Edit & Delete Buttons for Review -->
+                <a href="{% url 'edit_review' review.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                <a href="{% url 'delete_review' review.id %}" class="btn btn-danger btn-sm">🗑️ Delete</a>
             </div>
         </div>
         {% endfor %}
