@@ -16,6 +16,10 @@
                         <strong>Genre:</strong> {{ game.genre.name }}
                     </p>
                     <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm">View Reviews</a>
+
+                    <!-- 🛠️ Edit & Delete Buttons for Game -->
+                    <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                    <a href="{% url 'delete_game' game.id %}" class="btn btn-danger btn-sm">🗑️ Delete</a>
                 </div>
             </div>
         </div>
