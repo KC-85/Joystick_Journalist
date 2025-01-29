@@ -70,3 +70,11 @@ def delete_review(request, review_id):
         review.delete()
         return redirect('review_page', game_id=game_id)
     return render(request, 'reviews/delete_review.html', {'review': review})
+
+def all_reviews(request):
+    """Fetch all reviews from the database and render the page."""
+    reviews = Review.objects.all()
+    return render(
+        request, 'reviews/all_reviews.html',
+        {'reviews': reviews}
+    )
