@@ -46,31 +46,27 @@
 
     <div class="card shadow-sm border-info mt-3">
         <div class="card-body bg-dark text-white">
-            <form method="POST">
+            <form method="POST" action="{% url 'add_review' game.id %}">
                 {% csrf_token %}
-
-                <!-- Reviewer Name -->
+            
                 <div class="mb-3">
-                    <label for="reviewer_name" class="form-label">👤 Your Name:</label>
+                    <label for="{{ form.reviewer_name.id_for_label }}" class="form-label">👤 Your Name:</label>
                     {{ form.reviewer_name }}
                 </div>
-
-                <!-- Rating -->
+            
                 <div class="mb-3">
-                    <label for="rating" class="form-label">⭐ Rating (1-5):</label>
+                    <label for="{{ form.rating.id_for_label }}" class="form-label">⭐ Rating (1-5):</label>
                     {{ form.rating }}
                 </div>
-
-                <!-- Review Text -->
+            
                 <div class="mb-3">
-                    <label for="comment" class="form-label">💬 Your Review (500 words max):</label>
+                    <label for="{{ form.comment.id_for_label }}" class="form-label">💬 Your Review:</label>
                     {{ form.comment }}
                 </div>
-
-                <!-- Submit Button -->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success">🚀 Submit Review</button>
-                </div>
+            
+                <button type="submit" class="btn btn-success">🚀 Submit Review</button>
+            </form>
+            
             </form>
         </div>
     </div>
