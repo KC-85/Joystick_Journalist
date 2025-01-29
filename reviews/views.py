@@ -52,7 +52,7 @@ def add_review(request, game_id):
             return redirect('review_page', game_id=game.id)
     else:
         form = ReviewForm()
-    return render(request, 'reviews/add_review.html', {'form': form, 'game': game})
+    return render(request, 'reviews/review_page.html', {'form': form, 'game': game})
 
 def edit_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
