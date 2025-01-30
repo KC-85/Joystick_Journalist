@@ -147,3 +147,9 @@ STATICFILES_STORAGE = (
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Set login URL
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = 'landing_page'
+LOGOUT_REDIRECT_URL = 'login'
