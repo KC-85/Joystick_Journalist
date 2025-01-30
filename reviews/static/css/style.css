@@ -131,26 +131,42 @@ html, body {
 
 /* Neon Border */
 @keyframes neon-border-cycle {
-    0% {
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
-    }
-    33% {
-        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
-    }
-    66% {
-        box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff, 0 0 40px #0000ff;
-    }
-    100% {
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
-    }
+    0% { border-color: #ff0000; } /* Red */
+    33% { border-color: #00ff00; } /* Green */
+    66% { border-color: #0000ff; } /* Blue */
+    100% { border-color: #ff0000; } /* Back to Red */
 }
 
-body {
+/* 🔥 Ensures Full-Page Layout */
+html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    border: 10px solid transparent;
-    animation: neon-border-cycle 5s infinite linear;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wraps everything including footer */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensures the content area expands */
+.content {
+    flex: 1;
+}
+
+/* 🔥 Full-Page Neon Border */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 10px solid transparent; /* Border thickness */
+    animation: neon-border-cycle 15s infinite linear;
+    pointer-events: none; /* Prevents interaction */
+    z-index: 9999; /* Ensures it's on top */
 }
 
 /* Media Queries for Responsive Design */
