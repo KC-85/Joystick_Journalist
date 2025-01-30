@@ -16,6 +16,19 @@ class SecureLoginView(LoginView):
 class SecureLogoutView(LogoutView):
     next_page = reverse_lazy('login')
 
+def register(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])  # Hash the password
+            user.save()
+            return redirect('login')  # Redirect to login after successful registration
+    else:
+        form = RegisterForm()
+    
+    return render(request, 'reviews/register.html', {'form': form})
+
 def landing_page(request):
     games = Game.objects.all()
     return render(request, 'reviews/landing_page.html', {'games': games})
