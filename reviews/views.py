@@ -1,6 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Game, Review
 from .forms import GameForm, ReviewForm
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
+
+class SecureLoginView(LoginView):
+    template_name = 'reviews/login.html'
+    redirect_authenticated_user = True
+    next_page = reverse_lazy('landing_page')
+
+    def get_success_url(self):
+        return self.request.GET.get('next', self.next_page)
 
 def landing_page(request):
     games = Game.objects.all()
