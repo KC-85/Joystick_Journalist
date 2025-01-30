@@ -3,6 +3,7 @@ from .models import Game, Review
 from .forms import GameForm, ReviewForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from .forms import RegisterForm
 
 class SecureLoginView(LoginView):
     template_name = 'reviews/login.html'

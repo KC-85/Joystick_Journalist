@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views, SecureLoginView, SecureLogoutView, register
+from . import views
+from .views import SecureLoginView, SecureLogoutView, register
 
 
 urlpatterns = [
