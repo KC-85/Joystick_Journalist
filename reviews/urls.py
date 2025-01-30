@@ -1,7 +1,9 @@
 from django.urls import path
-from . import views
+from . import views, SecureLoginView
+
 
 urlpatterns = [
+    path('login/', SecureLoginView.as_view(), name='login'),
     path('', views.landing_page, name='landing_page'),
     path('game/add/', views.add_game, name='add_game'),
     path('game/edit/<int:game_id>/', views.edit_game, name='edit_game'),
