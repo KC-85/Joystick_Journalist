@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Game, Review
 from .forms import GameForm, ReviewForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 
 class SecureLoginView(LoginView):
@@ -11,6 +11,9 @@ class SecureLoginView(LoginView):
 
     def get_success_url(self):
         return self.request.GET.get('next', self.next_page)
+
+class SecureLogoutView(LogoutView):
+    next_page = reverse_lazy('login')
 
 def landing_page(request):
     games = Game.objects.all()
