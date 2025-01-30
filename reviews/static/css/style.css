@@ -129,6 +129,30 @@ html, body {
     font-size: 18px;
 }
 
+/* Neon Border */
+@keyframes neon-border-cycle {
+    0% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+    33% {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    }
+    66% {
+        box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff, 0 0 40px #0000ff;
+    }
+    100% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    border: 10px solid transparent;
+    animation: neon-border-cycle 5s infinite linear;
+}
+
 /* Media Queries for Responsive Design */
 
 /* For Mobile Devices */
@@ -190,3 +214,4 @@ html, body {
         max-width: 1200px;
     }
 }
+
