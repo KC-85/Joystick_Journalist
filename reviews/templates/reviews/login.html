@@ -5,6 +5,7 @@
     <h1 class="text-center">🔑 Login</h1>
 
     <div class="card shadow-sm p-4">
+        {% if form %}
         <form method="POST">
             {% csrf_token %}
 
