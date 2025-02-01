@@ -20,6 +20,9 @@
 
             <button type="submit" class="btn btn-success w-100">🚀 Login</button>
         </form>
+        {% else %}
+        <p style="color: red;">🚨 ERROR: No form is being passed to the template!</p>
+        {% endif %}
     </div>
 
     <div class="text-center mt-3">
