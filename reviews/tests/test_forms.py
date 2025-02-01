@@ -1,14 +1,18 @@
 from django.test import TestCase
 from reviews.forms import GameForm, ReviewForm
-from reviews.models import Game
+from reviews.models import Game, Genre
 
 
 class GameFormTest(TestCase):
     """Test case for the GameForm"""
 
+    def setUp(self):
+        """Create a Genre instance for testing"""
+        self.genre = Genre.objects.create(name="Action")
+
     def test_game_form_valid_data(self):
         """Test if GameForm is valid with correct data"""
-        form = GameForm(data={'title': 'Super Metroid', 'release_year': 1994, 'genre': 'Action'})
+        form = GameForm(data={'title': 'Super Metroid', 'release_year': 1994, 'genre': self.genre.id})
         self.assertTrue(form.is_valid())
 
     def test_game_form_missing_fields(self):
@@ -23,8 +27,9 @@ class ReviewFormTest(TestCase):
     """Test case for the ReviewForm"""
 
     def setUp(self):
-        """Create a game instance for reviews"""
-        self.game = Game.objects.create(title="Super Metroid", release_year=1994, genre="Action")
+        """Create a Genre and Game instance for reviews"""
+        self.genre = Genre.objects.create(name="Action")
+        self.game = Game.objects.create(title="Super Metroid", release_year=1994, genre=self.genre)
 
     def test_review_form_valid_data(self):
         """Test if ReviewForm is valid with correct data"""
