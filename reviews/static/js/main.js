@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.getElementById("toggle-review-form");
-    const reviewForm = document.querySelector(".card.shadow-sm.border-info");
+    const reviewForm = document.getElementById("review-form");
 
     if (toggleButton && reviewForm) {
-        // Check if the form was opened before submitting
+        // Restore form visibility based on session storage
         const isFormOpen = sessionStorage.getItem("reviewFormOpen");
+
         if (isFormOpen === "true") {
-            reviewForm.style.display = "block"; // Keep form visible
-        } else {
-            reviewForm.style.display = "none"; // Default: Hide form
+            reviewForm.classList.remove("d-none"); // Show form if previously opened
         }
 
         toggleButton.addEventListener("click", function () {
-            if (reviewForm.style.display === "none") {
-                reviewForm.style.display = "block"; // Show form
-                sessionStorage.setItem("reviewFormOpen", "true"); // Store state
+            reviewForm.classList.toggle("d-none"); // Toggle visibility
+
+            // Store the visibility state
+            if (reviewForm.classList.contains("d-none")) {
+                sessionStorage.setItem("reviewFormOpen", "false");
             } else {
-                reviewForm.style.display = "none"; // Hide form
-                sessionStorage.setItem("reviewFormOpen", "false"); // Store state
+                sessionStorage.setItem("reviewFormOpen", "true");
             }
         });
     }
