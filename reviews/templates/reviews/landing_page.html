@@ -4,7 +4,6 @@
 <div class="container mt-4">
     <h1 class="text-center">🎮 90s Gaming Reviews</h1>
 
-    <!-- Display List of Games -->
     <div class="row">
         {% for game in games %}
         <div class="col-md-4">
@@ -16,8 +15,6 @@
                         <strong>Genre:</strong> {{ game.genre.name }}
                     </p>
                     <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm">View Reviews</a>
-
-                    <!-- 🛠️ Edit & Delete Buttons for Game -->
                     <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
                     <a href="{% url 'delete_game' game.id %}" class="btn btn-danger btn-sm">🗑️ Delete</a>
                 </div>
@@ -28,7 +25,6 @@
         {% endfor %}
     </div>
 
-    <!-- Add New Game -->
     <div class="text-center mt-4">
         <a href="{% url 'add_game' %}" class="btn btn-success">➕ Add a New Game</a>
     </div>
