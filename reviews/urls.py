@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
 from django.contrib.auth import views as auth_views
 from .views import SecureLoginView, SecureLogoutView, register
-
+import reviews.views as views
 
 urlpatterns = [
     path('login/', SecureLoginView.as_view(), name='login'),
@@ -20,8 +19,10 @@ urlpatterns = [
     path('game/delete/<int:game_id>/', views.delete_game, name='delete_game'),
 
     path('review/<int:game_id>/', views.review_page, name='review_page'),
-    path('review/<int:game_id>/add/', views.add_review, name='add_review'),
-    path('review/edit/<int:review_id>/', views.edit_review, name='edit_review'),
+    # ✅ Unified Review Form for Adding & Editing
+    path('review/<int:game_id>/form/', views.review_form, name='add_review'),
+    path('review/edit/<int:review_id>/', views.review_form, name='edit_review'),
+
     path('review/delete/<int:review_id>/', views.delete_review, name='delete_review'),
     path('reviews/', views.all_reviews, name='all_reviews')
 ]

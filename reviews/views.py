@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Game, Review
-from .forms import GameForm, ReviewForm, RegisterForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from .models import Game, Review
+from .forms import GameForm, ReviewForm, RegisterForm
 
 # ✅ Secure Authentication Views
 class SecureLoginView(LoginView):
@@ -70,14 +70,18 @@ def review_form(request, game_id, review_id=None):
     if request.method == "POST":
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
-            review = form.save(commit=False)
-            review.game = game
-            review.save()
+            new_review = form.save(commit=False)
+            new_review.game = game
+            new_review.save()
             return redirect('review_page', game_id=game.id)
     else:
         form = ReviewForm(instance=review)
 
-    return render(request, 'reviews/form_page.html', {'form': form, 'title': "Edit Review" if review else "Add Review"})
+    return render(request, 'reviews/form_page.html', {
+        'form': form, 
+        'title': "Edit Review" if review else "Add Review",
+        'game': game
+    })
 
 # ✅ Delete Review
 def delete_review(request, review_id):
