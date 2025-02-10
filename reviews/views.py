@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Game, Review
-from .forms import GameForm, ReviewForm
+from .forms import GameForm, ReviewForm, RegisterForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from .forms import RegisterForm
 
+# ✅ Secure Authentication Views
 class SecureLoginView(LoginView):
     template_name = 'reviews/login.html'
     redirect_authenticated_user = True
@@ -16,40 +16,34 @@ class SecureLoginView(LoginView):
 class SecureLogoutView(LogoutView):
     next_page = reverse_lazy('login')
 
+# ✅ User Registration
 def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])  # Hash the password
+            user.set_password(form.cleaned_data['password'])  # Hash password
             user.save()
-            return redirect('login')  # Redirect to login after successful registration
+            return redirect('login')  # Redirect to login page
     else:
         form = RegisterForm()
     
-    return render(request, 'reviews/register.html', {'form': form})
+    return render(request, 'reviews/form_page.html', {'form': form, 'title': "Register"})
 
+# ✅ Landing Page
 def landing_page(request):
-    games = Game.objects.all()
+    games = Game.objects.select_related('genre').all()
     return render(request, 'reviews/landing_page.html', {'games': games})
 
+# ✅ Review Page
 def review_page(request, game_id):
-    game = get_object_or_404(Game, id=game_id)
-    reviews = game.reviews.all()
-    return render(request, 'reviews/review_page.html', {'game': game, 'reviews': reviews})
+    game = get_object_or_404(Game.objects.prefetch_related('reviews'), id=game_id)
+    form = ReviewForm()
+    return render(request, 'reviews/review_page.html', {'game': game, 'form': form})
 
-def add_game(request):
-    if request.method == "POST":
-        form = GameForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('landing_page')
-    else:
-        form = GameForm()
-    return render(request, 'reviews/add_game.html', {'form': form})
-
-def edit_game(request, game_id):
-    game = get_object_or_404(Game, id=game_id)
+# ✅ Create & Edit Game (Unified View)
+def game_form(request, game_id=None):
+    game = get_object_or_404(Game, id=game_id) if game_id else None
     if request.method == "POST":
         form = GameForm(request.POST, instance=game)
         if form.is_valid():
@@ -57,53 +51,44 @@ def edit_game(request, game_id):
             return redirect('landing_page')
     else:
         form = GameForm(instance=game)
-    return render(request, 'reviews/edit_game.html', {'form': form, 'game': game})
 
+    return render(request, 'reviews/form_page.html', {'form': form, 'title': "Edit Game" if game else "Add Game"})
+
+# ✅ Delete Game
 def delete_game(request, game_id):
     game = get_object_or_404(Game, id=game_id)
     if request.method == "POST":
         game.delete()
         return redirect('landing_page')
-    return render(request, 'reviews/delete_game.html', {'game': game})
+    return render(request, 'reviews/confirm_delete.html', {'object': game, 'type': 'game'})
 
-def add_review(request, game_id):
+# ✅ Create & Edit Review (Unified View)
+def review_form(request, game_id, review_id=None):
     game = get_object_or_404(Game, id=game_id)
+    review = get_object_or_404(Review, id=review_id) if review_id else None
+
     if request.method == "POST":
-        print("🛠️ Received POST request:", request.POST)  # Debugging print
-        form = ReviewForm(request.POST)
+        form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             review = form.save(commit=False)
             review.game = game
             review.save()
-            print("✅ Review saved successfully!")  # Debugging print
             return redirect('review_page', game_id=game.id)
     else:
-        form = ReviewForm()
-    return render(request, 'reviews/review_page.html', {'form': form, 'game': game})
-
-def edit_review(request, review_id):
-    review = get_object_or_404(Review, id=review_id)
-    if request.method == "POST":
-        form = ReviewForm(request.POST, instance=review)
-        if form.is_valid():
-            form.save()
-            return redirect('review_page', game_id=review.game.id)
-    else:
         form = ReviewForm(instance=review)
-    return render(request, 'reviews/edit_review.html', {'form': form, 'review': review})
 
+    return render(request, 'reviews/form_page.html', {'form': form, 'title': "Edit Review" if review else "Add Review"})
+
+# ✅ Delete Review
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
     if request.method == "POST":
         game_id = review.game.id
         review.delete()
         return redirect('review_page', game_id=game_id)
-    return render(request, 'reviews/delete_review.html', {'review': review})
+    return render(request, 'reviews/confirm_delete.html', {'object': review, 'type': 'review'})
 
+# ✅ List All Reviews
 def all_reviews(request):
-    """Fetch all reviews from the database and render the page."""
-    reviews = Review.objects.all()
-    return render(
-        request, 'reviews/all_reviews.html',
-        {'reviews': reviews}
-    )
+    reviews = Review.objects.select_related('game').all()
+    return render(request, 'reviews/review_page.html', {'reviews': reviews, 'title': "All Reviews"})
