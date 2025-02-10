@@ -12,7 +12,7 @@ load_dotenv(BASE_DIR / ".env")
 
 # Security settings (Load from `.env`)
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Allowed Hosts (Load from `.env`)
 ALLOWED_HOSTS = [
