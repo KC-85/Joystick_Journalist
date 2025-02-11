@@ -1,7 +1,7 @@
 from pathlib import Path
 from decouple import AutoConfig, Csv
 import dj_database_url
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
