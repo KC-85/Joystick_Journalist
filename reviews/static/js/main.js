@@ -7,17 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const isFormOpen = sessionStorage.getItem("reviewFormOpen");
 
         if (isFormOpen === "true") {
-            reviewForm.classList.remove("d-none"); // Show form if previously opened
+            reviewForm.style.display = "block"; // Show form if previously opened
+        } else {
+            reviewForm.style.display = "none"; // Hide form by default
         }
 
+        // Event listener for button click
         toggleButton.addEventListener("click", function () {
-            reviewForm.classList.toggle("d-none"); // Toggle visibility
-
-            // Store the visibility state
-            if (reviewForm.classList.contains("d-none")) {
-                sessionStorage.setItem("reviewFormOpen", "false");
-            } else {
+            if (reviewForm.style.display === "none" || reviewForm.style.display === "") {
+                reviewForm.style.display = "block"; // Show form
                 sessionStorage.setItem("reviewFormOpen", "true");
+            } else {
+                reviewForm.style.display = "none"; // Hide form
+                sessionStorage.setItem("reviewFormOpen", "false");
             }
         });
     }

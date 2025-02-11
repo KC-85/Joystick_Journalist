@@ -37,9 +37,16 @@ def landing_page(request):
 
 # ✅ Review Page
 def review_page(request, game_id):
-    game = get_object_or_404(Game.objects.prefetch_related('reviews'), id=game_id)
+    game = get_object_or_404(Game, id=game_id)  # ✅ Correct usage
+    reviews = game.reviews.all()  # ✅ Fetch reviews
     form = ReviewForm()
-    return render(request, 'reviews/review_page.html', {'game': game, 'form': form})
+    
+    return render(request, 'reviews/review_page.html', {
+        'game': game, 
+        'reviews': reviews,
+        'form': form
+    })
+
 
 # ✅ Create & Edit Game (Unified View)
 def game_form(request, game_id=None):

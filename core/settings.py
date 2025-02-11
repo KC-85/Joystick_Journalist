@@ -1,13 +1,14 @@
 from pathlib import Path
-from decouple import config, Csv
+from decouple import AutoConfig, Csv
 import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
+config = AutoConfig(BASE_DIR)
 
 # Load .env manually
-load_dotenv(BASE_DIR / ".env")
+# load_dotenv(BASE_DIR / ".env")
 
 
 # Security settings (Load from `.env`)
@@ -89,13 +90,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database (PostgreSQL)
+DATABASE_URL = config('DATABASE_URL', default=None)
+
+if not DATABASE_URL:
+    raise ValueError("❌ ERROR: DATABASE_URL is missing. PostgreSQL is required!")
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL'),
-        conn_max_age=900,  # Keep database connection alive
-        ssl_require=True   # Force SSL for Heroku & secure connections
-    )
+    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=900, ssl_require=True)
 }
+
 
 
 
