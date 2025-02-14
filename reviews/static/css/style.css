@@ -1,4 +1,4 @@
-/* Ensure the page stretches to full height */
+/* 🌌 Full-Page Dark Theme */
 html, body {
     height: 100%;
     margin: 0;
@@ -10,18 +10,18 @@ html, body {
     flex-direction: column;
 }
 
-/* Main container should expand to fit screen */
+/* 📦 Main Container */
 .container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 100%;
 }
 
-/* Header Navigation */
+/* 📌 Navbar */
 .navbar {
     background-color: #0a0a0a;
     padding: 10px;
@@ -43,7 +43,7 @@ html, body {
     color: #ffcc00; /* Slight neon glow effect */
 }
 
-/* Game & Review Cards */
+/* 🟢 Game & Review Cards */
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
@@ -56,48 +56,47 @@ html, body {
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
 }
 
-/* Improve Text Visibility Inside Cards */
+/* 📝 Text Inside Cards */
 .card-body {
-    background-color: transparent; /* Keep it consistent with card */
-    color: #00ff00; /* Neon green text */
+    background-color: transparent;
+    color: #00ff00;
     font-weight: bold;
     text-align: center;
 }
 
-/* Headings & Paragraphs Inside Cards */
 .card-body h5,
 .card-body p {
-    color: #00ff00; /* Green text */
+    color: #00ff00;
     text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Neon glow effect */
-    font-size: 18px; /* Slightly larger for better readability */
+    font-size: 18px;
 }
 
-/* Buttons Inside Cards */
+/* 🎮 Buttons Inside Cards */
 .card .btn {
-    background-color: #000000; /* Black background */
-    color: #00ff00; /* Green text */
+    background-color: #000000;
+    color: #00ff00;
     font-weight: bold;
     border: 2px solid #00ff00;
     padding: 8px 15px;
     text-transform: uppercase;
-    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8); /* Neon glow effect */
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
 }
 
-/* Button Hover Effect */
+/* 🟢 Button Hover Effect */
 .card .btn:hover {
-    background-color: #00ff00; /* Green background */
-    color: #000000; /* Black text */
-    box-shadow: 0px 0px 15px rgba(0, 255, 0, 1); /* Stronger glow effect */
+    background-color: #00ff00;
+    color: #000000;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 1);
 }
 
-/* Ensure Text Inside Cards Stands Out */
+/* 📎 Ensure Text Stands Out */
 .card p {
     color: #00ff00;
     font-size: 18px;
     text-shadow: 0 0 8px #00ff00;
 }
 
-/* Buttons */
+/* 🟢 Buttons */
 .btn {
     font-size: 20px;
     font-weight: bold;
@@ -118,7 +117,7 @@ html, body {
     transform: scale(1.1);
 }
 
-/* Ensure the footer stays at the bottom */
+/* 📌 Footer */
 .footer {
     text-align: center;
     padding: 10px;
@@ -129,49 +128,66 @@ html, body {
     font-size: 18px;
 }
 
-/* Neon Border */
-@keyframes neon-border-cycle {
-    0% { border-color: #ff0000; } /* Red */
-    33% { border-color: #00ff00; } /* Green */
-    66% { border-color: #0000ff; } /* Blue */
-    100% { border-color: #ff0000; } /* Back to Red */
-}
-
-/* 🔥 Ensures Full-Page Layout */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Wraps everything including footer */
-.page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Ensures the content area expands */
-.content {
-    flex: 1;
-}
-
 /* 🔥 Full-Page Neon Border */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    border: 10px solid transparent; /* Border thickness */
+    border: 10px solid transparent;
     animation: neon-border-cycle 15s infinite linear;
-    pointer-events: none; /* Prevents interaction */
-    z-index: 9999; /* Ensures it's on top */
+    pointer-events: none;
+    z-index: 9999;
 }
 
-/* Media Queries for Responsive Design */
+/* 🟢 Outer Neon Border */
+.neon-border-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    width: 70%;
+    margin: 20px auto;
+    border: 8px solid transparent;
+    border-radius: 20px;
+    animation: neon-outer-glow 5s infinite linear;
+}
 
-/* For Mobile Devices */
+/* ✨ Inner Neon Border */
+.neon-border-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 85%;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-inner-glow 5s infinite linear;
+}
+
+/* 🔥 Outer Neon Border Animation */
+@keyframes neon-outer-glow {
+    0% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
+    33% { box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; border-color: #00ff00; }
+    66% { box-shadow: 0 0 20px #0000ff, 0 0 40px #0000ff; border-color: #0000ff; }
+    100% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
+}
+
+/* ✨ Inner Neon Border Animation */
+@keyframes neon-inner-glow {
+    0% { box-shadow: 0 0 10px #ffff00, 0 0 30px #ffff00; border-color: #ffff00; }
+    33% { box-shadow: 0 0 10px #ff00ff, 0 0 30px #ff00ff; border-color: #ff00ff; }
+    66% { box-shadow: 0 0 10px #00ffff, 0 0 30px #00ffff; border-color: #00ffff; }
+    100% { box-shadow: 0 0 10px #ffff00, 0 0 30px #ffff00; border-color: #ffff00; }
+}
+
+/* 📌 Responsive Design */
+
+/* 📱 Mobile */
 @media (max-width: 600px) {
     .container {
         padding: 10px;
@@ -196,9 +212,19 @@ body::before {
         font-size: 18px;
         padding: 8px 15px;
     }
+
+    .neon-border-outer {
+        width: 90%;
+        height: 120px;
+    }
+
+    .neon-border-inner {
+        height: 90px;
+        font-size: 28px;
+    }
 }
 
-/* For Tablets */
+/* 💻 Tablets */
 @media (max-width: 1024px) {
     .container {
         padding: 15px;
@@ -213,7 +239,7 @@ body::before {
     }
 }
 
-/* For Laptops */
+/* 🖥️ Laptops */
 @media (max-width: 1366px) {
     .container {
         padding: 20px;
@@ -224,10 +250,9 @@ body::before {
     }
 }
 
-/* For Large Screens */
+/* 🖥️ Large Screens */
 @media (min-width: 1367px) {
     .container {
         max-width: 1200px;
     }
 }
-
