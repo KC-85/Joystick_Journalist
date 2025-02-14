@@ -14,17 +14,17 @@
 </head>
 <body>
     <div class="page-container">
-        <!-- Navbar -->
+        <!-- 🕹️ Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/">Joystick Journalist</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="{% url 'landing_page' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'all_reviews' %}">Reviews</a></li>
+                        <li class="nav-item"><a class="nav-link neon-green" href="{% url 'add_review' 1 %}">➕ Add Review</a></li>
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">🚪 Logout</a></li>
                         {% else %}
@@ -35,7 +35,14 @@
             </div>
         </nav>
 
-        <!-- Flash Messages -->
+        <!-- 🌟 Joystick Journalist Neon Box -->
+        <div class="neon-border-outer">
+            <div class="neon-border-inner">
+                <h1>Joystick Journalist</h1>
+            </div>
+        </div>
+
+        <!-- 🔥 Flash Messages -->
         <div class="container mt-3">
             {% if messages %}
                 {% for message in messages %}
@@ -44,14 +51,14 @@
             {% endif %}
         </div>
 
-        <!-- Main Content -->
+        <!-- 🔥 Main Content -->
         <main class="content">
             <div class="container mt-4">
                 {% block content %}{% endblock %}
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- 🕹️ Footer -->
         <footer class="bg-dark text-white text-center py-3 mt-5">
             <p>&copy; 2025 Joystick Journalist. All rights reserved.</p>
         </footer>

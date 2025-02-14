@@ -22,9 +22,9 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])  # Hash password
+            user.set_password(form.cleaned_data['password'])
             user.save()
-            return redirect('login')  # Redirect to login page
+            return redirect('login')
     else:
         form = RegisterForm()
     
@@ -37,16 +37,13 @@ def landing_page(request):
 
 # ✅ Review Page
 def review_page(request, game_id):
-    game = get_object_or_404(Game, id=game_id)  # ✅ Correct usage
-    reviews = game.reviews.all()  # ✅ Fetch reviews
-    form = ReviewForm()
+    game = get_object_or_404(Game, id=game_id)
+    reviews = game.reviews.all()
     
     return render(request, 'reviews/review_page.html', {
         'game': game, 
-        'reviews': reviews,
-        'form': form
+        'reviews': reviews
     })
-
 
 # ✅ Create & Edit Game (Unified View)
 def game_form(request, game_id=None):
@@ -93,10 +90,12 @@ def review_form(request, game_id, review_id=None):
 # ✅ Delete Review
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
+    game_id = review.game.id  # ✅ Store game ID before deleting review
+
     if request.method == "POST":
-        game_id = review.game.id
         review.delete()
-        return redirect('review_page', game_id=game_id)
+        return redirect('review_page', game_id=game_id)  # ✅ Redirect back to game review page
+
     return render(request, 'reviews/confirm_delete.html', {'object': review, 'type': 'review'})
 
 # ✅ List All Reviews

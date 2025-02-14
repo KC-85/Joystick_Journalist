@@ -6,6 +6,8 @@ __pycache__/
 # Virtual environment directories (if you have one)
 venv/
 env/
+.env
+.env.save
 
 # Django settings local files
 .env
