@@ -147,21 +147,40 @@ body::before {
     z-index: 9999;
 }
 
-/* 🟢 Outer Neon Border */
-.neon-border-outer {
+/* 🌟 Neon Border Expansion */
+.neon-border {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 160px;
+    height: 0px; /* Start with zero height */
     width: 70%;
     margin: 20px auto;
     border: 8px solid transparent;
     border-radius: 20px;
-    animation: neon-outer-glow 5s infinite linear;
+    overflow: hidden; /* Hide content initially */
+    font-size: 36px;
+    font-weight: bold;
+    color: #00ff00; /* Neon Green Text */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    opacity: 0; /* Hide text initially */
+    animation: neon-expand 1.5s ease-out forwards, neon-glow 5s infinite linear 1.5s, text-fade-in 1s ease-out forwards 1.5s;
 }
 
-/* 🔥 Outer Neon Border Animation */
-@keyframes neon-outer-glow {
+/* 🔥 Neon Border Opening Animation */
+@keyframes neon-expand {
+    0% { height: 0px; }
+    50% { height: 50px; }
+    100% { height: 160px; }
+}
+
+/* ✨ Text Fade-In Animation */
+@keyframes text-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 🔥 Neon Glow Effect */
+@keyframes neon-glow {
     0% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
     33% { box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; border-color: #00ff00; }
     66% { box-shadow: 0 0 20px #0000ff, 0 0 40px #0000ff; border-color: #0000ff; }
