@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ JavaScript Loaded!"); // Debugging check
 
+    // 🎭 Toggle Review Form
     const toggleButton = document.getElementById("toggle-review-form");
     const reviewForm = document.querySelector(".review-form");
 
@@ -28,4 +29,31 @@ document.addEventListener("DOMContentLoaded", function () {
             sessionStorage.setItem("reviewFormOpen", "false");
         }
     });
+
+    // ✅ Smooth Scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+
+    // ✅ Auto-close Mobile Navbar after clicking a link
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+    if (navbarToggler) {
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                if (window.innerWidth <= 992) {
+                    navbarToggler.click(); // Simulates closing the navbar
+                }
+            });
+        });
+    }
 });
