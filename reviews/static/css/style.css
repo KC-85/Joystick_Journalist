@@ -43,7 +43,7 @@ html, body {
     color: #ffcc00; /* Slight neon glow effect */
 }
 
-/* 🟢 Game & Review Cards */
+/* 🎮 Game & Review Cards */
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
@@ -96,12 +96,13 @@ html, body {
     text-shadow: 0 0 8px #00ff00;
 }
 
-/* 📝 No Reviews Text (Make it Stand Out) */
+/* 📝 No Reviews Text (Now Green & Visible) */
 .no-reviews {
     color: #00ff00; /* Neon Green */
     text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Neon glow effect */
     font-size: 18px;
     text-align: center;
+    font-weight: bold;
 }
 
 /* 🟢 Buttons */
@@ -147,7 +148,7 @@ body::before {
     z-index: 9999;
 }
 
-/* 🌟 Neon Border Expansion */
+/* 🌟 Neon Border Opening Animation */
 .neon-border {
     display: flex;
     justify-content: center;
@@ -166,7 +167,7 @@ body::before {
     animation: neon-expand 1.5s ease-out forwards, neon-glow 5s infinite linear 1.5s, text-fade-in 1s ease-out forwards 1.5s;
 }
 
-/* 🔥 Neon Border Opening Animation */
+/* 🔥 Neon Border Expansion Animation */
 @keyframes neon-expand {
     0% { height: 0px; }
     50% { height: 50px; }
@@ -215,14 +216,9 @@ body::before {
         padding: 8px 15px;
     }
 
-    .neon-border-outer {
+    .neon-border {
         width: 90%;
         height: 120px;
-    }
-
-    .neon-border-inner {
-        height: 90px;
-        font-size: 28px;
     }
 }
 
