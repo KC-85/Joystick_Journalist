@@ -96,6 +96,14 @@ html, body {
     text-shadow: 0 0 8px #00ff00;
 }
 
+/* 📝 No Reviews Text (Make it Stand Out) */
+.no-reviews {
+    color: #00ff00; /* Neon Green */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Neon glow effect */
+    font-size: 18px;
+    text-align: center;
+}
+
 /* 🟢 Buttons */
 .btn {
     font-size: 20px;
