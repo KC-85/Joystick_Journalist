@@ -73,6 +73,12 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
+/* 🚀 Hide Loader After Page Loads */
+#loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* 🎮 Game & Review Cards */
 .game-container {
     display: flex;
