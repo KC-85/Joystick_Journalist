@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ JavaScript Loaded!");
 
-    // 🚀 LOADING SCREEN FADE OUT
+    // 🚀 LOADING SCREEN FADE OUT (Optimized)
     window.addEventListener("load", function () {
         console.log("✅ Page Loaded - Initiating Fade Out");
         const loader = document.getElementById("loading-screen");
@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 loader.style.opacity = "0"; // Smooth fade out
                 setTimeout(() => {
-                    loader.style.display = "none"; // Hide after transition
+                    loader.style.display = "none"; // Hide after fade
                     console.log("✅ Loading Screen Removed");
-                }, 600);
-            }, 800); // Simulated load delay
+                }, 300); // Faster removal after fade
+            }, 300); // Reduced delay before fade starts
         } else {
             console.error("🚨 Loading screen element not found!");
         }
