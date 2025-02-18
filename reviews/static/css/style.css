@@ -77,6 +77,7 @@ html, body {
 #loading-screen.fade-out {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
 /* 🎮 Game & Review Cards */
