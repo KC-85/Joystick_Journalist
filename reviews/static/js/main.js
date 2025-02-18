@@ -1,7 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ JavaScript Loaded!");
 
-    // 🎭 Toggle Review Form
+    // 🚀 LOADING SCREEN FADE OUT
+    window.addEventListener("load", function () {
+        console.log("✅ Page Loaded - Initiating Fade Out");
+        const loader = document.getElementById("loading-screen");
+
+        if (loader) {
+            setTimeout(() => {
+                loader.style.opacity = "0"; // Smooth fade out
+                setTimeout(() => {
+                    loader.style.display = "none"; // Hide after transition
+                    console.log("✅ Loading Screen Removed");
+                }, 600);
+            }, 800); // Simulated load delay
+        } else {
+            console.error("🚨 Loading screen element not found!");
+        }
+    });
+
+    // 🎭 TOGGLE REVIEW FORM
     const toggleButton = document.getElementById("toggle-review-form");
     const reviewForm = document.querySelector(".review-form");
 
@@ -20,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Smooth Scroll for anchor links
+    // ✅ SMOOTH SCROLL TO REVIEWS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (event) {
             event.preventDefault();
@@ -33,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Auto-close Mobile Navbar after clicking a link
+    // ✅ AUTO-CLOSE MOBILE NAVBAR
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
@@ -47,16 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 🚀 Loading Screen Effect
-    const loader = document.getElementById("loading-screen");
-    if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = "0"; // Fade out
-            setTimeout(() => loader.style.display = "none", 500); // Hide after fade
-        }, 1000); // Simulated load time
-    }
-
-    // ⚠️ Confirm Before Deletion
+    // ⚠️ CONFIRM BEFORE DELETION
     document.querySelectorAll(".delete-btn").forEach(button => {
         button.addEventListener("click", function (event) {
             const confirmDelete = confirm("🚨 Are you sure you want to delete this? This action cannot be undone.");
@@ -66,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 🟢 Hover Effect for Cards
+    // 🟢 HOVER EFFECT FOR CARDS
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("mouseover", () => {
             card.style.transform = "scale(1.05)";

@@ -8,6 +8,7 @@ html, body {
     font-family: 'VT323', monospace;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth; /* 🚀 Smooth scrolling */
 }
 
 /* 📦 Main Container */
@@ -15,7 +16,6 @@ html, body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 100%;
@@ -40,35 +40,66 @@ html, body {
 }
 
 .navbar a:hover {
-    color: #ffcc00; /* Slight neon glow effect */
+    color: #ffcc00; /* Neon glow effect */
 }
 
-/* 🎮 Game Grid - Ensures Equal Card Heights */
-.game-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+/* 🎭 Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
     justify-content: center;
-    width: 90%;
-    margin: 0 auto;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
 }
 
-/* 🟢 Game & Review Cards */
+/* 🔄 Loading Spinner */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid transparent;
+    border-top: 5px solid #00ff00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 🎮 Game & Review Cards */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Consistent spacing */
+}
+
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
     padding: 20px;
-    width: 100%;
-    height: 320px; /* ✅ Ensures equal height */
+    width: 300px; /* Consistent card width */
+    height: 350px; /* Consistent height */
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 📝 Card Content */
+/* ✨ Card Hover Effect */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px rgba(0, 255, 0, 0.8);
+}
+
+/* 📝 Text Inside Cards */
 .card-body {
     background-color: transparent;
     color: #00ff00;
@@ -76,22 +107,11 @@ html, body {
     text-align: center;
 }
 
-/* 🔤 Text Inside Cards */
-.card-body h5,
-.card-body p {
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Neon glow effect */
-    font-size: 18px;
-}
-
-/* 🎮 Card Buttons */
-.card-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
 /* 🎮 Buttons Inside Cards */
+.card-buttons {
+    margin-top: 10px;
+}
+
 .card .btn {
     background-color: #000000;
     color: #00ff00;
@@ -100,61 +120,42 @@ html, body {
     padding: 8px 15px;
     text-transform: uppercase;
     box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
-}
-
-/* 🟢 Button Hover Effect */
-.card .btn:hover {
-    background-color: #00ff00;
-    color: #000000;
-    box-shadow: 0px 0px 15px rgba(0, 255, 0, 1);
-}
-
-/* 📎 Ensure Text Stands Out */
-.card p {
-    color: #00ff00;
-    font-size: 18px;
-    text-shadow: 0 0 8px #00ff00;
-}
-
-/* 📝 No Games Available */
-.no-games {
-    color: #ffcc00;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* 🟢 Buttons */
-.btn {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 2px solid #00ff00;
-    background-color: black;
-    color: #00ff00;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px;
-    cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 
-.btn:hover {
+.card .btn:hover {
     background-color: #00ff00;
-    color: black;
+    color: #000000;
     transform: scale(1.1);
 }
 
-/* 📌 Footer */
-.footer {
-    text-align: center;
-    padding: 10px;
-    background: #0a0a0a;
-    width: 100%;
-    position: relative;
-    bottom: 0;
+/* 📝 No Reviews Text */
+.no-reviews {
+    color: #00ff00; /* Neon Green */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
     font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 📝 Average Rating */
+.average-rating {
+    color: #ffcc00;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+}
+
+/* 🚀 Smooth Scroll to Reviews */
+.scroll-to-reviews {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #00ff00;
+    transition: color 0.3s ease;
+}
+
+.scroll-to-reviews:hover {
+    color: #ffcc00;
 }
 
 /* 🔥 Full-Page Neon Border */
@@ -173,34 +174,31 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 0px; /* Start with zero height */
+    height: 0px;
     width: 70%;
     margin: 20px auto;
     border: 8px solid transparent;
     border-radius: 20px;
-    overflow: hidden; /* Hide content initially */
+    overflow: hidden;
     font-size: 36px;
     font-weight: bold;
-    color: #00ff00; /* Neon Green Text */
+    color: #00ff00;
     text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-    opacity: 0; /* Hide text initially */
+    opacity: 0;
     animation: neon-expand 1.5s ease-out forwards, neon-glow 5s infinite linear 1.5s, text-fade-in 1s ease-out forwards 1.5s;
 }
 
-/* 🔥 Neon Border Expansion Animation */
 @keyframes neon-expand {
     0% { height: 0px; }
     50% { height: 50px; }
     100% { height: 160px; }
 }
 
-/* ✨ Text Fade-In Animation */
 @keyframes text-fade-in {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* 🔥 Neon Glow Effect */
 @keyframes neon-glow {
     0% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
     33% { box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; border-color: #00ff00; }
@@ -208,51 +206,43 @@ body::before {
     100% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
 }
 
-/* 📌 Responsive Design */
-
-/* 📱 Mobile */
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .navbar a {
-        display: block;
-        margin: 5px 0;
-    }
-
-    .card {
-        width: 100%;
+/* 📌 Mobile Navbar Improvement */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #0a0a0a;
         padding: 15px;
-    }
-
-    .btn {
-        font-size: 18px;
-        padding: 8px 15px;
+        border-radius: 5px;
     }
 }
 
-/* 💻 Tablets */
-@media (max-width: 1024px) {
-    .container {
-        padding: 15px;
+/* 📌 Responsive Design */
+@media (max-width: 600px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .card {
         width: 90%;
     }
+}
 
-    .btn {
-        font-size: 18px;
+@media (max-width: 1024px) {
+    .card {
+        width: 80%;
     }
 }
 
-/* 🖥️ Large Screens */
+@media (max-width: 1366px) {
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        width: 75%;
+    }
+}
+
 @media (min-width: 1367px) {
     .container {
         max-width: 1200px;
