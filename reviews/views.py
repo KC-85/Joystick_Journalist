@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from django.db.models import Avg
 from .models import Game, Review
 from .forms import GameForm, ReviewForm, RegisterForm
 
@@ -32,7 +33,10 @@ def register(request):
 
 # ✅ Landing Page
 def landing_page(request):
-    games = Game.objects.select_related('genre').all()
+    games = Game.objects.select_related('genre').annotate(
+        average_rating=Avg('reviews__rating')
+    ).order_by('-release_year')  # Sort by newest release first
+
     return render(request, 'reviews/landing_page.html', {'games': games})
 
 # ✅ Review Page

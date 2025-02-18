@@ -4,20 +4,22 @@
 <div class="container mt-4">
     <h1 class="text-center">🎮 90s Gaming Reviews</h1>
 
-    <div class="row">
+    <!-- Games Grid Layout -->
+    <div class="game-container">
         {% for game in games %}
-        <div class="col-md-4">
-            <div class="card mb-3 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">{{ game.title }}</h5>
-                    <p class="card-text">
-                        <strong>Release Year:</strong> {{ game.release_year }}<br>
-                        <strong>Genre:</strong> {{ game.genre.name }}
-                    </p>
-                    <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm">View Reviews</a>
-                    <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
-                    <a href="{% url 'delete_game' game.id %}" class="btn btn-danger btn-sm">🗑️ Delete</a>
-                </div>
+        <div class="card game-card">
+            <div class="card-body">
+                <h5 class="card-title">{{ game.title }}</h5>
+                <p class="card-text">
+                    <strong>Release Year:</strong> {{ game.release_year }}<br>
+                    <strong>Genre:</strong> {{ game.genre.name }}<br>
+                    <strong>Average Rating:</strong> ⭐ {{ game.average_rating|default:"No ratings yet" }}/5
+                </p>
+            </div>
+            <div class="card-buttons">
+                <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm scroll-to-reviews">View Reviews</a>
+                <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                <button class="btn btn-danger btn-sm delete-game" data-url="{% url 'delete_game' game.id %}">🗑️ Delete</button>
             </div>
         </div>
         {% empty %}
