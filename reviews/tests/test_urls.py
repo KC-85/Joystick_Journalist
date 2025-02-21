@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from reviews.views import landing_page, review_page, add_game, add_review
+from reviews.views import landing_page, review_page, game_form, review_form
 
 
 class URLTests(SimpleTestCase):
@@ -19,9 +19,9 @@ class URLTests(SimpleTestCase):
     def test_add_game_url(self):
         """Test add game URL"""
         url = reverse('add_game')
-        self.assertEqual(resolve(url).func, add_game)
+        self.assertEqual(resolve(url).func, game_form)
 
     def test_add_review_url(self):
         """Test add review URL"""
         url = reverse('add_review', args=[1])
-        self.assertEqual(resolve(url).func, add_review)
+        self.assertEqual(resolve(url).func, review_form)
