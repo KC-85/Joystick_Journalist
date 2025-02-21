@@ -80,6 +80,51 @@ html, body {
     transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
+/* 🌟 Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-title {
+    color: #00ff00;
+    font-size: 28px;
+    text-shadow: 0 0 8px #00ff00;
+}
+
+.hero-text {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid black;
+    transition: background 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/* 🔒 Blurred Text for Guest Users */
+.blurred-text {
+    color: gray;
+    filter: blur(3px);
+    font-style: italic;
+}
+
 /* 🎮 Game & Review Cards */
 .game-container {
     display: flex;
