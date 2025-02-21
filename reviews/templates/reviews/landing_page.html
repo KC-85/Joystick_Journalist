@@ -2,24 +2,41 @@
 
 {% block content %}
 <div class="container mt-4">
+    {% if not user.is_authenticated %}
+        <!-- 🌟 Hero Section for Guests -->
+        <div class="hero-section">
+            <h2 class="hero-title">Join the Ultimate 90s Gaming Community! 🎮</h2>
+            <p class="hero-text">
+                Discover and share reviews of legendary 90s video games. 
+                Connect with fellow gamers and relive the nostalgia of the golden era of gaming!
+            </p>
+            <a href="{% url 'register' %}" class="btn btn-primary hero-btn">📝 Sign Up Now</a>
+        </div>
+    {% endif %}
+
     <h1 class="text-center">🎮 90s Gaming Reviews</h1>
 
-    <!-- Games Grid Layout -->
     <div class="game-container">
         {% for game in games %}
-        <div class="card game-card">
+        <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ game.title }}</h5>
                 <p class="card-text">
                     <strong>Release Year:</strong> {{ game.release_year }}<br>
-                    <strong>Genre:</strong> {{ game.genre.name }}<br>
-                    <strong>Average Rating:</strong> ⭐ {{ game.average_rating|default:"No ratings yet" }}/5
+                    <strong>Genre:</strong> {{ game.genre.name }}
                 </p>
+                {% if user.is_authenticated %}
+                    <p class="average-rating">⭐ Average Rating: {{ game.average_rating|default:"No reviews yet" }}</p>
+                {% else %}
+                    <p class="blurred-text">🔒 Login to see ratings & reviews</p>
+                {% endif %}
             </div>
             <div class="card-buttons">
-                <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm scroll-to-reviews">View Reviews</a>
-                <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
-                <button class="btn btn-danger btn-sm delete-game" data-url="{% url 'delete_game' game.id %}">🗑️ Delete</button>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'review_page' game.id %}" class="btn btn-info btn-sm">View Reviews</a>
+                    <a href="{% url 'edit_game' game.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                    <a href="{% url 'delete_game' game.id %}" class="btn btn-danger btn-sm delete-btn">🗑️ Delete</a>
+                {% endif %}
             </div>
         </div>
         {% empty %}
@@ -27,8 +44,10 @@
         {% endfor %}
     </div>
 
-    <div class="text-center mt-4">
-        <a href="{% url 'add_game' %}" class="btn btn-success">➕ Add a New Game</a>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="text-center mt-4">
+            <a href="{% url 'add_game' %}" class="btn btn-success">➕ Add a New Game</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
