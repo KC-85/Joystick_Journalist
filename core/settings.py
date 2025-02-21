@@ -88,6 +88,14 @@ TEMPLATES = [
 # WSGI Application (Required for Deployment)
 WSGI_APPLICATION = 'core.wsgi.application'
 
+# Yahoo SMTP Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.yahoo.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_yahoo_email@yahoo.com'  # Replace with your Yahoo email
+EMAIL_HOST_PASSWORD = 'your_yahoo_app_password'  # Use an app-specific password
+DEFAULT_FROM_EMAIL = 'your_yahoo_email@yahoo.com'
 
 # Database (PostgreSQL)
 DATABASE_URL = config('DATABASE_URL', default=None)
