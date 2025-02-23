@@ -81,15 +81,22 @@ html, body {
 }
 
 /* 🌟 Hero Section */
-.hero-section {
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 40px;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.85);
     border: 3px solid #00ff00;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-    margin-bottom: 30px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
     animation: fadeIn 1s ease-in-out;
+    position: relative;
+    z-index: 5;
 }
 
 .hero-title {
