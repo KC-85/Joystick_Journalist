@@ -2,24 +2,6 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 style="color:red;">✅ Debug: This text should be visible if you are logged out!</h1>
-    {% if not user.is_authenticated %}
-        <!-- 🌟 Hero Section for Guests -->
-        <section class="hero">
-            <div class="hero-content">
-                <h2 class="hero-title">Join the Ultimate 90s Gaming Community! 🎮</h2>
-                <p class="hero-text">
-                    Discover, review, and discuss legendary <strong>90s video games.</strong>  
-                    Connect with fellow gamers and <strong>relive the nostalgia</strong> of the golden era of gaming!
-                </p>
-                <div class="hero-buttons">
-                    <a href="{% url 'register' %}" class="btn btn-success hero-btn">📝 Sign Up Now</a>
-                    <a href="{% url 'login' %}" class="btn btn-info hero-btn">🔑 Login</a>
-                </div>
-            </div>
-        </section>
-    {% endif %}
-
     <h1 class="text-center">🎮 90s Gaming Reviews</h1>
 
     <div class="game-container">

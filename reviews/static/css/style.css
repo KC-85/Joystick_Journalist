@@ -80,9 +80,10 @@ html, body {
     transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
-/* 🌟 Hero Section */
 .hero {
-    display: flex;
+    display: flex !important;
+    visibility: visible !important;  /* Ensures it's not hidden */
+    opacity: 1 !important; /* Ensures it's fully visible */
     justify-content: center;
     align-items: center;
     text-align: center;

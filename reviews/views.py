@@ -33,10 +33,12 @@ def register(request):
 
 # ✅ Landing Page
 def landing_page(request):
+    print("✅ Debug: The landing_page view is being called!")  # Print in the console
     games = Game.objects.select_related('genre').annotate(
         average_rating=Avg('reviews__rating')
     ).order_by('-release_year')  # Sort by newest release first
 
+    print("✅ Debug: Rendering landing_page.html")
     return render(request, 'reviews/landing_page.html', {'games': games})
 
 # ✅ Review Page
