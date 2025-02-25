@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ JavaScript Loaded!");
 
-    // 🚀 LOADING SCREEN FADE OUT (Optimized)
+    // 🚀 LOADING SCREEN FADE OUT
     window.addEventListener("load", function () {
         console.log("✅ Page Loaded - Initiating Fade Out");
         const loader = document.getElementById("loading-screen");
 
         if (loader) {
             setTimeout(() => {
-                loader.style.opacity = "0"; // Smooth fade out
+                loader.style.opacity = "0";
                 setTimeout(() => {
-                    loader.style.display = "none"; // Hide after fade
+                    loader.style.display = "none";
                     console.log("✅ Loading Screen Removed");
-                }, 300); // Faster removal after fade
-            }, 300); // Reduced delay before fade starts
+                }, 300);
+            }, 300);
         } else {
             console.error("🚨 Loading screen element not found!");
         }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.forEach(link => {
             link.addEventListener("click", function () {
                 if (window.innerWidth <= 992) {
-                    navbarToggler.click(); // Closes mobile navbar
+                    navbarToggler.click();
                 }
             });
         });
@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // ⚠️ CONFIRM BEFORE DELETION
     document.querySelectorAll(".delete-btn").forEach(button => {
         button.addEventListener("click", function (event) {
-            const confirmDelete = confirm("🚨 Are you sure you want to delete this? This action cannot be undone.");
+            const confirmDelete = confirm("🚨 Are you sure you want to delete this?");
             if (!confirmDelete) {
-                event.preventDefault(); // Prevent deletion if user cancels
+                event.preventDefault();
             }
         });
     });
 
-    // 🟢 HOVER EFFECT FOR CARDS
+    // ✅ HOVER EFFECT FOR CARDS
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("mouseover", () => {
             card.style.transform = "scale(1.05)";
@@ -87,4 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
             card.style.boxShadow = "0 0 15px rgba(0, 255, 0, 0.5)";
         });
     });
-});
+
+    // ✅ HERO BUTTON CLICK FIX
+    document.querySelectorAll(".hero-btn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            console.log("✅ Hero Button Clicked:", event.target);
+            event.stopPropagation();  // Ensures JavaScript does not block navigation
+        });
+    });
+}); // <--- Ensure this closing bracket is here
