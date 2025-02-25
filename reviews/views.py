@@ -19,26 +19,28 @@ class SecureLogoutView(LogoutView):
 
 # ✅ User Registration
 def register(request):
+    print("✅ DEBUG: register view called!")  # Print this in the terminal
+
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
+            print("✅ DEBUG: User registered successfully!")
             return redirect('login')
     else:
         form = RegisterForm()
     
-    return render(request, 'reviews/form_page.html', {'form': form, 'title': "Register"})
+    print("✅ DEBUG: Rendering register.html")  # Print before rendering template
+    return render(request, 'reviews/register.html', {'form': form, 'title': "Register"})
 
 # ✅ Landing Page
 def landing_page(request):
-    print("✅ Debug: The landing_page view is being called!")  # Print in the console
     games = Game.objects.select_related('genre').annotate(
         average_rating=Avg('reviews__rating')
     ).order_by('-release_year')  # Sort by newest release first
 
-    print("✅ Debug: Rendering landing_page.html")
     return render(request, 'reviews/landing_page.html', {'games': games})
 
 # ✅ Review Page
