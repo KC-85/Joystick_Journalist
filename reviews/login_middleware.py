@@ -8,9 +8,13 @@ class LoginRequiredMiddleware:
     """
 
     EXEMPT_URLS = [
-        "/login/", "/register/", "/password_reset",
+        "/",                 # 👈 Add the landing page (root URL)
+        "/login/",
+        "/register/",
+        "/password_reset",
         "/password_reset_done/",
-        "/reset/", "/reset_done/"
+        "/reset/",
+        "/reset_done/"
     ]
 
     def __init__(self, get_response):

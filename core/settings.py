@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'whitenoise.runserver_nostatic',  # Static files support for Heroku
     'reviews',  # Your custom app
 ]
@@ -75,9 +76,9 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request',  # ✅ This must be present!
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
                 'django.contrib.messages.context_processors.messages',
             ],
         },

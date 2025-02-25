@@ -20,27 +20,6 @@
         <div class="loader"></div>
     </div>
 
-    <h1 style="color: yellow;">✅ Debug: Current URL Name - {{ request.resolver_match.url_name }}</h1>
-
-    <h1 style="color: red;">✅ Debug: Hero Section Condition Met</h1>
-
-    {% if request.resolver_match.url_name == "landing_page" and not user.is_authenticated %}
-    <!-- 🌟 Hero Section for Guests -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2 class="hero-title">Join the Ultimate 90s Gaming Community! 🎮</h2>
-            <p class="hero-text">
-                Discover, review, and discuss legendary <strong>90s video games.</strong>  
-                Connect with fellow gamers and <strong>relive the nostalgia</strong> of the golden era of gaming!
-            </p>
-            <div class="hero-buttons">
-                <a href="{% url 'register' %}" class="btn btn-success hero-btn">📝 Sign Up Now</a>
-                <a href="{% url 'login' %}" class="btn btn-info hero-btn">🔑 Login</a>
-            </div>
-        </div>
-    </section>
-{% endif %}
-
     <div class="page-container">
         <!-- 🕹️ Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -58,7 +37,6 @@
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">🚪 Logout</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">🔑 Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">📝 Sign Up</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -70,6 +48,25 @@
             <h1>Joystick Journalist</h1>
         </div>
 
+        {% if not user.is_authenticated %}
+    <h1 style="color: yellow;">✅ Debug: Hero Section Condition Met</h1>
+
+    <!-- 🌟 Hero Section for Guests -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Join the Ultimate 90s Gaming Community! 🎮</h2>
+            <p class="hero-text">
+                Discover, review, and discuss legendary <strong>90s video games.</strong>  
+                Connect with fellow gamers and <strong>relive the nostalgia</strong> of the golden era of gaming!
+            </p>
+            <div class="hero-buttons">
+                <a href="{% url 'register' %}" class="btn btn-success hero-btn">📝 Sign Up Now</a>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
         <!-- 🔥 Flash Messages -->
         <div class="container mt-3">
             {% if messages %}
@@ -79,10 +76,14 @@
             {% endif %}
         </div>
 
-        <!-- 🔥 Main Content -->
+        <!-- 🔥 Main Content (Login Form Hidden for Guests) -->
         <main class="content">
             <div class="container mt-4">
-                {% block content %}{% endblock %}
+                {% if user.is_authenticated %}
+                    {% block content %}{% endblock %}
+                {% else %}
+                    <!-- 🔒 Guests only see the hero section, not the login form -->
+                {% endif %}
             </div>
         </main>
 
