@@ -28,6 +28,8 @@ def register(request):
             user.set_password(form.cleaned_data['password'])
             user.save()
             print("✅ DEBUG: User registered successfully!")
+
+            request.session['registered_before'] = True
             return redirect('login')
     else:
         form = RegisterForm()
