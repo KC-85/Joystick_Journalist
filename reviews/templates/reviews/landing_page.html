@@ -9,24 +9,22 @@
     {% endif %}
 
     <!-- ✅ Featured Games Section -->
-    <div class="container mt-5">
+    <div class="game-section mt-5">
         <h2 class="text-center text-warning">
             🎮 Featured 90s Games
         </h2>
-        
-        <div class="row justify-content-center mt-4">
+
+        <div class="game-container">
             {% for game in games %}
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="card bg-dark text-light border-success shadow-lg">
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-success">{{ game.title }}</h4>
-                            <p class="text-muted">Release Year: {{ game.release_year }}</p>
-                            <p>Genre: <span class="text-info">{{ game.genre.name }}</span></p>
-                            <p class="average-rating text-warning">⭐ {{ game.average_rating|default:"No Ratings Yet" }}</p>
-                            <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
-                                View Reviews
-                            </a>
-                        </div>
+                <div class="card bg-dark text-light border-success shadow-lg">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-success">{{ game.title }}</h4>
+                        <p class="text-muted">Release Year: {{ game.release_year }}</p>
+                        <p>Genre: <span class="text-info">{{ game.genre.name }}</span></p>
+                        <p class="average-rating text-warning">⭐ {{ game.average_rating|default:"No Ratings Yet" }}</p>
+                        <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
+                            View Reviews
+                        </a>
                     </div>
                 </div>
             {% empty %}

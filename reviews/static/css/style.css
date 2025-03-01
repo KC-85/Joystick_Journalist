@@ -1,138 +1,82 @@
-/* 🌌 Full-Page Dark Theme */
+/* 🌌 Full-Page Black Theme */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark theme */
-    color: #00ff00; /* Retro green text */
+    background-color: black; /* ✅ Full black background */
+    color: #00ff00; /* ✅ Retro neon green text */
     font-family: 'VT323', monospace;
     display: flex;
     flex-direction: column;
-    scroll-behavior: smooth; /* 🚀 Smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 /* 📦 Main Container */
 .container {
-    flex: 1;
+    flex: 1; /* ✅ Pushes footer down */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px;
+    padding-bottom: 20px; /* ✅ Prevents footer from overlapping */
 }
 
-/* 📌 Navbar */
+/* 🟢 Navbar with Neon Border */
 .navbar {
-    background-color: #0a0a0a;
+    background-color: black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    border: 2px solid #00ff00; /* ✅ Thin neon green border */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
 }
 
-.navbar a {
-    color: #00ff00;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 22px;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #ffcc00; /* Neon glow effect */
-}
-
-/* 🎭 Loading Screen */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.3s ease-out;
-}
-
-/* 🔄 Loading Spinner */
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid transparent;
-    border-top: 5px solid #00ff00;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* 🚀 Hide Loader After Page Loads */
-#loading-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-}
-
-.hero {
-    display: flex !important;
-    visibility: visible !important;  /* Ensures it's not hidden */
-    opacity: 1 !important; /* Ensures it's fully visible */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
+/* 🟢 Hero Section with Neon Glow */
+.hero-section {
     background: rgba(0, 0, 0, 0.85);
-    border: 3px solid #00ff00;
+    padding: 80px 40px;
+    width: 85%;
+    max-width: 950px;
+    margin: 40px auto;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-    margin: 30px auto;
-    width: 80%;
-    max-width: 800px;
-    animation: fadeIn 1s ease-in-out;
-    position: relative;
-    z-index: 5;
-    border: 5px solid red !important; /* 🔴 Debug Border */
-    background: rgba(255, 0, 0, 0.2) !important; /* 🔴 Debug Background */
-}
-
-.hero-title {
-    color: #00ff00;
-    font-size: 28px;
-    text-shadow: 0 0 8px #00ff00;
+    border: 3px solid #ff00ff; /* ✅ Neon pink border */
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+    text-align: center;
 }
 
 .hero-text {
-    color: white;
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #00ff00;
 }
 
+/* 🟢 Register Button */
 .hero-btn {
     background-color: #00ff00;
     color: black;
     font-weight: bold;
-    padding: 10px 20px;
-    border: 2px solid black;
-    transition: background 0.3s ease-in-out;
+    padding: 12px 25px;
+    border: 3px solid black;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 .hero-btn:hover {
     background-color: #ffcc00;
     color: black;
+    transform: scale(1.1);
 }
 
-/* 🔒 Blurred Text for Guest Users */
-.blurred-text {
-    color: gray;
-    filter: blur(3px);
-    font-style: italic;
+/* 🟢 Game Section */
+.game-section {
+    background: black;
+    padding: 40px 0 80px 0; /* ✅ Adds more space at the bottom */
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
 }
 
 /* 🎮 Game & Review Cards */
@@ -140,40 +84,28 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Consistent spacing */
+    gap: 20px; /* ✅ Consistent spacing */
 }
 
+/* 🟢 Game Cards */
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
     padding: 20px;
-    width: 300px; /* Consistent card width */
-    height: 350px; /* Consistent height */
+    width: 300px; 
+    height: 350px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ✨ Card Hover Effect */
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 25px rgba(0, 255, 0, 0.8);
 }
 
-/* 📝 Text Inside Cards */
-.card-body {
-    background-color: transparent;
-    color: #00ff00;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* 🎮 Buttons Inside Cards */
-.card-buttons {
-    margin-top: 10px;
-}
-
+/* 🟢 Game Card Buttons */
 .card .btn {
     background-color: #000000;
     color: #00ff00;
@@ -191,101 +123,63 @@ html, body {
     transform: scale(1.1);
 }
 
-/* 📝 No Reviews Text */
-.no-reviews {
-    color: #00ff00; /* Neon Green */
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-    font-size: 18px;
+/* 🟢 Footer with Neon Border */
+footer {
+    background-color: black;
+    color: #00ff00;
     text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    border: 2px solid #00ff00; /* ✅ Thin neon green border */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
+}
+
+/* 🎮 Joystick Journalist Title - Two-Color Neon Border (Blue & Pink) */
+.neon-title {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 2.5rem;
     font-weight: bold;
+    color: #00ccff; /* ✅ Start with Blue */
+    text-shadow: 0 0 10px #00ccff;
+    border: 3px solid #00ccff;
+    border-radius: 10px;
+    animation: neon-border-cycle 3s infinite alternate;
 }
 
-/* 📝 Average Rating */
-.average-rating {
-    color: #ffcc00;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+/* 🚀 Hero Section - Two-Color Neon Border (Blue & Pink) */
+.hero-container {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 80px 40px;
+    width: 85%;
+    max-width: 950px;
+    margin: 40px auto;
+    border-radius: 15px;
+    border: 3px solid #00ccff; /* ✅ Starts with Blue */
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.7);
+    text-align: center;
+    animation: neon-border-cycle 3s infinite alternate;
 }
 
-/* 🚀 Smooth Scroll to Reviews */
-.scroll-to-reviews {
-    cursor: pointer;
-    text-decoration: underline;
-    color: #00ff00;
-    transition: color 0.3s ease;
-}
-
-.scroll-to-reviews:hover {
-    color: #ffcc00;
-}
-
-/* 🔥 Full-Page Neon Border */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border: 10px solid transparent;
-    animation: neon-border-cycle 15s infinite linear;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* 🌟 Neon Border Opening Animation */
-.neon-border {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 0px;
-    width: 70%;
-    margin: 20px auto;
-    border: 8px solid transparent;
-    border-radius: 20px;
-    overflow: hidden;
-    font-size: 36px;
-    font-weight: bold;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-    opacity: 0;
-    animation: neon-expand 1.5s ease-out forwards, neon-glow 5s infinite linear 1.5s, text-fade-in 1s ease-out forwards 1.5s;
-}
-
-@keyframes neon-expand {
-    0% { height: 0px; }
-    50% { height: 50px; }
-    100% { height: 160px; }
-}
-
-@keyframes text-fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes neon-glow {
-    0% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
-    33% { box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; border-color: #00ff00; }
-    66% { box-shadow: 0 0 20px #0000ff, 0 0 40px #0000ff; border-color: #0000ff; }
-    100% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
-}
-
-/* 📌 Mobile Navbar Improvement */
-@media (max-width: 992px) {
-    .navbar-collapse {
-        background-color: #0a0a0a;
-        padding: 15px;
-        border-radius: 5px;
+/* ✨ Neon Border Animation - Blue to Pink */
+@keyframes neon-border-cycle {
+    0% {
+        border-color: #00ccff; /* ✅ Blue */
+        box-shadow: 0 0 15px #00ccff, 0 0 25px #00ccff;
+    }
+    100% {
+        border-color: #ff00ff; /* ✅ Pink */
+        box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
     }
 }
 
-/* 📌 Responsive Design */
+/* 📌 Media Queries (Responsive Design) */
 @media (max-width: 600px) {
     .game-container {
         flex-direction: column;
         align-items: center;
-    }
-
-    .card {
-        width: 90%;
     }
 }
 
