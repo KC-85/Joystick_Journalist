@@ -1,0 +1,53 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}Register - Joystick Journalist{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    <div class="register-card">
+        <div class="card-body">
+            <h2 class="text-center text-success">Create an Account</h2>
+
+            <!-- 🚨 Show Error Messages (if any) -->
+            {% if form.errors %}
+                <div class="alert alert-danger text-center neon-alert">
+                    Please fix the errors below and try again.
+                </div>
+            {% endif %}
+
+            <!-- 📝 Registration Form -->
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Username</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email Address</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_password1" class="form-label">Password</label>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_password2" class="form-label">Confirm Password</label>
+                    {{ form.password2 }}
+                </div>
+
+                <button type="submit" class="btn btn-outline-success w-100 mt-3">
+                    Register
+                </button>
+            </form>
+
+            <p class="text-center mt-3">
+                Already have an account? <a href="{% url 'login' %}" class="text-warning">Login here</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

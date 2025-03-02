@@ -111,6 +111,86 @@ html, body {
     color: #ffcc00;
 }
 
+/* 🎮 Registration Form Styling */
+.register-container {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    min-height: 60vh; /* Ensures it fills the full screen */
+    width: 100%;
+    padding: 20px 20px; /* Adds padding to prevent overlap */
+    flex-direction: column;
+}
+
+/* 🟢 Ensures the Form Itself is Centered */
+.register-card {
+    width: 100%;
+    max-width: 500px;
+    background: black;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.register-title {
+    text-align: center;
+    font-size: 28px;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* 🔥 Input Fields */
+.register-card input {
+    background: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+/* 📌 Input Focus Effect */
+.register-card input:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 15px #ffcc00;
+    outline: none;
+}
+
+/* 🟢 Register Button */
+.register-btn {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid black;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+}
+
+.register-btn:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/* 🔴 Error Message Styling */
+.alert-danger {
+    background: black;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
 /* 🟢 Hero Section with Neon Glow */
 .hero-section {
     background: rgba(0, 0, 0, 0.85);

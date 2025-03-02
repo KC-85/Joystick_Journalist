@@ -23,22 +23,28 @@ class SecureLogoutView(LogoutView):
         messages.success(request, "You have been logged out successfully! 🎮")
         return super().dispatch(request, *args, **kwargs)
 
-# ✅ User Registration
+# ✅ Fixed User Registration
 def register(request):
-    print("✅ DEBUG: register view called!")  # Print this in the terminal
+    print("✅ DEBUG: register view called!")  # Debugging print statement
 
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])
-            user.save()
+            user = form.save()  # ✅ No need for set_password()
+            login(request, user)  # ✅ Auto-login after registration
             print("✅ DEBUG: User registered successfully!")
 
             request.session['registered_before'] = True
-            return redirect('login')
+            messages.success(request, "🎉 Account created successfully! Welcome to Joystick Journalist 🎮")
+
+            return redirect('landing_page')  # ✅ Redirect to homepage after signup
+        else:
+            messages.error(request, "⚠️ Registration failed. Please fix the errors below.")
+
     else:
         form = RegisterForm()
+
+    return render(request, "reviews/register.html", {"form": form})
     
     print("✅ DEBUG: Rendering register.html")  # Print before rendering template
     return render(request, 'reviews/register.html', {'form': form, 'title': "Register"})
