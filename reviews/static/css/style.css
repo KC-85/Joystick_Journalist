@@ -22,6 +22,16 @@ html, body {
     padding-bottom: 20px; /* ✅ Prevents footer from overlapping */
 }
 
+/* 🟢 Joystick Journalist Title - Neon Glow */
+.neon-title {
+    color: #00ff00 !important; /* ✅ Green neon */
+    text-shadow: 0 0 5px #00ff00;
+    font-weight: bold;
+    font-size: 3rem;
+    display: inline-block;
+    text-align: center;
+}
+
 /* 🟢 Navbar with Neon Border */
 .navbar {
     background-color: black;
@@ -32,6 +42,21 @@ html, body {
     width: 100%;
     border: 2px solid #00ff00; /* ✅ Thin neon green border */
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
+}
+
+/* 🟢 Navbar Links - Bigger & Neon */
+.navbar a {
+    color: #00ff00; /* ✅ Neon Green */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.8rem; /* ✅ Increased for better readability */
+    font-weight: bold;
+}
+
+/* 🟡 Navbar Link Hover Effect */
+.navbar a:hover {
+    color: #ffcc00; /* ✅ Glows yellow when hovered */
+    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
 }
 
 /* 🟢 Hero Section with Neon Glow */
@@ -134,19 +159,6 @@ footer {
     bottom: 0;
     border: 2px solid #00ff00; /* ✅ Thin neon green border */
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
-}
-
-/* 🎮 Joystick Journalist Title - Two-Color Neon Border (Blue & Pink) */
-.neon-title {
-    display: inline-block;
-    padding: 15px 40px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #00ccff; /* ✅ Start with Blue */
-    text-shadow: 0 0 10px #00ccff;
-    border: 3px solid #00ccff;
-    border-radius: 10px;
-    animation: neon-border-cycle 3s infinite alternate;
 }
 
 /* 🚀 Hero Section - Two-Color Neon Border (Blue & Pink) */
