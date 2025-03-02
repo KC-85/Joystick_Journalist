@@ -59,6 +59,42 @@ html, body {
     text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
 }
 
+
+/* 🔥 Flash Messages (Neon Alert) */
+.neon-alert {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 🟢 Success Message (Green Glow) */
+.alert-success {
+    background: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+}
+
+/* 🔴 Error Message (Red Glow) */
+.alert-danger {
+    background: black;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+}
+
+/* 🎭 Auto Fade Out Effect */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.neon-alert.fade-out {
+    animation: fadeOut 3s forwards;
+}
+
 /* 🔴 Logout Button (Styled as Navbar Link) */
 .logout-btn {
     background: none;
