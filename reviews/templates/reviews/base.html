@@ -32,16 +32,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-success fw-bold px-3" href="{% url 'landing_page' %}">Home</a>
                     </li>
-                    {% if request.user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link text-danger fw-bold px-3" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link text-primary fw-bold px-3" href="{% url 'login' %}">Login</a>
-                        </li>
-                    {% endif %}
                 </ul>
+                    {% if request.user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link logout-btn">Logout</button>
+                        </form>
+                    {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
             </div>
         </div>
     </nav>
@@ -53,6 +52,16 @@
 
     <!-- ✅ Main Content Block -->
     <main class="container mt-4">
+        {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} text-center neon-alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
         {% block content %}{% endblock %}
     </main>
 

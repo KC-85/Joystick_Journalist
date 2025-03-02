@@ -17,6 +17,10 @@ class SecureLoginView(LoginView):
 class SecureLogoutView(LogoutView):
     next_page = reverse_lazy('login')
 
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "You have been logged out successfully! 🎮")
+        return super().dispatch(request, *args, **kwargs)
+
 # ✅ User Registration
 def register(request):
     print("✅ DEBUG: register view called!")  # Print this in the terminal

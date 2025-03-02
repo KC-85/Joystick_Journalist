@@ -59,6 +59,22 @@ html, body {
     text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
 }
 
+/* 🔴 Logout Button (Styled as Navbar Link) */
+.logout-btn {
+    background: none;
+    border: none;
+    color: #00ff00;
+    font-size: 26px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0;
+}
+
+.logout-btn:hover {
+    color: #ffcc00;
+}
+
 /* 🟢 Hero Section with Neon Glow */
 .hero-section {
     background: rgba(0, 0, 0, 0.85);
