@@ -1,0 +1,41 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}Login - Joystick Journalist{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2 class="text-center neon-text">🎮 Log In</h2>
+
+    <!-- 🚀 Error Message Display -->
+    {% if form.errors %}
+        <div class="alert alert-danger text-center">
+            Invalid username or password. Please try again.
+        </div>
+    {% endif %}
+
+    <!-- 🔐 Login Form -->
+    <form method="POST" action="{% url 'login' %}" class="login-form">
+        {% csrf_token %}
+
+        <!-- Username Field -->
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            <input type="text" name="username" id="id_username" class="form-control neon-input" placeholder="Enter your username" required>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            <input type="password" name="password" id="id_password" class="form-control neon-input" placeholder="Enter your password" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-neon btn-block">Login</button>
+    </form>
+
+    <!-- 🔗 Register Link -->
+    <p class="text-center mt-3">
+        Don't have an account? <a href="{% url 'register' %}" class="neon-link">Register Here</a>
+    </p>
+</div>
+{% endblock %}

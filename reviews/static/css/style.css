@@ -94,6 +94,69 @@ html, body {
     transform: scale(1.1);
 }
 
+/* 🔐 Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    text-align: center;
+}
+
+/* 🟢 Neon Login Heading */
+.neon-text {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+/* 🔵 Neon Input Fields */
+.neon-input {
+    background-color: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.neon-input:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+}
+
+/* ✨ Neon Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 2px solid black;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* 🔗 Neon Register Link */
+.neon-link {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
+}
+
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
 /* 🔒 Locked Content Message */
 .locked-content {
     font-size: 1.5rem;
