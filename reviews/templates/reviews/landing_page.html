@@ -8,28 +8,35 @@
         {% include 'reviews/hero.html' %}
     {% endif %}
 
-    <!-- ✅ Featured Games Section -->
-    <div class="game-section mt-5">
-        <h2 class="text-center text-warning">
-            🎮 Featured 90s Games
-        </h2>
+    <!-- ✅ Featured Games Section (Only for Logged-in Users) -->
+{% if request.user.is_authenticated %}
+<div class="game-section mt-5">
+    <h2 class="text-center text-warning">
+        🎮 Featured 90s Games
+    </h2>
 
-        <div class="game-container">
-            {% for game in games %}
-                <div class="card bg-dark text-light border-success shadow-lg">
-                    <div class="card-body text-center">
-                        <h4 class="card-title text-success">{{ game.title }}</h4>
-                        <p class="text-muted">Release Year: {{ game.release_year }}</p>
-                        <p>Genre: <span class="text-info">{{ game.genre.name }}</span></p>
-                        <p class="average-rating text-warning">⭐ {{ game.average_rating|default:"No Ratings Yet" }}</p>
-                        <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
-                            View Reviews
-                        </a>
-                    </div>
+    <div class="game-container">
+        {% for game in games %}
+            <div class="card bg-dark text-light border-success shadow-lg">
+                <div class="card-body text-center">
+                    <h4 class="card-title text-success">{{ game.title }}</h4>
+                    <p class="text-muted">Release Year: {{ game.release_year }}</p>
+                    <p>Genre: <span class="text-info">{{ game.genre.name }}</span></p>
+                    <p class="average-rating text-warning">⭐ {{ game.average_rating|default:"No Ratings Yet" }}</p>
+                    <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
+                        View Reviews
+                    </a>
                 </div>
-            {% empty %}
-                <p class="text-center text-light">No games available yet.</p>
-            {% endfor %}
-        </div>
+            </div>
+        {% empty %}
+            <p class="text-center text-light">No games available yet.</p>
+        {% endfor %}
     </div>
+</div>
+{% else %}
+<!-- 🚀 Guests See This Instead -->
+<p class="text-center locked-content">
+    🔒 Register to unlock game reviews & more!
+</p>
+{% endif %}
 {% endblock %}

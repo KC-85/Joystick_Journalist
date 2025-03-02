@@ -43,6 +43,11 @@ def landing_page(request):
         average_rating=Avg('reviews__rating')
     ).order_by('-release_year')  # Sort by newest release first
 
+    context = {
+        'games': games,
+        'user_authenticated': request.user.is_authenticated  # ✅ Pass authentication status
+    }
+
     return render(request, 'reviews/landing_page.html', {'games': games})
 
 # ✅ Review Page

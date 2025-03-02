@@ -94,6 +94,23 @@ html, body {
     transform: scale(1.1);
 }
 
+/* 🔒 Locked Content Message */
+.locked-content {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🎬 Smooth Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* 🟢 Game Section */
 .game-section {
     background: black;
