@@ -1,4 +1,5 @@
 from django.urls import path
+from .views import game_form
 from django.contrib.auth import views as auth_views
 from .views import SecureLoginView, SecureLogoutView, register
 import reviews.views as views
@@ -14,7 +15,7 @@ urlpatterns = [
 
     # ✅ Game URLs
     path('', views.landing_page, name='landing_page'),
-    path('game/add/', views.game_form, name='add_game'),
+    path('game/add/', views.game_form, name='game_form'),
     path('game/edit/<int:game_id>/', views.game_form, name='edit_game'),
     path('game/delete/<int:game_id>/', views.delete_game, name='delete_game'),
 

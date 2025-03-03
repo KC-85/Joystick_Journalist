@@ -32,15 +32,25 @@
                     <li class="nav-item">
                         <a class="nav-link text-success fw-bold px-3" href="{% url 'landing_page' %}">Home</a>
                     </li>
-                </ul>
+
                     {% if request.user.is_authenticated %}
-                        <form action="{% url 'logout' %}" method="post" class="logout-form">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-link logout-btn">Logout</button>
-                        </form>
+                        <li class="nav-item">
+                            <a class="nav-link add-game-link" href="{% url 'game_form' %}">
+                                <span class="add-game-icon">➕</span> Add Game
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link logout-btn">Logout</button>
+                            </form>
+                        </li>
                     {% else %}
-                    <a href="{% url 'login' %}">Login</a>
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
                     {% endif %}
+                </ul>
             </div>
         </div>
     </nav>
@@ -53,14 +63,14 @@
     <!-- ✅ Main Content Block -->
     <main class="container mt-4">
         {% if messages %}
-    <div class="container mt-3">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} text-center neon-alert">
-                {{ message }}
+            <div class="container mt-3">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} text-center neon-alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-    {% endif %}
+        {% endif %}
 
         {% block content %}{% endblock %}
     </main>

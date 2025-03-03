@@ -44,21 +44,36 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
 }
 
-/* 🟢 Navbar Links - Bigger & Neon */
-.navbar a {
-    color: #00ff00; /* ✅ Neon Green */
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.8rem; /* ✅ Increased for better readability */
+/* 🟢 Navbar Links - Proper Spacing & Alignment */
+.navbar .nav-link {
+    font-size: 2rem; /* ✅ Increased Font Size */
     font-weight: bold;
+    color: #00ff00; /* ✅ Default Neon Green */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-/* 🟡 Navbar Link Hover Effect */
-.navbar a:hover {
-    color: #ffcc00; /* ✅ Glows yellow when hovered */
+/* 🟡 Navbar Link Styling */
+.navbar .nav-link:hover {
+    color: #ffcc00; /* ✅ Glows Yellow */
     text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
 }
 
+/* ✨ Add Game Link Styling */
+.navbar-nav .add-game-link {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* ✅ Adjusts spacing between icon & text */
+    color: #ffcc00; /* ✅ Gold color for visibility */
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* 🎮 Add Game Icon Color */
+.add-game-icon {
+    color: #ff00ff; /* ✅ Neon purple */
+    font-size: 1.8rem;
+}
 
 /* 🔥 Flash Messages (Neon Alert) */
 .neon-alert {
@@ -444,6 +459,26 @@ html, body {
     background-color: #00ff00;
     color: #000000;
     transform: scale(1.1);
+}
+
+/* 🟢 Add Game Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 2px solid black;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* 🔥 Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.1);
+    color: black;
 }
 
 /* 🟢 Footer with Neon Border */
