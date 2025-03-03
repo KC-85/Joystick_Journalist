@@ -33,46 +33,76 @@ html, body {
 }
 
 /* 🟢 Navbar with Neon Border */
+/* 🎮 Fix Navbar Alignment */
 .navbar {
     background-color: black;
-    padding: 10px;
+    padding: 15px; /* Slightly more padding for better spacing */
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Ensures all links are centered */
     align-items: center;
     width: 100%;
     border: 2px solid #00ff00; /* ✅ Thin neon green border */
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
 }
 
-/* 🟢 Navbar Links - Proper Spacing & Alignment */
+/* 🎯 Aligns Navbar Links Properly */
 .navbar .nav-link {
-    font-size: 2rem; /* ✅ Increased Font Size */
+    font-size: 2rem; /* Increase font size */
     font-weight: bold;
-    color: #00ff00; /* ✅ Default Neon Green */
+    color: #00ff00; /* Default Neon Green */
     text-decoration: none;
+    padding: 10px 15px; /* Add padding for consistent size */
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-/* 🟡 Navbar Link Styling */
+/* 🟡 Navbar Link Hover Effect */
 .navbar .nav-link:hover {
-    color: #ffcc00; /* ✅ Glows Yellow */
+    color: #ffcc00; /* Glow Yellow */
     text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
 }
 
-/* ✨ Add Game Link Styling */
-.navbar-nav .add-game-link {
+/* 🎮 Add Game Link Styling */
+.navbar .add-game-link {
+    font-size: 2rem; /* Make it same size as Home */
+    font-weight: bold;
+    color: #ffcc00; /* Gold for visibility */
     display: flex;
     align-items: center;
-    gap: 8px; /* ✅ Adjusts spacing between icon & text */
-    color: #ffcc00; /* ✅ Gold color for visibility */
-    font-size: 1.8rem;
-    font-weight: bold;
+    gap: 8px; /* Space between icon & text */
 }
 
-/* 🎮 Add Game Icon Color */
+/* 🔆 Add Game Icon */
 .add-game-icon {
-    color: #ff00ff; /* ✅ Neon purple */
-    font-size: 1.8rem;
+    font-size: 2rem; /* Match text size */
+    color: #ff00ff; /* Neon Purple */
+}
+
+/* 🔥 Logout Button - Align with Navbar Links */
+.logout-form {
+    display: flex;
+    align-items: center; /* Aligns it with the rest of the navbar */
+    justify-content: center;
+    height: 100%;
+    margin-left: 15px; /* Optional spacing */
+}
+
+/* 🔥 Logout Button (Ensure Consistency) */
+.logout-btn {
+    font-size: 2rem; /* Match Home & Add Game */
+    font-weight: bold;
+    color: #00ff00;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.logout-btn:hover {
+    color: #ffcc00;
 }
 
 /* 🔥 Flash Messages (Neon Alert) */
@@ -115,7 +145,7 @@ html, body {
     background: none;
     border: none;
     color: #00ff00;
-    font-size: 26px;
+    font-size: 30px;
     cursor: pointer;
     text-decoration: none;
     transition: color 0.3s;
