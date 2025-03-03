@@ -1,1 +1,43 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}{{ title }} - Joystick Journalist{% endblock %}
+
+{% block content %}
+<div class="container form-container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="neon-card">
+                <div class="neon-header">
+                    <h2 class="text-center neon-text">{{ title }}</h2>
+                </div>
+
+                <!-- 🚨 Show Form Errors -->
+                {% if form.errors %}
+                    <div class="alert alert-danger neon-alert">
+                        Please correct the errors below and try again.
+                    </div>
+                {% endif %}
+
+                <!-- 📝 Form -->
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn-neon w-100 mt-3">
+                        Save
+                    </button>
+                </form>
+
+                <!-- 🔙 Cancel Button -->
+                <div class="text-center mt-3">
+                    <a href="{% if game %}{% url 'review_page' game.id %}{% else %}{% url 'landing_page' %}{% endif %}" 
+                       class="neon-link">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 

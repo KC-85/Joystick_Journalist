@@ -277,6 +277,92 @@ html, body {
     transform: scale(1.05);
 }
 
+/* Form Container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Adjust height to center properly */
+    width: 100%;
+    padding-top: 20px; /* Prevent overlap with navbar */
+}
+
+/* 🎮 Neon Form Card - WIDER */
+.neon-card {
+    width: 100%;
+    max-width: 600px; /* Increased width for better readability */
+    background: black;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    padding: 40px; /* Added more padding */
+    text-align: center;
+}
+
+/* ✨ Neon Header */
+.neon-header h2 {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+    margin-bottom: 20px; /* Adds spacing below header */
+}
+
+/* 🔵 Form Input Fields - FULL WIDTH */
+.neon-card input, 
+.neon-card textarea, 
+.neon-card select {
+    background-color: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 1.2rem;
+    padding: 12px; /* Increased padding */
+    width: 100%; /* Ensures inputs are full width */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 15px; /* Adds spacing between inputs */
+}
+
+/* 🚀 Focus Effect */
+.neon-card input:focus, 
+.neon-card textarea:focus, 
+.neon-card select:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+}
+
+/* 🟢 Submit Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 14px; /* Slightly larger button */
+    font-size: 1.3rem; /* Bigger font */
+    border: 2px solid black;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%; /* Full width button */
+}
+
+/* 🟣 Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* 🔗 Cancel Link */
+.neon-link {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+
 /* 🔗 Neon Register Link */
 .neon-link {
     color: #00ff00;
