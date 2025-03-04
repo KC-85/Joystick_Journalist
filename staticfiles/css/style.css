@@ -1,138 +1,450 @@
-/* 🌌 Full-Page Dark Theme */
+/* 🌌 Full-Page Black Theme */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark theme */
-    color: #00ff00; /* Retro green text */
+    background-color: black; /* ✅ Full black background */
+    color: #00ff00; /* ✅ Retro neon green text */
     font-family: 'VT323', monospace;
     display: flex;
     flex-direction: column;
-    scroll-behavior: smooth; /* 🚀 Smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 /* 📦 Main Container */
 .container {
-    flex: 1;
+    flex: 1; /* ✅ Pushes footer down */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px;
+    padding-bottom: 20px; /* ✅ Prevents footer from overlapping */
 }
 
-/* 📌 Navbar */
-.navbar {
-    background-color: #0a0a0a;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar a {
-    color: #00ff00;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 22px;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #ffcc00; /* Neon glow effect */
-}
-
-/* 🎭 Loading Screen */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.3s ease-out;
-}
-
-/* 🔄 Loading Spinner */
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid transparent;
-    border-top: 5px solid #00ff00;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* 🚀 Hide Loader After Page Loads */
-#loading-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-}
-
-.hero {
-    display: flex !important;
-    visibility: visible !important;  /* Ensures it's not hidden */
-    opacity: 1 !important; /* Ensures it's fully visible */
-    justify-content: center;
-    align-items: center;
+/* 🟢 Joystick Journalist Title - Neon Glow */
+.neon-title {
+    color: #00ff00 !important; /* ✅ Green neon */
+    text-shadow: 0 0 5px #00ff00;
+    font-weight: bold;
+    font-size: 3rem;
+    display: inline-block;
     text-align: center;
-    padding: 40px 20px;
-    background: rgba(0, 0, 0, 0.85);
-    border: 3px solid #00ff00;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-    margin: 30px auto;
-    width: 80%;
-    max-width: 800px;
-    animation: fadeIn 1s ease-in-out;
-    position: relative;
-    z-index: 5;
-    border: 5px solid red !important; /* 🔴 Debug Border */
-    background: rgba(255, 0, 0, 0.2) !important; /* 🔴 Debug Background */
 }
 
-.hero-title {
+/* 🟢 Navbar with Neon Border */
+/* 🎮 Fix Navbar Alignment */
+.navbar {
+    background-color: black;
+    padding: 15px; /* Slightly more padding for better spacing */
+    display: flex;
+    justify-content: center; /* Ensures all links are centered */
+    align-items: center;
+    width: 100%;
+    border: 2px solid #00ff00; /* ✅ Thin neon green border */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
+}
+
+/* 🎯 Aligns Navbar Links Properly */
+.navbar .nav-link {
+    font-size: 2rem; /* Increase font size */
+    font-weight: bold;
+    color: #00ff00; /* Default Neon Green */
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for consistent size */
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* 🟡 Navbar Link Hover Effect */
+.navbar .nav-link:hover {
+    color: #ffcc00; /* Glow Yellow */
+    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+}
+
+/* 🎮 Add Game Link Styling */
+.navbar .add-game-link {
+    font-size: 2rem; /* Make it same size as Home */
+    font-weight: bold;
+    color: #ffcc00; /* Gold for visibility */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon & text */
+}
+
+/* 🔆 Add Game Icon */
+.add-game-icon {
+    font-size: 2rem; /* Match text size */
+    color: #ff00ff; /* Neon Purple */
+}
+
+/* 🔥 Logout Button - Align with Navbar Links */
+.logout-form {
+    display: flex;
+    align-items: center; /* Aligns it with the rest of the navbar */
+    justify-content: center;
+    height: 100%;
+    margin-left: 15px; /* Optional spacing */
+}
+
+/* 🔥 Logout Button (Ensure Consistency) */
+.logout-btn {
+    font-size: 2rem; /* Match Home & Add Game */
+    font-weight: bold;
     color: #00ff00;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.logout-btn:hover {
+    color: #ffcc00;
+}
+
+/* 🔥 Flash Messages (Neon Alert) */
+.neon-alert {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 🟢 Success Message (Green Glow) */
+.alert-success {
+    background: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+}
+
+/* 🔴 Error Message (Red Glow) */
+.alert-danger {
+    background: black;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+}
+
+/* 🎭 Auto Fade Out Effect */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.neon-alert.fade-out {
+    animation: fadeOut 3s forwards;
+}
+
+/* 🔴 Logout Button (Styled as Navbar Link) */
+.logout-btn {
+    background: none;
+    border: none;
+    color: #00ff00;
+    font-size: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0;
+}
+
+.logout-btn:hover {
+    color: #ffcc00;
+}
+
+/* 🎮 Registration Form Styling */
+.register-container {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    min-height: 60vh; /* Ensures it fills the full screen */
+    width: 100%;
+    padding: 20px 20px; /* Adds padding to prevent overlap */
+    flex-direction: column;
+}
+
+/* 🟢 Ensures the Form Itself is Centered */
+.register-card {
+    width: 100%;
+    max-width: 500px;
+    background: black;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.register-title {
+    text-align: center;
     font-size: 28px;
-    text-shadow: 0 0 8px #00ff00;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
 }
 
-.hero-text {
-    color: white;
+/* 🔥 Input Fields */
+.register-card input {
+    background: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
     font-size: 18px;
-    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
 }
 
-.hero-btn {
+/* 📌 Input Focus Effect */
+.register-card input:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 15px #ffcc00;
+    outline: none;
+}
+
+/* 🟢 Register Button */
+.register-btn {
     background-color: #00ff00;
     color: black;
     font-weight: bold;
     padding: 10px 20px;
     border: 2px solid black;
+    width: 100%;
     transition: background 0.3s ease-in-out;
+}
+
+.register-btn:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/* 🔴 Error Message Styling */
+.alert-danger {
+    background: black;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 🟢 Hero Section with Neon Glow */
+.hero-section {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 80px 40px;
+    width: 85%;
+    max-width: 950px;
+    margin: 40px auto;
+    border-radius: 15px;
+    border: 3px solid #ff00ff; /* ✅ Neon pink border */
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+    text-align: center;
+}
+
+.hero-text {
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* 🟢 Register Button */
+.hero-btn {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: 3px solid black;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 .hero-btn:hover {
     background-color: #ffcc00;
     color: black;
+    transform: scale(1.1);
 }
 
-/* 🔒 Blurred Text for Guest Users */
-.blurred-text {
-    color: gray;
-    filter: blur(3px);
-    font-style: italic;
+/* 🔐 Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    text-align: center;
+}
+
+/* 🟢 Neon Login Heading */
+.neon-text {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+/* 🔵 Neon Input Fields */
+.neon-input {
+    background-color: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.neon-input:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+}
+
+/* ✨ Neon Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 2px solid black;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Adjust height to center properly */
+    width: 100%;
+    padding-top: 20px; /* Prevent overlap with navbar */
+}
+
+/* 🎮 Neon Form Card - WIDER */
+.neon-card {
+    width: 100%;
+    max-width: 600px; /* Increased width for better readability */
+    background: black;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    padding: 40px; /* Added more padding */
+    text-align: center;
+}
+
+/* ✨ Neon Header */
+.neon-header h2 {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+    margin-bottom: 20px; /* Adds spacing below header */
+}
+
+/* 🔵 Form Input Fields - FULL WIDTH */
+.neon-card input, 
+.neon-card textarea, 
+.neon-card select {
+    background-color: black;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 1.2rem;
+    padding: 12px; /* Increased padding */
+    width: 100%; /* Ensures inputs are full width */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 15px; /* Adds spacing between inputs */
+}
+
+/* 🚀 Focus Effect */
+.neon-card input:focus, 
+.neon-card textarea:focus, 
+.neon-card select:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+}
+
+/* 🟢 Submit Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 14px; /* Slightly larger button */
+    font-size: 1.3rem; /* Bigger font */
+    border: 2px solid black;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%; /* Full width button */
+}
+
+/* 🟣 Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* 🔗 Cancel Link */
+.neon-link {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+
+/* 🔗 Neon Register Link */
+.neon-link {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
+}
+
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* 🔒 Locked Content Message */
+.locked-content {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🎬 Smooth Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 🟢 Game Section */
+.game-section {
+    background: black;
+    padding: 40px 0 80px 0; /* ✅ Adds more space at the bottom */
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
 }
 
 /* 🎮 Game & Review Cards */
@@ -140,40 +452,28 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Consistent spacing */
+    gap: 20px; /* ✅ Consistent spacing */
 }
 
+/* 🟢 Game Cards */
 .card {
     background-color: #1a1a1a;
     border: 2px solid #00ff00;
     padding: 20px;
-    width: 300px; /* Consistent card width */
-    height: 350px; /* Consistent height */
+    width: 300px; 
+    height: 350px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ✨ Card Hover Effect */
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 25px rgba(0, 255, 0, 0.8);
 }
 
-/* 📝 Text Inside Cards */
-.card-body {
-    background-color: transparent;
-    color: #00ff00;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* 🎮 Buttons Inside Cards */
-.card-buttons {
-    margin-top: 10px;
-}
-
+/* 🟢 Game Card Buttons */
 .card .btn {
     background-color: #000000;
     color: #00ff00;
@@ -191,101 +491,240 @@ html, body {
     transform: scale(1.1);
 }
 
-/* 📝 No Reviews Text */
-.no-reviews {
-    color: #00ff00; /* Neon Green */
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-    font-size: 18px;
+/* 🟢 Add Game Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 2px solid black;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* 🔥 Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.1);
+    color: black;
+}
+
+/* 🟢 Review Section */
+.review-container {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* 📝 Review List - Organizes Reviews in a Column */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between reviews */
+}
+
+/* 🔥 Neon-Styled Review Cards */
+.review-card {
+    background-color: black;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* 🎮 Review Text - Content of Review */
+.review-text {
+    font-size: 1.2rem;
+    color: white;
     text-align: center;
-    font-weight: bold;
 }
 
-/* 📝 Average Rating */
-.average-rating {
+/* ⭐ Review Rating - Highlights Rating */
+.review-rating {
+    font-weight: bold;
     color: #ffcc00;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+    text-align: center;
 }
 
-/* 🚀 Smooth Scroll to Reviews */
-.scroll-to-reviews {
-    cursor: pointer;
-    text-decoration: underline;
+/* ✍️ Review Author - Credits the Reviewer */
+.review-author {
+    font-style: italic;
     color: #00ff00;
-    transition: color 0.3s ease;
+    text-align: center;
 }
 
-.scroll-to-reviews:hover {
-    color: #ffcc00;
-}
-
-/* 🔥 Full-Page Neon Border */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border: 10px solid transparent;
-    animation: neon-border-cycle 15s infinite linear;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* 🌟 Neon Border Opening Animation */
-.neon-border {
+/* 🎛️ Review Actions - Aligns Edit/Delete Buttons */
+.review-actions {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 0px;
-    width: 70%;
-    margin: 20px auto;
-    border: 8px solid transparent;
-    border-radius: 20px;
-    overflow: hidden;
-    font-size: 36px;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* ✨ Add Review Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
     font-weight: bold;
+    padding: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* 🟣 Neon Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* 🔗 Back Link */
+.neon-link {
     color: #00ff00;
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-    opacity: 0;
-    animation: neon-expand 1.5s ease-out forwards, neon-glow 5s infinite linear 1.5s, text-fade-in 1s ease-out forwards 1.5s;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
 }
 
-@keyframes neon-expand {
-    0% { height: 0px; }
-    50% { height: 50px; }
-    100% { height: 160px; }
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
 }
 
-@keyframes text-fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* 🎮 All Reviews Container */
+.review-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
 }
 
-@keyframes neon-glow {
-    0% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
-    33% { box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; border-color: #00ff00; }
-    66% { box-shadow: 0 0 20px #0000ff, 0 0 40px #0000ff; border-color: #0000ff; }
-    100% { box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; border-color: #ff0000; }
+/* 🟢 Game Title Styling */
+.game-reviews h2 {
+    font-size: 2rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-/* 📌 Mobile Navbar Improvement */
-@media (max-width: 992px) {
-    .navbar-collapse {
-        background-color: #0a0a0a;
-        padding: 15px;
-        border-radius: 5px;
+/* ✨ Neon Review Card */
+.neon-card {
+    background: black;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.neon-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+}
+
+/* 🔥 Review Content */
+.review-content {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 0 0 5px #00ff00;
+    margin-bottom: 15px;
+}
+
+/* 🟡 Review Meta Data */
+.neon-card p {
+    font-size: 1.1rem;
+    color: #ffcc00;
+}
+
+/* ⭐ Review Rating */
+.neon-card p strong {
+    color: #00ff00;
+}
+
+/* 🟢 View Game Reviews Button */
+.btn-neon {
+    display: inline-block;
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-neon:hover {
+    background-color: #ff00ff;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* 🔙 Back Link */
+.neon-link {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    margin-top: 20px;
+}
+
+.neon-link:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 15px #ffcc00;
+}
+
+/* 🟢 Footer with Neon Border */
+footer {
+    background-color: black;
+    color: #00ff00;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    border: 2px solid #00ff00; /* ✅ Thin neon green border */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
+}
+
+/* 🚀 Hero Section - Two-Color Neon Border (Blue & Pink) */
+.hero-container {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 80px 40px;
+    width: 85%;
+    max-width: 950px;
+    margin: 40px auto;
+    border-radius: 15px;
+    border: 3px solid #00ccff; /* ✅ Starts with Blue */
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.7);
+    text-align: center;
+    animation: neon-border-cycle 3s infinite alternate;
+}
+
+/* ✨ Neon Border Animation - Blue to Pink */
+@keyframes neon-border-cycle {
+    0% {
+        border-color: #00ccff; /* ✅ Blue */
+        box-shadow: 0 0 15px #00ccff, 0 0 25px #00ccff;
+    }
+    100% {
+        border-color: #ff00ff; /* ✅ Pink */
+        box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
     }
 }
 
-/* 📌 Responsive Design */
+/* 📌 Media Queries (Responsive Design) */
 @media (max-width: 600px) {
     .game-container {
         flex-direction: column;
         align-items: center;
-    }
-
-    .card {
-        width: 90%;
     }
 }
 
