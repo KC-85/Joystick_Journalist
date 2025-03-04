@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.db.models import Avg
 from .models import Game, Review
 from .forms import GameForm, ReviewForm, RegisterForm
+from collections import defaultdict
 
 # ✅ Secure Authentication Views
 class SecureLoginView(LoginView):
@@ -127,7 +128,24 @@ def delete_review(request, review_id):
 
     return render(request, 'reviews/confirm_delete.html', {'object': review, 'type': 'review'})
 
-# ✅ List All Reviews
+# ✅ List All Reviews Grouped by Game
 def all_reviews(request):
-    reviews = Review.objects.select_related('game').all()
-    return render(request, 'reviews/review_page.html', {'reviews': reviews, 'title': "All Reviews"})
+    reviews = Review.objects.select_related('game').all().order_by('-id')
+
+    grouped_reviews = defaultdict(list)
+    for review in reviews:
+        grouped_reviews[review.game.title].append(review)  # Store under game title
+
+    # Convert defaultdict to a normal dictionary
+    grouped_reviews = dict(grouped_reviews)
+
+    print("\nDEBUG: Grouped Reviews Data\n")  # Print debug output
+    for game, reviews in grouped_reviews.items():
+        print(f"Game: {game}, Reviews: {len(reviews)}")
+        for r in reviews:
+            print(f" - {r.reviewer_name}: {r.rating}/5 - {r.comment}")
+
+    return render(request, 'reviews/all_reviews.html', {
+        'grouped_reviews': grouped_reviews,
+        'title': "All Reviews"
+    })

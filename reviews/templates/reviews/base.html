@@ -36,6 +36,10 @@
                     </li>
 
                     {% if request.user.is_authenticated %}
+                        <!-- 📝 All Reviews Link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-primary fw-bold px-3" href="{% url 'all_reviews' %}">All Reviews</a>
+                        </li>
                         <li class="nav-item">
                             <a class="btn btn-link nav-link add-game-link" href="{% url 'game_form' %}">
                                 <span class="add-game-icon">➕</span> Add Game

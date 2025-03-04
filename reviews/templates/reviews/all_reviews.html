@@ -1,0 +1,35 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}All Reviews - Joystick Journalist{% endblock %}
+
+{% block content %}
+<div class="container review-container">
+    <h1 class="neon-title text-center">All Reviews</h1>
+
+    <!-- 🟢 Loop Through Each Game -->
+    {% if grouped_reviews %}
+        {% for game_title, reviews in grouped_reviews.items %}
+            <div class="game-reviews">
+                <h2 class="text-neon text-center">{{ game_title }}</h2>
+
+                <!-- 🔥 Display Reviews Under Each Game -->
+                {% for review in reviews %}
+                    <div class="neon-card">
+                        <p><strong>Reviewed by:</strong> {{ review.reviewer_name }}</p>
+                        <p><strong>Rating:</strong> ⭐ {{ review.rating }}/5</p>
+                        <p class="review-content">{{ review.comment }}</p>
+                        <a href="{% url 'review_page' review.game.id %}" class="btn btn-neon">🔎 View Game Reviews</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-warning text-center">No reviews available yet.</p>
+    {% endif %}
+
+    <!-- 🔙 Back to Home -->
+    <div class="text-center mt-3">
+        <a href="{% url 'landing_page' %}" class="neon-link">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
