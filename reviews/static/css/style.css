@@ -511,6 +511,85 @@ html, body {
     color: black;
 }
 
+/* 🟢 Review Section */
+.review-container {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* 📝 Review List - Organizes Reviews in a Column */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between reviews */
+}
+
+/* 🔥 Neon-Styled Review Cards */
+.review-card {
+    background-color: black;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* 🎮 Review Text - Content of Review */
+.review-text {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+
+/* ⭐ Review Rating - Highlights Rating */
+.review-rating {
+    font-weight: bold;
+    color: #ffcc00;
+    text-align: center;
+}
+
+/* ✍️ Review Author - Credits the Reviewer */
+.review-author {
+    font-style: italic;
+    color: #00ff00;
+    text-align: center;
+}
+
+/* 🎛️ Review Actions - Aligns Edit/Delete Buttons */
+.review-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* ✨ Add Review Button */
+.btn-neon {
+    background-color: #00ff00;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* 🟣 Neon Hover Effect */
+.btn-neon:hover {
+    background-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+/* 🔗 Back Link */
+.neon-link {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    transition: color 0.3s ease-in-out;
+}
+
+.neon-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
 /* 🟢 Footer with Neon Border */
 footer {
     background-color: black;

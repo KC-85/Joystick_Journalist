@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import game_form
+from .views import game_form, review_form
 from django.contrib.auth import views as auth_views
 from .views import SecureLoginView, SecureLogoutView, register
 import reviews.views as views

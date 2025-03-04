@@ -66,10 +66,12 @@ def landing_page(request):
 def review_page(request, game_id):
     game = get_object_or_404(Game, id=game_id)
     reviews = game.reviews.all()
+    form = ReviewForm()
     
     return render(request, 'reviews/review_page.html', {
         'game': game, 
-        'reviews': reviews
+        'reviews': reviews,
+        'form': form
     })
 
 # ✅ Create & Edit Game (Unified View)
