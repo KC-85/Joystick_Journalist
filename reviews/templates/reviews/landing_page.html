@@ -24,7 +24,7 @@
                     <p>Genre: <span class="text-info">{{ game.genre.name }}</span></p>
                     <p class="average-rating text-warning">⭐ {{ game.average_rating|default:"No Ratings Yet" }}</p>
                     <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
-                        View Reviews
+                        Add Review
                     </a>
                 </div>
             </div>
