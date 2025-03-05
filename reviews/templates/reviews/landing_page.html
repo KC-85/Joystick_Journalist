@@ -26,6 +26,15 @@
                     <a href="{% url 'review_page' game.id %}" class="btn btn-outline-success btn-sm">
                         Add Review
                     </a>
+
+                    <!-- 🗑️ Delete Game Button -->
+                    <form action="{% url 'delete_game' game.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger btn-sm"
+                            onclick="return confirm('Are you sure you want to delete this game?')">
+                            🗑️ Delete Game
+                        </button>
+                    </form>
                 </div>
             </div>
         {% empty %}
