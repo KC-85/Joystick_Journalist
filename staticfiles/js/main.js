@@ -1,23 +1,7 @@
+/* jshint esversion: 11 */
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ JavaScript Loaded!");
-
-    // 🚀 LOADING SCREEN FADE OUT
-    window.addEventListener("load", function () {
-        console.log("✅ Page Loaded - Initiating Fade Out");
-        const loader = document.getElementById("loading-screen");
-
-        if (loader) {
-            setTimeout(() => {
-                loader.style.opacity = "0";
-                setTimeout(() => {
-                    loader.style.display = "none";
-                    console.log("✅ Loading Screen Removed");
-                }, 300);
-            }, 300);
-        } else {
-            console.error("🚨 Loading screen element not found!");
-        }
-    });
 
     // 🎭 TOGGLE REVIEW FORM
     const toggleButton = document.getElementById("toggle-review-form");
