@@ -18,7 +18,7 @@ class URLTests(SimpleTestCase):
 
     def test_add_game_url(self):
         """Test add game URL"""
-        url = reverse('add_game')
+        url = reverse('game_form')
         self.assertEqual(resolve(url).func, game_form)
 
     def test_add_review_url(self):
