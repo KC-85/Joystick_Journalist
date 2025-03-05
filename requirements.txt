@@ -9,6 +9,7 @@ charset-normalizer==3.4.1
 dj-database-url==2.3.0
 Django==5.1.6
 django-extensions==3.2.3
+django-jazzmin==3.0.1
 flake8==7.1.2
 google-ai-generativelanguage==0.6.15
 google-api-core==2.24.1
