@@ -728,6 +728,37 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    .game-card {
+        text-align: center;
+    }
+    
+    .game-card .btn {
+        display: block;  /* Ensures buttons are stacked vertically */
+        width: 90%;  /* Ensures buttons don't stretch too wide */
+        margin: 5px auto; /* Adds spacing between buttons */
+    }
+}
+
+@media (max-width: 768px) {
+    .delete-game-btn {
+        margin-top: 10px;  /* Adds space between Add Review & Delete */
+    }
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Stack buttons */
+        align-items: center; /* Center buttons */
+    }
+    
+    .button-container .btn {
+        width: 90%; /* Ensures buttons don't stretch too wide */
+        margin: 5px auto; /* Adds spacing between buttons */
+    }
+}
+
 @media (max-width: 1024px) {
     .card {
         width: 80%;
