@@ -721,50 +721,7 @@ footer {
 }
 
 /* 📌 Media Queries (Responsive Design) */
-@media (max-width: 600px) {
-    .game-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .game-card {
-        text-align: center;
-    }
-    
-    .game-card .btn {
-        display: block;  /* Ensures buttons are stacked vertically */
-        width: 90%;  /* Ensures buttons don't stretch too wide */
-        margin: 5px auto; /* Adds spacing between buttons */
-    }
-}
-
-@media (max-width: 768px) {
-    .delete-game-btn {
-        margin-top: 10px;  /* Adds space between Add Review & Delete */
-    }
-}
-
-@media (max-width: 768px) {
-    .button-container {
-        display: flex;
-        flex-direction: column; /* Stack buttons */
-        align-items: center; /* Center buttons */
-    }
-    
-    .button-container .btn {
-        width: 90%; /* Ensures buttons don't stretch too wide */
-        margin: 5px auto; /* Adds spacing between buttons */
-    }
-}
-
-@media (max-width: 1024px) {
-    .card {
-        width: 80%;
-    }
-}
-
+/* 📌 General Styles for Responsiveness */
 @media (max-width: 1366px) {
     .container {
         padding: 20px;
@@ -778,5 +735,92 @@ footer {
 @media (min-width: 1367px) {
     .container {
         max-width: 1200px;
+    }
+}
+
+/* ✅ Tablet & Small Desktop Adjustments */
+@media (max-width: 1024px) {
+    .card {
+        width: 80%;
+    }
+}
+
+/* ✅ Mobile & Tablet Layout Fixes */
+@media (max-width: 768px) {
+    /* 🔹 Game Container - Stacks Cards */
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Prevents overlap */
+    }
+
+    /* 🔹 Game Cards - Centered & No Overlap */
+    .game-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        min-height: 350px; /* Prevents button overlap */
+        width: 90%;
+    }
+
+    /* 🔹 Buttons Inside Cards - Stacks Properly */
+    .game-card .btn {
+        display: block;
+        width: 90%;
+        max-width: 220px;
+        margin: 5px auto;
+    }
+
+    /* 🔹 Button Container - Stack Layout */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .button-container .btn {
+        width: 100%;
+        max-width: 250px; /* Slightly bigger buttons */
+        margin: 5px auto;
+    }
+
+    /* 🔹 Prevent Button Overlap */
+    .delete-game-btn {
+        margin-top: 15px; /* Ensures spacing below Add Review */
+    }
+
+    /* 🔹 Fix Text Wrapping Issues */
+    h2, h3, p {
+        word-wrap: break-word;
+        text-align: center;
+    }
+}
+
+/* ✅ Extra Small Mobile (Phones < 600px) */
+@media (max-width: 600px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-card {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .game-card .btn {
+        font-size: 14px; /* Smaller buttons for compact screens */
+    }
+
+    .button-container {
+        gap: 8px; /* Slightly less spacing on very small screens */
     }
 }
