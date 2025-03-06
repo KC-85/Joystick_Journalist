@@ -754,48 +754,46 @@ footer {
         gap: 15px; /* Prevents overlap */
     }
 
-    /* 🔹 Game Cards - Enlarged for Better Layout */
+@media (max-width: 768px) {
+    /* 🔹 Game Cards - Fixed Layout */
     .game-card {
         position: relative;
         display: flex;
         flex-direction: column;
         text-align: center;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; /* Distributes content evenly */
         padding: 25px;
-        min-height: 600px; /* ⬆️ Increased height to prevent button overlap */
+        min-height: 600px; /* ⬆️ Increased height */
         width: 90%;
+        overflow: hidden; /* 🚀 Ensures content doesn't spill out */
     }
-
-    /* 🔹 Buttons Inside Cards - Stacks Properly */
-    .game-card .btn {
-        display: block;
-        width: 90%;
-        max-width: 220px;
-        margin: 5px auto;
-    }
-
-    /* 🔹 Button Container - Stack Layout */
+    
+    /* 🔹 Button Container - Stays Inside the Card */
     .button-container {
+        position: absolute; /* ⬅️ Keeps it inside the card */
+        bottom: 20px; /* Moves it to the bottom inside the card */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        gap: 12px;
-        margin-top: 20px;
+        gap: 10px;
     }
-
+    
+    /* 🔹 Buttons - Properly Sized & Positioned */
     .button-container .btn {
-        width: 100%;
-        max-width: 250px; /* Slightly bigger buttons */
-        margin: 6px auto;
+        width: 80%; /* Adjusts button width for proper fit */
+        max-width: 220px;
+        margin: 5px auto;
     }
-
-    /* 🔹 Prevent Button Overlap */
+    
+    /* 🔹 Prevent Buttons From Overflowing */
     .delete-game-btn {
-        margin-top: 20px; /* More space between Add Review & Delete */
+        margin-top: 10px; /* Keeps spacing consistent */
     }
+}
 
     /* 🔹 Fix Text Wrapping Issues */
     h2, h3, p {
