@@ -763,7 +763,7 @@ footer {
         align-items: center;
         justify-content: space-between;
         padding: 25px;
-        min-height: 400px; /* ⬆️ Increased height to prevent button overlap */
+        min-height: 600px; /* ⬆️ Increased height to prevent button overlap */
         width: 90%;
     }
 
