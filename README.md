@@ -5,8 +5,22 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist)
 
 ⚠️ INSTRUCTIONS ⚠️
+# Overview
+Joystick Journalist is an interactive gaming review platform dedicated to 90s retro video games. It allows users to browse, review, and rate classic games, creating a community-driven archive of gaming nostalgia. 
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
+The project aims to bring together retro gaming enthusiasts who want to share their experiences, rate games, and discuss their favorites from a golden era of gaming. By providing a structured platform for reviews, Joystick Journalist serves as a valuable resource for both long-time fans and newcomers eager to explore the classics.
+
+# Target Audience
+This platform is designed for retro gaming fans, gaming historians, and new players alike. Enthusiasts who grew up playing classic titles can relive their favorite moments and contribute by sharing their insights and reviews.
+
+Gaming historians can use the platform to document and evaluate the impact of these legendary titles, while new players can discover highly rated classics based on community recommendations. By fostering an interactive and engaging environment, Joystick Journalist ensures that the legacy of these games continues to be celebrated.
+
+# Purpose & Benefits
+The primary goal of Joystick Journalist is to preserve gaming history through user-generated content. By allowing players to leave reviews and rate games, the platform builds a database of insights and opinions on some of the most iconic titles ever created.
+
+Users benefit from community-driven ratings, which help highlight the best games from the 90s based on collective experiences. The platform also features an intuitive and easy-to-use review system, ensuring that players of all skill levels can contribute.
+
+Designed with a responsive layout, it offers a seamless experience across both desktop and mobile devices. Additionally, user authentication and secure access ensure a safe and personalized experience for every member of the community.
 
 ⚠️ --- END --- ⚠️
 
@@ -92,18 +106,17 @@ source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=htt
 
 ⚠️INSTRUCTIONS ⚠️
 
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
+The Joystick Journalist platform embraces a retro-futuristic neon aesthetic, inspired by classic arcade gaming and cyberpunk themes.
 
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
+The dark background enhances readability while allowing neon colors to pop, evoking the nostalgic feel of old CRT monitors and neon-lit arcades.
 
 ⚠️ --- END --- ⚠️
 
 I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
-
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
+- `#000000` (Black) - Primary Background (Dark theme for retro aesthetic).
+- `#00FF00` (Neon Green) - Primary Text & Borders (Glowing retro text effect).
+- `#FFCC00` (Golden Yellow) - Hover Highlights (Interactive elements glow on hover).
+- `#FF00FF` (Neon Purple) - Secondary Highlights (Accents and animated elements).
 
 ![screenshot](documentation/coolors.png)
 
@@ -111,7 +124,13 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 
 ⚠️ INSTRUCTIONS ⚠️
 
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
+The primary font used in this project is VT323, a monospace font that gives the site a retro gaming aesthetic. It was imported from Google Fonts and applied site-wide to maintain a consistent theme.
+
+- [VT323](https://fonts.google.com/specimen/VT323) was used for all text within the site in keeping with the 90s retro theme.
+
+Instead of Font Awesome, the project utilizes Unicode symbols and emojis to represent interactive elements such as:
+
+- [ChatGPT] all icons within the site was generated via ChatGPT to represent interactive elements.
 
 ⚠️ --- END --- ⚠️
 

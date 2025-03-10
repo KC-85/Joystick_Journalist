@@ -35,6 +35,15 @@ CSRF_TRUSTED_ORIGINS = [
     "https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
 ]
 
+# Site Security Hardening
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+DEBUG_PROPOGATE_EXCEPTIONS =False
 
 # Installed Apps
 INSTALLED_APPS = [
@@ -122,7 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': (
             'django.contrib.auth.password_validation.'
-            'MinimumLengthValidator'
+            'MinimumLengthValidator', "OPTIONS": {
+                "min_length": 12
+            }
         )
     },
     {
@@ -137,6 +148,14 @@ AUTH_PASSWORD_VALIDATORS = [
             'NumericPasswordValidator'
         )
     },
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MaximimLengthValidator', "OPTIONS": {
+                "max_length": 128
+            }
+        )
+    }
 ]
 
 
