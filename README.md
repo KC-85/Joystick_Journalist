@@ -148,14 +148,15 @@ In this section, list all of your possible user stories for the project. Samples
 
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a blog owner | I would like to create new blog posts with a title, featured image, and content | so that I can share my experiences with my audience. |
-| As a blog owner | I would like to update existing blog posts | so that I can correct or add new information to my previous stories. |
-| As a blog owner | I would like to delete blog posts | so that I can remove outdated or irrelevant content from my blog. |
-| As a blog owner | I would like to retrieve a list of all my published blog posts | so that I can manage them from a central dashboard. |
-| As a blog owner | I would like to preview a post as draft before publishing it | so that I can ensure formatting and content appear correctly. |
-| As a blog owner | I would like to review comments before they are published | so that I can filter out spam or inappropriate content. |
-| As a blog owner | I would like to approve or reject comments from users | so that I can maintain control over the discussion on my posts. |
-| As a blog owner | I would like to view a list of all comments (both approved and pending) | so that I can manage user engagement effectively. |
+| As a site visitor/guest | I would like to see an introduction to the site (Hero Section) | so that I understand what the site is about before registering. |
+| As a site visitor/guest | I would like to be able to register for a user account | so that I can access the game library and become a part of the game community. |
+| As a registered user | I would like to login to the site | so that I can access my account and review the game library. |
+| As a registered user | I would like to add a game | so that I can add a review in future. |
+| As a registered user | I would like to add a genre to the added game | so that other users will recognise the type of game. |
+| As a registered user | I would like to add a game review | so that other users can determine whether to play a certain game or not. |
+| As a registered user | I would like to edit a game review i made | so that other site users can see the updated review in case of game updates. |
+| As a registered user  | I would like to delete a game review that i made | so that I can clear irrelevant text content. |
+| As a registered user | I would like to delete a game that i added | so that I can delete games that are no longer popular within the community. |
 | As a blog owner | I would like to edit or delete user comments | so that I can clean up or remove inappropriate responses after they've been posted. |
 | As a registered user | I would like to log in to the site | so that I can leave comments on blog posts. |
 | As a registered user | I would like to register for an account | so that I can become part of the community and engage with the blog. |

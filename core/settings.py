@@ -129,12 +129,10 @@ AUTH_PASSWORD_VALIDATORS = [
         )
     },
     {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'MinimumLengthValidator', "OPTIONS": {
-                "min_length": 12
-            }
-        )
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12  # ✅ Sets minimum password length to 12
+        }
     },
     {
         'NAME': (
@@ -146,14 +144,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': (
             'django.contrib.auth.password_validation.'
             'NumericPasswordValidator'
-        )
-    },
-    {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'MaximimLengthValidator', "OPTIONS": {
-                "max_length": 128
-            }
         )
     }
 ]
