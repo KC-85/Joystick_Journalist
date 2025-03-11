@@ -152,9 +152,9 @@ In this section, list all of your possible user stories for the project. Samples
 | As a site visitor/guest | I would like to be able to register for a user account | so that I can access the game library and become a part of the game community. |
 | As a registered user | I would like to login to the site | so that I can access my account and review the game library. |
 | As a registered user | I would like to add a game | so that I can add a review in future. |
-| As a registered user | I would like to add a genre to the added game | so that other users will recognise the type of game. |
+| As a registered user | I would like to see details for each game, such as genre and release year | so that I can get relevant information before reviewing. |
 | As a registered user | I would like to add a game review | so that other users can determine whether to play a certain game or not. |
-| As a registered user | I would like to edit a game review i made | so that other site users can see the updated review in case of game updates. |
+| As a registered user | I would like to update a game review i made | so that other site users can see the updated review in case of game updates. |
 | As a registered user  | I would like to delete a game review that i made | so that I can clear irrelevant text content. |
 | As a registered user | I would like to delete a game that i added | so that I can delete games that are no longer popular within the community. |
 | As a blog owner | I would like to edit or delete user comments | so that I can clean up or remove inappropriate responses after they've been posted. |
