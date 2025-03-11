@@ -54,17 +54,16 @@ source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=htt
 
 #### 1. Strategy Plane
 ##### Purpose
-- Provide blog owners with tools to create, manage, and moderate engaging blog content and user interactions.
-- Offer users and guests an intuitive platform to explore, engage, and contribute to blog discussions.
+- Provide site owners with tools to create, manage, and moderate engaging site content and user interactions.
+- Offer users and guests an intuitive platform to explore, engage, and contribute to site discussions.
 
 ##### Primary User Needs
-- Blog owners need seamless tools for publishing and managing posts and comments.
-- Registered users need the ability to engage with blog content through comments and account features.
-- Guests need the ability to browse and enjoy blog content without registration.
+- Site owners need seamless tools for publishing and managing reviews.
+- Registered users need the ability to engage with site content through reviews and account features.
 
 ##### Business Goals
-- Foster a dynamic blogging platform with active user participation.
-- Build a sense of community through discussions and user engagement.
+- Foster a dynamic site platform with active user participation.
+- Build a sense of community through user engagement.
 - Ensure easy blog content management for owners.
 
 #### 2. Scope Plane
@@ -72,26 +71,27 @@ source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=htt
 - A full list of [Features](#features) can be viewed in detail below.
 
 ##### Content Requirements
-- Blog post management (create, update, delete, and preview).
-- Comment moderation and management tools.
-- User account features (register, log in, edit/delete comments).
+- Game and review management (create, read, update and delete).
+- Review approval management tools.
+- User account features (register, log in, edit/delete their own game and review additions).
 - Notification system for comment approval status.
 - 404 error page for lost users.
 
 #### 3. Structure Plane
 ##### Information Architecture
 - **Navigation Menu**:
-  - Links to Home, Blog Posts, Login/Register, and Dashboard (for blog owners).
+  - Links to Home, Add review, View reviews, Login/Register, and Dashboard (for site owners).
 - **Hierarchy**:
-  - Blog content displayed prominently for easy browsing.
-  - Clear call-to-action buttons for account creation and engagement (e.g., commenting).
+  - Site content displayed prominently for easy browsing.
+  - Clear Hero Section and call-to-action buttons for account creation.
+  
 
 ##### User Flow
-1. Guest users browse blog content → read posts and see commenter names.
-2. Guest users register for an account → log in to leave comments.
-3. Registered users leave comments → receive a pending approval notification.
-4. Blog owners create, update, and manage posts → moderate comments.
-5. Blog owners approve or reject comments → manage user interactions.
+1. Guest users see hero section with a call-to-action button, encouraging them to register for an account.
+2. Guest users register for an account → log in to add games and/or reviews.
+3. Registered users leave reviews → receive a pending approval notification.
+4. Site owners manage review approval.
+5. Site owners approve or reject reviews.
 
 #### 4. Skeleton Plane
 ##### Wireframe Suggestions
@@ -129,6 +129,7 @@ The primary font used in this project is VT323, a monospace font that gives the 
 - [VT323](https://fonts.google.com/specimen/VT323) was used for all text within the site in keeping with the 90s retro theme.
 
 Instead of Font Awesome, the project utilizes Unicode symbols and emojis to represent interactive elements such as:
+- Buttons and Navbar links.
 
 - [ChatGPT] all icons within the site was generated via ChatGPT to represent interactive elements.
 
@@ -157,18 +158,13 @@ In this section, list all of your possible user stories for the project. Samples
 | As a registered user | I would like to update a game review i made | so that other site users can see the updated review in case of game updates. |
 | As a registered user  | I would like to delete a game review that i made | so that I can clear irrelevant text content. |
 | As a registered user | I would like to delete a game that i added | so that I can delete games that are no longer popular within the community. |
-| As a blog owner | I would like to edit or delete user comments | so that I can clean up or remove inappropriate responses after they've been posted. |
-| As a registered user | I would like to log in to the site | so that I can leave comments on blog posts. |
-| As a registered user | I would like to register for an account | so that I can become part of the community and engage with the blog. |
-| As a registered user | I would like to leave a comment on a blog post | so that I can share my thoughts or ask questions about the owner's experiences. |
-| As a registered user | I would like my comment to show my name and the timestamp | so that others can see who I am and when I left the comment. |
-| As a registered user | I would like to receive a notification or message saying my comment is pending approval | so that I understand it hasn't been posted immediately. |
-| As a registered user | I would like to edit or delete my own comments | so that I can fix mistakes or retract my statement. |
-| As a guest user | I would like to read blog posts without registering | so that I can enjoy the content without needing to log in. |
-| As a guest user | I would like to browse past posts | so that I can explore the blog's full content history. |
-| As a guest user | I would like to register for an account | so that I can participate in the community by leaving comments on posts. |
-| As a guest user | I would like to see the names of other commenters on posts | so that I can get a sense of community interaction before registering. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| As a site owner | I would like to edit or delete a user review | so that I can clean up or remove inappropriate responses after they've been posted. |
+| As a registered user | I would like my comment to show my name and the timestamp | so that others can see who I am and when I left the review. |
+| As a registered user | I would like to receive a notification or message saying my review is pending approval | so that I understand it hasn't been posted immediately. |
+| As a registered user | I would like to edit or delete my own reviews | so that I can fix mistakes or retract my statement. |
+
+| As a registered user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| As a site owner | I would like to see a login error page | so that after a certain number of login attempts with the wrong credentials, i can be sure that the site is safe from brute-force login attempts |
 
 ## Wireframes
 
@@ -234,10 +230,12 @@ A few examples are listed below to align with possible ways to improve on the sa
 
 ⚠️ --- END ---⚠️
 
-- **Post Categories/Tags**: Allow users to categorize and tag blog posts, making it easier for visitors to filter content based on their interests.
+- **Post Categories/Tags**: Allow users to categorize and tag games and reviews.
 - **Post Search Functionality**: Add a search bar for users to quickly find posts by keywords or phrases.
+- **Site Chat Function**: Implement the site chat function so that users are able to engage fully with one another.
+- **Spam and Profanity Filter**: Makes sure that inappropriate conversations are deleted
 - **Post Likes/Dislikes or Upvotes**: Implement a "like" or "upvote" system for blog posts to encourage user engagement and give feedback to the author.
-- **User Profiles**: Create personalized user profiles where authenticated users can view their comments, liked posts, and account information.
+- **User Profiles**: Create personalized user profiles where authenticated users can view their comments, liked posts, and basic account information.
 - **Comment Replies & Threads**: Enable users to reply to comments, creating nested comment threads for better discussions.
 - **Post Sharing**: Add social media sharing buttons (e.g., Twitter, Facebook, LinkedIn) for users to share blog posts.
 - **Notifications**: Implement a notification system that alerts users when their comments are approved, when new comments are made on a post they've commented on, or when new posts are published.
@@ -246,7 +244,9 @@ A few examples are listed below to align with possible ways to improve on the sa
 - **Multilingual Support**: Add the ability to write and view blog posts in multiple languages, broadening the audience.
 - **Related Posts Recommendations**: Show related posts at the bottom of a blog post to encourage further reading and keep users engaged.
 - **Content Flagging/Reporting**: Allow users to flag or report inappropriate content (comments or posts) for moderation.
-- **SEO Optimization**: Implement features for SEO, such as meta tags, custom URLs, and keywords for better search engine ranking.
+- **Add Regular Users as Chat Moderators**: Adds a larger sense of community being.
+- **Add an AI Chatbot as a Moderator Bot**: To help with chat moderation once audience becomes large enough.
+- **SEO Optimization**: Implement features for SEO, such as custom URLs forbetter search engine ranking.
 - **User Dashboard**: Provide users with a dashboard to track their activity, such as comments made, likes received, and blog posts they’ve interacted with.
 - **Admin Dashboard Analytics**: Provide site admins with an analytics dashboard showing user activity, popular posts, most commented articles, etc.
 - **Custom Themes for Users**: Allow users to customize the visual theme of the site (colors, fonts, etc.) to suit their preferences.
@@ -312,35 +312,22 @@ I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
 erDiagram
-    USER ||--o{ POST : "authors"
-    USER ||--o{ COMMENT : "commenters"
-    POST ||--o{ COMMENT : "has"
-    POST {
-        string title
-        string slug
-        cloudinary featured_image
-        text content
-        text excerpt
-        datetime created_on
-        datetime updated_on
-        int status
-    }
-    COMMENT {
-        text body
-        datetime created_on
-        bool approved
-    }
-    ABOUT {
-        string title
-        cloudinary profile_image
-        text content
-        datetime updated_on
-    }
-    COLLABORATEREQUEST {
+    Genre ||--o{ Game : has
+    Game ||--o{ Review : receives
+    Genre {
         string name
-        string email
-        text message
-        bool read
+    }
+    Game {
+        string title
+        int release_year
+        Genre genre
+    }
+    Review {
+        string reviewer_name
+        int rating
+        text comment
+        datetime review_date
+        Game game
     }
 ```
 
