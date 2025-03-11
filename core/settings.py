@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'whitenoise.runserver_nostatic',  # Static files support for Heroku
+    'axes',  # Protects against Brute-Force attacks
     'reviews',  # Your custom app
 ]
 
@@ -69,9 +70,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',  # Protects login attempts
     'reviews.login_middleware.LoginRequiredMiddleware',
 ]
 
+# ✅ AXES: Brute-Force Protection Settings
+AXES_ENABLED = True  # Ensures django-axes is active
+AXES_FAILURE_LIMIT = 5  # Allow only 5 failed attempts before locking out
+AXES_COOLOFF_TIME = 1  # Lock out for 1 hour (set in hours)
+AXES_LOCKOUT_TEMPLATE = 'reviews/lockout.html'  # Custom lockout page
+AXES_USE_USER_AGENT = True  # Track user agent
+AXES_ONLY_USER_FAILURES = True  # Track login failures per username
+
+# ✅ Automatically unlock after cooldown time (optional)
+AXES_RESET_ON_SUCCESS = True
 
 # Root URL configuration
 ROOT_URLCONF = 'core.urls'
