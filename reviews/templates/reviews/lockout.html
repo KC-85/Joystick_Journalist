@@ -1,0 +1,11 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}Locked Out - Joystick Journalist{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1 class="text-danger">🚨 Account Locked 🚨</h1>
+        <p>Too many failed login attempts. Try again later.</p>
+        <a href="{% url 'login' %}" class="btn btn-warning">Go Back to Login</a>
+    </div>
+{% endblock %}
