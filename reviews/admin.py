@@ -7,16 +7,9 @@ admin.site.register(Game)
 admin.site.register(Review)
 admin.site.register(Genre)
 
-# ✅ Monitor failed login attempts (Django Axes)
-@admin.register(AccessAttempt)
-class AccessAttemptAdmin(admin.ModelAdmin):
-    list_display = ('username', 'ip_address', 'attempt_time', 'failures_since_start')
-    search_fields = ('username', 'ip_address')
-    list_filter = ('attempt_time',)
+# ✅ Prevent Double Registration of Axes Models
+if not admin.site.is_registered(AccessAttempt):
+    admin.site.register(AccessAttempt, AccessAttemptAdmin)
 
-# ✅ Monitor successful & failed logins (Django Axes)
-@admin.register(AccessLog)
-class AccessLogAdmin(admin.ModelAdmin):
-    list_display = ('username', 'ip_address', 'attempt_time', 'trusted')
-    search_fields = ('username', 'ip_address')
-    list_filter = ('trusted',)
+if not admin.site.is_registered(AccessLog):
+    admin.site.register(AccessLog, AccessLogAdmin)
