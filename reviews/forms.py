@@ -21,6 +21,18 @@ class RegisterForm(UserCreationForm):
             raise ValidationError("This email is already in use.")
         return email
 
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+    
+        if password1 and password2:
+            if password1 != password2:
+                raise ValidationError("Passwords do not match. Please try again.")
+            if len(password1) < 12:
+                raise ValidationError("Password must be at least 12 characters long.")
+    
+        return password2   
+
 """Form for creating or updating a Game"""
 class GameForm(forms.ModelForm):
     class Meta:

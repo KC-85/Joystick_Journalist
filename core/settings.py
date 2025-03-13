@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
 # CSRF Trusted Origins (For Heroku & GitPod)
 CSRF_TRUSTED_ORIGINS = [
     "https://127.0.0.1",
-    "https://localhost",
+    "https://127.0.0.1:8000",
+    "https://localhost:8000",
     "https://joystick-journalist-3eda94de87b5.herokuapp.com",
     "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
     "https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
@@ -85,7 +86,7 @@ AXES_RESET_ON_SUCCESS = True
 
 # ✅ New Authentication Backend for Axes
 AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesStandaloneBackend',  # Required for Axes brute-force protection
+    'axes.backends.AxesBackend',  # Required for Axes brute-force protection
     'django.contrib.auth.backends.ModelBackend',  # Default Django authentication
 ]
 
@@ -147,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
         'OPTIONS': {
-            'min_length': 12  # ✅ Sets minimum password length to 12
+            'min_length': 8  # ✅ Sets minimum password length to 8
         }
     },
     {

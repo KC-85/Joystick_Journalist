@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import login, get_backends
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -26,20 +27,22 @@ class SecureLogoutView(LogoutView):
 
 # ✅ Fixed User Registration
 def register(request):
-    print("✅ DEBUG: register view called!")  # Debugging print statement
-
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()  # ✅ No need for set_password()
-            login(request, user)  # ✅ Auto-login after registration
-            print("✅ DEBUG: User registered successfully!")
+            user = form.save()  # ✅ Create new user
 
-            request.session['registered_before'] = True
+            # 🔹 Manually assign the authentication backend
+            backend = get_backends()[0]  # Pick the first authentication backend
+            user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
+
+            login(request, user)  # ✅ Login user with specified backend
             messages.success(request, "🎉 Account created successfully! Welcome to Joystick Journalist 🎮")
 
-            return redirect('landing_page')  # ✅ Redirect to homepage after signup
+            return redirect('landing_page')  # ✅ Redirect after successful registration
         else:
+            print("\n❌ DEBUG: Registration failed due to the following errors:")
+            print(form.errors.as_json())  # ✅ Print form errors in JSON format
             messages.error(request, "⚠️ Registration failed. Please fix the errors below.")
 
     else:
@@ -47,9 +50,6 @@ def register(request):
 
     return render(request, "reviews/register.html", {"form": form})
     
-    print("✅ DEBUG: Rendering register.html")  # Print before rendering template
-    return render(request, 'reviews/register.html', {'form': form, 'title': "Register"})
-
 # ✅ Landing Page
 def landing_page(request):
     games = Game.objects.select_related('genre').annotate(

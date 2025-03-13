@@ -10,9 +10,16 @@
 
             <!-- 🚨 Show Error Messages (if any) -->
             {% if form.errors %}
-                <div class="alert alert-danger text-center neon-alert">
-                    Please fix the errors below and try again.
-                </div>
+            <div class="alert alert-danger text-center neon-alert">
+                <strong>⚠️ Registration failed.</strong> Please fix the errors below and try again.
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li><strong>{{ field|title }}:</strong> {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
             {% endif %}
 
             <!-- 📝 Registration Form -->
