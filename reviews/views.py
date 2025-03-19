@@ -149,3 +149,8 @@ def all_reviews(request):
         'grouped_reviews': grouped_reviews,
         'title': "All Reviews"
     })
+
+from django.shortcuts import render
+
+def custom_404_view(request, exception):
+    return render(request, "errors/404.html", status=404)

@@ -13,7 +13,7 @@ config = AutoConfig(BASE_DIR)
 
 # Security settings (Load from `.env`)
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed Hosts (Load from `.env`)
 ALLOWED_HOSTS = [
@@ -37,7 +37,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Site Security Hardening
-SECURE_SSL_REDIRECT = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
