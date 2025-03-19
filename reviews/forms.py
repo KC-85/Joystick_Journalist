@@ -28,8 +28,8 @@ class RegisterForm(UserCreationForm):
         if password1 and password2:
             if password1 != password2:
                 raise ValidationError("Passwords do not match. Please try again.")
-            if len(password1) < 12:
-                raise ValidationError("Password must be at least 12 characters long.")
+            if len(password1) < 8:
+                raise ValidationError("Password must be at least 8 characters long.")
     
         return password2   
 
