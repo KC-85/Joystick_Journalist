@@ -37,14 +37,21 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Site Security Hardening
-SECURE_SSL_REDIRECT = not DEBUG 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+import os
+
+# Determine if running on Heroku
+IS_HEROKU = "DYNO" in os.environ
+
+# Enforce HTTPS only on Heroku (not locally)
+SECURE_SSL_REDIRECT = IS_HEROKU  # Redirect only on Heroku
+SESSION_COOKIE_SECURE = IS_HEROKU  # Secure cookies only on Heroku
+CSRF_COOKIE_SECURE = IS_HEROKU  # CSRF secure only on Heroku
+
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
-DEBUG_PROPOGATE_EXCEPTIONS =False
+DEBUG_PROPAGATE_EXCEPTIONS =False
 
 # Installed Apps
 INSTALLED_APPS = [
