@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.views import LoginView, LogoutView
+from two_factor.views import LoginView as TwoFactorLoginView
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth import login, get_backends
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -10,7 +11,7 @@ from .forms import GameForm, ReviewForm, RegisterForm
 from collections import defaultdict
 
 # ✅ Secure Authentication Views
-class SecureLoginView(LoginView):
+class SecureLoginView(TwoFactorLoginView):
     template_name = 'reviews/login.html'
     redirect_authenticated_user = True
     next_page = reverse_lazy('landing_page')
