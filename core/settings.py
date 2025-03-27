@@ -55,6 +55,14 @@ DEBUG_PROPAGATE_EXCEPTIONS =False
 
 # Installed Apps
 INSTALLED_APPS = [
+    # 2FA + OTP dependencies
+    'django_otp',
+    'django_otp.plugins.otp_totp',         # Time-based OTP
+    'two_factor',                          # Main 2FA logic
+    'two_factor.plugins.phonenumber',      # Optional (SMS support)
+    'two_factor.plugins.email',
+
+    # Core Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
