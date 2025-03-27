@@ -38,6 +38,7 @@ mccabe==0.7.0
 networkx==3.4.2
 numpy==2.2.3
 packaging==24.2
+phonenumbers==9.0.1
 pillow==11.1.0
 prettier==0.0.7
 proto-plus==1.26.0
