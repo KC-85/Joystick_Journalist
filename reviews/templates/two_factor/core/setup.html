@@ -1,0 +1,32 @@
+{% extends "reviews/base.html" %}
+{% load static %}
+{% block title %}Two-Factor Setup{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2 class="neon-text">Set Up Two-Factor Authentication</h2>
+
+    <p class="text-light mt-3">
+        Scan the QR code below using your preferred authenticator app (e.g. Google Authenticator or Authy),
+        then enter the generated code to confirm.
+    </p>
+
+    <!-- 🔳 QR Code -->
+    <div class="my-4 text-center">
+        <img src="{{ qr_code_url }}" alt="QR Code" class="img-fluid" style="max-width: 240px;" />
+    </div>
+
+    <!-- 🧪 Form to Confirm Code -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="mb-3">
+            <label for="id_token" class="form-label">Authentication Code</label>
+            {{ form.token }}
+        </div>
+
+        <button type="submit" class="btn btn-neon w-100 mt-3">Verify and Activate</button>
+    </form>
+</div>
+{% endblock %}
