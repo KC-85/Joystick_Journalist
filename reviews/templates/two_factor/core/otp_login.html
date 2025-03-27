@@ -1,0 +1,27 @@
+{% extends "reviews/base.html" %}
+{% load static %}
+
+{% block title %}Two-Factor Verification
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2 class="neon-text">Enter Your Authentication Code</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="mb-3">
+            <label for="id_token" class="form-label">6-Digit Code</label>
+            {{ form.token }}
+        </div>
+
+        <button type="submit" class="btn btn-neon mt-3 w-100">Verify</button>
+
+        <p class="mt-4">
+            <a href="{% url 'two_factor:setup' %}" class="neon-link">Lost your device? Set up a new one</a>
+        </p>
+    </form>
+</div>
+{% endblock %}
