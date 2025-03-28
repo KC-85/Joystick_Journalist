@@ -57,10 +57,10 @@ DEBUG_PROPAGATE_EXCEPTIONS =False
 INSTALLED_APPS = [
     # 2FA + OTP dependencies
     'django_otp',
-    'django_otp.plugins.otp_totp',         # Time-based OTP
+    'django_otp.plugins.otp_totp',          # Time-based OTP
+    'django_otp.plugins.otp_static',
     'two_factor',                          # Main 2FA logic
     'two_factor.plugins.phonenumber',      # Optional (SMS support)
-    'two_factor.plugins.email',
 
     # Core Django Apps
     'django.contrib.admin',
@@ -204,7 +204,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Ensure absolute paths for redirects
-LOGIN_URL = '/login/'
+LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 

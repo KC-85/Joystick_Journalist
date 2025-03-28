@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from two_factor.urls import urlpatterns as tf_urls 
+import two_factor.urls
 
 urlpatterns = [
-    path('', include(tf_urls)),
+    path('account/', include(('two_factor.urls', 'two_factor'), namespace='two_factor')),  # ✅ Correct format
     path('admin/', admin.site.urls),
-    path('', include('reviews.urls')),  # Include URLs from the reviews app
+    path('', include('reviews.urls')),  # Your app URLs
 ]
 
+# Custom 404 handler
 handler404 = "reviews.views.custom_404_view"
