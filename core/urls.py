@@ -3,7 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     # ✅ Two-Factor Auth URLs (uses 'two_factor' namespace internally)
-    path("account/", include("two_factor.urls", namespace="two_factor")),
+    path("account/", include(("two_factor.urls", "two_factor") namespace="two_factor")),
 
     # ✅ Django Admin Panel
     path("admin/", admin.site.urls),
