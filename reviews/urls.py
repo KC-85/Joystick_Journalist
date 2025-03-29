@@ -5,7 +5,7 @@ from .views import SecureLoginView, SecureLogoutView, register
 import reviews.views as views
 
 urlpatterns = [
-    path('login/', SecureLoginView.as_view(), name='login'),
+    path('account/login/', SecureLoginView.as_view(), name='login'),
     path('logout/', SecureLogoutView.as_view(), name='logout'),
     path('register/', register, name='register'),
     path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
