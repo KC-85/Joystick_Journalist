@@ -1,16 +1,18 @@
 from django.contrib import admin
 from django.urls import path, include
+import two_factor.urls # ✅ Import two_factor urls directly
 
 urlpatterns = [
-    # ✅ Two-Factor Auth URLs (uses 'two_factor' namespace internally)
-    path("account/", include(("two_factor.urls", "two_factor"), namespace="two_factor")),
+    # Two-Factor Auth URLs with proper namespace and app_name
+    path('account/', include(two_factor.urls.urlpatterns)),
 
-    # ✅ Django Admin Panel
-    path("admin/", admin.site.urls),
+    # Admin Panel
+    path('admin/', admin.site.urls),
 
-    # ✅ Your Reviews App URLs
-    path("", include("reviews.urls")),
+    # Main App URLs
+    path('', include('reviews.urls')),
 ]
 
-# ✅ Custom 404 Error Handler
+# Custom 404 Page
 handler404 = "reviews.views.custom_404_view"
+
