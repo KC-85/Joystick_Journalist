@@ -74,8 +74,8 @@ SITE_ID = 1
 
 # === Authentication Backends ===
 AUTHENTICATION_BACKENDS = [
-    'allauth_2fa.backend.TwoFactorAuthenticationBackend',
-    'django.contrib.auth.backends.ModelBackend',
+    'axes.backends.AxesBackend',  # Protects from brute-force attacks
+    'django.contrib.auth.backends.ModelBackend',  # Default Django backend
 ]
 
 # === Middleware ===
