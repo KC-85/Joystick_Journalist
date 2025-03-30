@@ -56,7 +56,7 @@ def register(request):
 
             login(request, user)
             messages.success(request, "🎉 Account created successfully! Welcome to Joystick Journalist 🎮")
-            return redirect('landing_page')
+            return redirect('two_factor:setup')
         else:
             print("\n❌ DEBUG: Registration failed due to the following errors:")
             print(form.errors.as_json())
