@@ -3,22 +3,29 @@
 
 {% block title %}Setup Two-Factor Auth{% endblock %}
 
-{% block content %}
-<div class="form-container">
-    <div class="neon-card">
-        <h2 class="neon-header">📱 Set Up Two-Factor Authentication</h2>
-        
-        <p class="text-light">Scan this QR code using your authenticator app:</p>
-        <div class="my-3">
+% block content %}
+<div class="container mt-5">
+    <h2 class="text-center neon-text mb-4">🔐 Set Up Two-Factor Authentication</h2>
+
+    <p class="text-center text-muted">Scan this QR code using your authenticator app (e.g., Google Authenticator, Authy):</p>
+
+    {% if qr_code_url %}
+        <div class="text-center my-4">
             <img src="{{ qr_code_url }}" alt="QR Code" class="img-fluid shadow-lg" />
         </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            ⚠️ QR Code could not be generated. Please ensure your device is properly created.
+        </div>
+    {% endif %}
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form.token.label_tag }}<br>
-            {{ form.token|add_class:"form-control neon-input" }}
-            <button class="btn btn-neon mt-4 w-100" type="submit">Activate 2FA</button>
-        </form>
-    </div>
+    <form method="post" class="mx-auto" style="max-width: 400px;">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            {{ form.token.label_tag }}
+            {{ form.token }}
+        </div>
+        <button class="btn btn-neon w-100" type="submit">✅ Activate 2FA</button>
+    </form>
 </div>
 {% endblock %}
