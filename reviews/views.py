@@ -44,16 +44,7 @@ class SecureLogoutView(LogoutView):
         messages.success(request, "🎮 You have been logged out successfully!")
         return super().dispatch(request, *args, **kwargs)
 
-# ✅ 2FA Setup Override for QR code visibility
 from two_factor.views.core import SetupView
-
-class CustomSetupView(SetupView):
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        device = self.get_device() if hasattr(self, 'get_device') else None
-        if device and hasattr(device, 'config_url'):
-            context['qr_code_url'] = device.config_url
-        return context
 
 # ✅ User Registration
 def register(request):
