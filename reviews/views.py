@@ -2,19 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.db.models import Avg
-from collections import defaultdict
-
 from django.contrib.auth import login, get_backends
-from django.contrib.auth.views import LogoutView
-from two_factor.views import LoginView as TwoFactorLoginView
-from django_otp.plugins.otp_totp.models import TOTPDevice
-from django_otp import devices_for_user, user_has_device
+from django.contrib.auth.views import LoginView, LogoutView
+from collections import defaultdict
 
 from .models import Game, Review
 from .forms import GameForm, ReviewForm, RegisterForm
 
-# ✅ Secure Login with Two-Factor Check
-class SecureLoginView(TwoFactorLoginView):
+# ✅ Secure Login (without 2FA)
+class SecureLoginView(LoginView):
     template_name = 'reviews/login.html'
     redirect_authenticated_user = True
     next_page = reverse_lazy('landing_page')
@@ -22,19 +18,11 @@ class SecureLoginView(TwoFactorLoginView):
     def form_valid(self, form):
         user = form.get_user()
         login(self.request, user)
-
-        # ✅ Check if user has a confirmed 2FA device
-        has_verified_device = any(
-            device.verify_is_allowed() for device in devices_for_user(user)
-            if isinstance(device, TOTPDevice) and device.confirmed
-        )
-
-        if user_has_device(user) and not has_verified_device:
-            messages.error(self.request, "🔐 2FA device required. Please complete authentication.")
-            return redirect("two_factor:login")
-
-        messages.success(self.request, "✅ Logged in successfully with 2FA!")
+        messages.success(self.request, "✅ Logged in successfully!")
         return redirect(self.get_success_url())
+
+    def get_success_url(self):
+        return self.request.GET.get('next', self.next_page)
 
 # ✅ Secure Logout
 class SecureLogoutView(LogoutView):
@@ -43,8 +31,6 @@ class SecureLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "🎮 You have been logged out successfully!")
         return super().dispatch(request, *args, **kwargs)
-
-from two_factor.views.core import SetupView
 
 # ✅ User Registration
 def register(request):
@@ -58,7 +44,7 @@ def register(request):
 
             login(request, user)
             messages.success(request, "🎉 Account created successfully! Welcome to Joystick Journalist 🎮")
-            return redirect('two_factor:setup')
+            return redirect('landing_page')
         else:
             print("\n❌ DEBUG: Registration failed due to the following errors:")
             print(form.errors.as_json())
