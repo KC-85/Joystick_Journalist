@@ -291,7 +291,7 @@ Want to add more?
 
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
 
-![screenshot](documentation/erd.png)
+![screenshot](documentation/erd/erd_diagram.png)
 
 ⚠️ INSTRUCTIONS ⚠️
 
