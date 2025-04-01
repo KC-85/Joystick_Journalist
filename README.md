@@ -230,9 +230,11 @@ A few examples are listed below to align with possible ways to improve on the sa
 
 ⚠️ --- END ---⚠️
 
+- **Two-Factor Authentication**: Allows users to login securely with either a one-time passcode or a QR Code.
 - **Post Categories/Tags**: Allow users to categorize and tag games and reviews.
 - **Post Search Functionality**: Add a search bar for users to quickly find posts by keywords or phrases.
 - **Site Chat Function**: Implement the site chat function so that users are able to engage fully with one another.
+- **Chat Room**: Create chat rooms for each game so that users can discuss certain aspects of a game.
 - **Spam and Profanity Filter**: Makes sure that inappropriate conversations are deleted
 - **Post Likes/Dislikes or Upvotes**: Implement a "like" or "upvote" system for blog posts to encourage user engagement and give feedback to the author.
 - **User Profiles**: Create personalized user profiles where authenticated users can view their comments, liked posts, and basic account information.
@@ -242,6 +244,7 @@ A few examples are listed below to align with possible ways to improve on the sa
 - **Email Subscriptions**: Allow users to subscribe to receive email notifications for new posts, updates, or newsletters.
 - **Post Analytics**: Provide post authors with analytics such as views, time spent reading, and engagement rates.
 - **Multilingual Support**: Add the ability to write and view blog posts in multiple languages, broadening the audience.
+- **Translator**: Users have the ability to translate posts that are not in their native language.
 - **Related Posts Recommendations**: Show related posts at the bottom of a blog post to encourage further reading and keep users engaged.
 - **Content Flagging/Reporting**: Allow users to flag or report inappropriate content (comments or posts) for moderation.
 - **Add Regular Users as Chat Moderators**: Adds a larger sense of community being.
@@ -611,7 +614,6 @@ Use this space to provide attribution links for any borrowed code snippets, elem
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | "How to Write a Git Commit Message" |
 | [I Think Therefore I Blog](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
 | [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
-| [Cloudinary API](https://cloudinary.com) | Cloud storage for static/media files |
 | [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
 | [Python Tutor](https://pythontutor.com) | Additional Python help |
 | [ChatGPT](https://chatgpt.com) | Help with code logic and explanations |
@@ -647,7 +649,7 @@ A few examples have been provided below to give you some ideas on how to do your
 | --- | --- |
 | [favicon.io](https://favicon.io) | Generating the favicon |
 | [I Think Therefore I Blog](https://codeinstitute.net) | Sample images provided from the walkthrough projects |
-| [Font Awesome](https://fontawesome.com) | Icons used throughout the site |
+| [ChatGPT](https://chatgpt.com) | Icons used throughout the site |
 | [Pexels](https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg) | Hero image |
 | [Wallhere](https://c.wallhere.com/images/9c/c8/da4b4009f070c8e1dfee43d25f99-2318808.jpg!d) | Background wallpaper |
 | [Pixabay](https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg) | Background wallpaper |
