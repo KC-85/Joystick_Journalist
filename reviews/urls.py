@@ -21,8 +21,8 @@ urlpatterns = [
 
     # ✅ Review URLs
     path('review/<int:game_id>/add/', views.review_form, name='add_review'),
-    path('review/<int:game_id>/', views.review_page, name='review_page'),
-    path('review/edit/<int:review_id>/', views.review_form, name='edit_review'),
+    path('review/<int:game_id>/', views.review_form, name='review_page'),
+    path('review/edit/<int:review_id>/', views.edit_review, name='edit_review'),
     path('review/delete/<int:review_id>/', views.delete_review, name='delete_review'),
     path('reviews/', views.all_reviews, name='all_reviews')
 ]

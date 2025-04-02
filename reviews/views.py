@@ -66,24 +66,55 @@ def landing_page(request):
     })
 
 # ✅ Review Page
-def review_page(request, game_id):
+def review_form(request, game_id, review_id=None):
     game = get_object_or_404(Game, id=game_id)
-    reviews = game.reviews.all().order_by('-review_date')  # optional: sort newest first
-    form = ReviewForm()
+    review = get_object_or_404(Review, id=review_id) if review_id else None
 
-    if request.method == "POST":
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            new_review = form.save(commit=False)
-            new_review.game = game
-            new_review.save()
-            messages.success(request, "✅ Review submitted!")
-            return redirect('review_page', game_id=game.id)
+    # 🔐 Block users from editing others' reviews
+    if review and review.reviewer_name != request.user.username:
+        messages.error(request, "🚫 You are not allowed to edit this review.")
+        return redirect('review_page', game_id=game.id)
 
-    return render(request, 'reviews/review_page.html', {
-        'game': game,
-        'reviews': reviews,
-        'form': form
+    form = ReviewForm(request.POST or None, instance=review)
+
+    if request.method == "POST" and form.is_valid():
+        new_review = form.save(commit=False)
+        new_review.game = game
+        new_review.save()
+        return redirect('review_page', game_id=game.id)
+
+    return render(request, 'reviews/form_page.html', {
+        'form': form,
+        'title': "Edit Review" if review else "Add Review",
+        'game': game
+    })
+
+# ✅ Edit Review
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    game = review.game
+    print("DEBUG - review:", review)
+
+    if review:
+        print("🧠 DEBUG — Logged in user:", request.user.username)
+        print("🧠 DEBUG — Review owner:", review.reviewer_name)
+
+    # if review.reviewer_name != request.user.username:
+    #     return redirect('review_page', game_id=game.id)
+
+    form = ReviewForm(request.POST or None, instance=review)
+
+    if request.method == "POST" and form.is_valid():
+        review = form.save(commit=False)
+        review.game = game
+        review.reviewer_name = request.user.username  # ✅ SET reviewer_name properly
+        review.save()
+        return redirect('all_reviews')
+
+    return render(request, 'reviews/form_page.html', {
+        'form': form,
+        'title': "Edit Review",
+        'game': game
     })
 
 # ✅ Create & Edit Game

@@ -19,7 +19,7 @@
                         <p><strong>Reviewed by:</strong> {{ review.reviewer_name }}</p>
                         <p><strong>Rating:</strong> ⭐ {{ review.rating }}/5</p>
                         <p class="review-content">{{ review.comment }}</p>
-                        <a href="{% url 'review_page' game.id %}" class="btn btn-neon">🔎 View Game Reviews</a>
+                        <a href="{% url 'edit_review' review.id %}" class="btn btn-neon">🔎 Edit Game Reviews</a>
 
                         <form action="{% url 'delete_review' review.id %}" method="post" class="d-inline">
                         {% csrf_token %}
