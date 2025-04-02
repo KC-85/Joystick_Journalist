@@ -68,8 +68,17 @@ def landing_page(request):
 # ✅ Review Page
 def review_page(request, game_id):
     game = get_object_or_404(Game, id=game_id)
-    reviews = game.reviews.all()
+    reviews = game.reviews.all().order_by('-review_date')  # optional: sort newest first
     form = ReviewForm()
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            new_review = form.save(commit=False)
+            new_review.game = game
+            new_review.save()
+            messages.success(request, "✅ Review submitted!")
+            return redirect('review_page', game_id=game.id)
 
     return render(request, 'reviews/review_page.html', {
         'game': game,
