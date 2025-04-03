@@ -168,7 +168,7 @@ def delete_review(request, review_id):
 
     if request.method == "POST":
         review.delete()
-        return redirect('review_page', game_id=game_id)
+        return redirect('all_reviews', game_id=game_id)
 
     return render(request, 'reviews/confirm_delete.html', {
         'object': review,
