@@ -112,7 +112,7 @@ The dark background enhances readability while allowing neon colors to pop, evok
 
 ⚠️ --- END --- ⚠️
 
-I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
+I used [coolors.co](https://coolors.co/000000-00ff00-ffcc00-ff00ff) to generate my color palette.
 - `#000000` (Black) - Primary Background (Dark theme for retro aesthetic).
 - `#00FF00` (Neon Green) - Primary Text & Borders (Glowing retro text effect).
 - `#FFCC00` (Golden Yellow) - Hover Highlights (Interactive elements glow on hover).
@@ -201,11 +201,11 @@ In this section, you should go over the different parts of your project, and des
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Register | Authentication is handled by allauth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
-| Login | Authentication is handled by allauth, allowing users to log in to their existing accounts. | ![screenshot](documentation/features/login.png) |
-| Logout | Authentication is handled by allauth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Blog List | The homepage displays basic information about blog posts, including image, title, author, date, and a brief excerpt. | ![screenshot](documentation/features/blog-list.png) |
-| View Post | Users can view the full blog post details, including any comments. | ![screenshot](documentation/features/view-post.png) |
+| Register | Authentication is handled by Django-auth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
+| Login | Authentication is handled by Django-auth and Django-axes, allowing users to log in to their existing accounts with the correct credentials. | ![screenshot](documentation/features/login.png) |
+| Logout | Authentication is handled by Django-auth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
+| Game List | The landing page displays basic information about games, including title, author, date, and a brief excerpt. | ![screenshot](documentation/features/blog-list.png) |
+| Add Game | Users can view the full blog post details, including any comments. | ![screenshot](documentation/features/view-post.png) |
 | Pagination | Blog posts are displayed in pages, with six posts per page. This provides better navigation for users through the post list. | ![screenshot](documentation/features/pagination.png) |
 | Add Comments | Authenticated visitors can comment on blog posts; comments require approval before being published. | ![screenshot](documentation/features/add-comment.png) |
 | Edit Comments | Authenticated visitors can edit their own comments. | ![screenshot](documentation/features/edit-comment.png) |
