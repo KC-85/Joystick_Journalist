@@ -205,14 +205,14 @@ In this section, you should go over the different parts of your project, and des
 | Login | Authentication is handled by Django-auth and Django-axes, allowing users to log in to their existing accounts with the correct credentials. | ![screenshot](documentation/features/login.png) |
 | Logout | Authentication is handled by Django-auth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
 | Game List | The landing page displays basic information about games, including title, author, date, and a brief excerpt. | ![screenshot](documentation/features/blog-list.png) |
-| Add Game | Users can view the full blog post details, including any comments. | ![screenshot](documentation/features/view-post.png) |
-| Pagination | Blog posts are displayed in pages, with six posts per page. This provides better navigation for users through the post list. | ![screenshot](documentation/features/pagination.png) |
-| Add Comments | Authenticated visitors can comment on blog posts; comments require approval before being published. | ![screenshot](documentation/features/add-comment.png) |
-| Edit Comments | Authenticated visitors can edit their own comments. | ![screenshot](documentation/features/edit-comment.png) |
-| Delete Comments | Authenticated visitors can delete their own comments. | ![screenshot](documentation/features/delete-comment.png) |
+| Add Game | Authenticated users can add any 90s game of their choosing | ![screenshot](documentation/features/view-post.png) |
+| Delete Game | Admin/Site Owner can delete games, users can delete their own added games. | ![screenshot](documentation/features/pagination.png) |
+| Add Review | Authenticated users can review games. | ![screenshot](documentation/features/add-comment.png) |
+| Edit Review | Authenticated users can edit their own reviews. | ![screenshot](documentation/features/edit-comment.png) |
+| Delete Review | Authenticated users can delete their own reviews. | ![screenshot](documentation/features/delete-comment.png) |
 | Comment Approvals | Admins can approve or disapprove comments submitted by users before they are visible on the blog post. | ![screenshot](documentation/features/comment-approval.png) |
-| Create Post | Site owners can create/publish blog posts, including setting a featured image using Cloudinary, all from the Django admin dashboard. | ![screenshot](documentation/features/create-post.png) |
-| Update Post | Site owners can update/manage blog posts from the Django admin dashboard. | ![screenshot](documentation/features/update-post.png) |
+| Create Game | Site owners can create/publish blog posts, including setting a featured image using Cloudinary, all from the Django admin dashboard. | ![screenshot](documentation/features/create-post.png) |
+| Update Game | Site owners can update/manage blog posts from the Django admin dashboard. | ![screenshot](documentation/features/update-post.png) |
 | Delete Post | Site owners can delete blog posts from the Django admin dashboard. | ![screenshot](documentation/features/delete-post.png) |
 | About Page | The About page displays the latest information about the site author, along with the option for visitors to send collaboration requests. | ![screenshot](documentation/features/about.png) |
 | Collaboration Requests | Visitors can submit collaboration requests from the *About* page, which are later reviewed by the admin. | ![screenshot](documentation/features/collaboration.png) |
@@ -441,10 +441,12 @@ Heroku needs some additional files in order to deploy properly.
 You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
 
 - `pip3 install -r requirements.txt`
+- `pip install -r requirements.txt`
 
 If you have your own packages that have been installed, then the requirements file needs updated using:
 
 - `pip3 freeze --local > requirements.txt`
+- `pip freeze --local > requirements.txt`
 
 The **[Procfile](Procfile)** can be created with the following command:
 
