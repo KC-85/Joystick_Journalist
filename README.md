@@ -249,10 +249,13 @@ A few examples are listed below to align with possible ways to improve on the sa
 - **Content Flagging/Reporting**: Allow users to flag or report inappropriate content (comments or posts) for moderation.
 - **Add Regular Users as Chat Moderators**: Adds a larger sense of community being.
 - **Add an AI Chatbot as a Moderator Bot**: To help with chat moderation once audience becomes large enough.
-- **SEO Optimization**: Implement features for SEO, such as custom URLs forbetter search engine ranking.
+- **SEO Optimization**: Implement features for SEO, such as custom URLs for better search engine ranking.
 - **User Dashboard**: Provide users with a dashboard to track their activity, such as comments made, likes received, and blog posts they’ve interacted with.
 - **Admin Dashboard Analytics**: Provide site admins with an analytics dashboard showing user activity, popular posts, most commented articles, etc.
 - **Custom Themes for Users**: Allow users to customize the visual theme of the site (colors, fonts, etc.) to suit their preferences.
+- **Site Monitoring**: Allow site owner to monitor activity by way of using Prometheus/Grafana.
+- **Bot Checker/Blocker**: Allow site owner to check for potential bots by way of standalone single site crawler/bot blocking software.
+- **VPN Detection**: Allow site owner to use software to check/block IP addressess from known VPN providers.
 
 ## Tools & Technologies
 

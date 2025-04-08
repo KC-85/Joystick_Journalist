@@ -172,7 +172,7 @@ DEFAULT_FROM_EMAIL = 'your_yahoo_email@yahoo.com'
 
 # === Axes (Brute Force Protection) ===
 AXES_ENABLED = True
-AXES_FAILURE_LIMIT = 5
+AXES_FAILURE_LIMIT = 3
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = 'reviews/lockout.html'
 AXES_RESET_ON_SUCCESS = True
