@@ -188,18 +188,22 @@ In this section, you should go over the different parts of your project, and des
 | Register | Authentication is handled by Django-auth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
 | Login | Authentication is handled by Django-auth and Django-axes, allowing users to log in to their existing accounts with the correct credentials. | ![screenshot](documentation/features/login.png) |
 | Logout | Authentication is handled by Django-auth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Game List | The landing page displays basic information about games, including title, author, date, and a brief excerpt. | ![screenshot](documentation/features/blog-list.png) |
-| Add Game | Authenticated users can add any 90s game of their choosing | ![screenshot](documentation/features/view-post.png) |
-| Delete Game | Admin/Site Owner can delete games, users can delete their own added games. | ![screenshot](documentation/features/pagination.png) |
-| Add Review | Authenticated users can review games. | ![screenshot](documentation/features/add-comment.png) |
-| Edit Review | Authenticated users can edit their own reviews. | ![screenshot](documentation/features/edit-comment.png) |
-| Delete Review | Authenticated users can delete their own reviews. | ![screenshot](documentation/features/delete-comment.png) |
-| Comment Approvals | Admins can approve or disapprove comments submitted by users before they are visible on the blog post. | ![screenshot](documentation/features/comment-approval.png) |
-| Create Game | Site owners can create/publish blog posts, including setting a featured image using Cloudinary, all from the Django admin dashboard. | ![screenshot](documentation/features/create-post.png) |
-| Update Game | Site owners can update/manage blog posts from the Django admin dashboard. | ![screenshot](documentation/features/update-post.png) |
-| Delete Post | Site owners can delete blog posts from the Django admin dashboard. | ![screenshot](documentation/features/delete-post.png) |
-| About Page | The About page displays the latest information about the site author, along with the option for visitors to send collaboration requests. | ![screenshot](documentation/features/about.png) |
-| Collaboration Requests | Visitors can submit collaboration requests from the *About* page, which are later reviewed by the admin. | ![screenshot](documentation/features/collaboration.png) |
+| Game List | The landing page displays basic information about games, including title and genre. | ![screenshot](documentation/features/landing_page_game_list.png) |
+| Add Game | Authenticated users can add any 90s game of their choosing | ![screenshot](documentation/features/add_game.png) |
+| Delete Game | Admin/Site Owner can delete games, users can delete their own added games. | ![screenshot](documentation/features/delete_game.png) |
+| Add Review | Authenticated users can review games. | ![screenshot](documentation/features/add_review.png) |
+| Edit Review | Authenticated users can edit their own reviews. | ![screenshot](documentation/features/edit_review.png) |
+| Delete Review | Authenticated users can delete their own reviews. | ![screenshot](documentation/features/delete_review.png) |
+| Create Game | Site owners can create 90s games, all from the Django admin dashboard. | ![screenshot](documentation/features/create_game_admin.png) |
+| Update Game | Site owners can update/manage blog posts from the Django admin dashboard. | ![screenshot](documentation/features/update_game_admin.png) |
+| Delete Game | Site owners can delete games from the Django admin dashboard. | ![screenshot](documentation/features/delete_game_admin.png) |
+| Create Review | Site owners can create reviews from the Django admin dashboard. | ![screenshot](documentation/features/create_review_admin.png) |
+| Update Review | Site owners can update reviews from the Django admin dashboard. | ![screenshot](documentation/features/update_review_admin.png) |
+| Delete Review | Site owners can delete reviews from the Django admin dashboard. | ![screenshot](documentation/features/delete_review_admin.png) |
+| Create Genre | Site owners can create genres from the Django admin dashboard. | ![screenshot](documentation/features/create_genre_admin.png) |
+| Update Genre | Site owners can update genres from the Django admin dashboard. | ![screenshot](documentation/features/update_genre_admin.png) |
+| Delete Genre | Site owners can delete genres from the Django admin dashboard. | ![screenshot](documentation/features/delete_genre_admin.png) |
+
 | User Feedback | Clear and obvious Django messages are used to provide feedback to user actions. | ![screenshot](documentation/features/messages.png) |
 | Heroku Deployment | The site is fully deployed to Heroku, making it accessible online and easy to manage. | ![screenshot](documentation/features/heroku.png) |
 | 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |

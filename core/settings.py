@@ -51,14 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Auth & 2FA
-    'allauth',
-    'allauth.account',
-    'allauth_2fa',
-    'django_otp',
-    'django_otp.plugins.otp_static',
-    'django_otp.plugins.otp_totp',
-
     # Brute Force Protection
     'axes',
 
