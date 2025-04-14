@@ -165,7 +165,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | --- | --- | --- | --- |
 | Register | ![screenshot](documentation/wireframes/mobile-register.png) | ![screenshot](documentation/wireframes/tablet-register.png) | ![screenshot](documentation/wireframes/desktop-register.png) |
 | Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/tablet-login.png) | ![screenshot](documentation/wireframes/desktop_login.png) |
-| Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
+| Landing Page | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop_landing_page.png) |
 | Add Blog | ![screenshot](documentation/wireframes/mobile-add-blog.png) | ![screenshot](documentation/wireframes/tablet-add-blog.png) | ![screenshot](documentation/wireframes/desktop-add-blog.png) |
 | Edit Blog | ![screenshot](documentation/wireframes/mobile-edit-blog.png) | ![screenshot](documentation/wireframes/tablet-edit-blog.png) | ![screenshot](documentation/wireframes/desktop-edit-blog.png) |
 | Blog Post | ![screenshot](documentation/wireframes/mobile-blog-post.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop-blog-post.png) |
@@ -306,26 +306,38 @@ I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
 erDiagram
-    Genre ||--o{ Game : has
-    Game ||--o{ Review : receives
-    Genre {
+    USER ||--o{ REVIEW : writes
+    GENRE ||--o{ GAME : includes
+    GAME ||--o{ REVIEW : has
+
+    USER {
+        int id
+        string username
+    }
+
+    GENRE {
+        int id
         string name
     }
-    Game {
+
+    GAME {
+        int id
         string title
         int release_year
-        Genre genre
+        int genre_id
     }
-    Review {
-        string reviewer_name
+
+    REVIEW {
+        int id
+        int game_id
+        int reviewer_name_id
         int rating
         text comment
         datetime review_date
-        Game game
     }
 ```
 
-source: [Mermaid](https://mermaid.live/edit#pako:eNqNUstuwjAQ_BVrz6EiVIiSG21zg9LyuFSRkImXxGpsR45TkQb-vU4C5REq4Yut2dnZnfWWECqG4AHqV04jTUUgiT3LuT8ju12no0ryPp0viEcCoLmJlc4CaHNeppOJ_9bQQiUESoMnZq1wgxnTS0rZvKuTGc1lRAw3CbbQLMmjExgmKmdcUl2QDVKTa2QrLmh0lmdwa0iobFPSXKG4DVGnZyijBg0XSEJt1ayWkjeCecpaQS6N7dB2kDXYvrmOjsurymvFijvLrpVKCE1Trb6RXYiPnqfLOwZ3NiMrsuEJ3jeif_3-eRuPbQuz0cKf-R9L_-YnSiraf4iC8uSqvMAsu2iq9m3ncfQMDgjUNpPZla0LBWBitPJQ7ROj-qtaqIpnl1XNCxmCZ3SODjQGDksO3oYmmUVTKsErYQue-zR8cN2B2-t3h73BY2_Qd6AAr7t34Ecpm-HW7M_63UhqlUfxQWr_C_zI_7I)
+source: [Mermaid](https://mermaid.live/edit#pako:eNqFUltvgjAU_ivkPKNRwAJ9WzZi9rA9aLYlCwlp4AybQTGlTB3y31duOhcz-9Tz3c7HpYa4SBAooHzgLJUsD4Whz8s6WBnH42RS1MYqeH0M3gxq7CRXWPaCZfC8CkbF8u4p0DwXcVYlJ0UL_o3YMM3-WlH39_ZwoQyenOdSSS5SoypRCpZjTzSju99_237N2ha77VRcZXipkpghKzE6IJOXTIpCYjSmnFYNz_3Pss6sO0Z_QYlfHHcoI3GVZUp3PGMK98qIizxHoc5owhQqnuMQFrXzqSGYkKPMGU_05-8ahqA2qF8XUH1NmPwMIRSN1rFKFeuDiIEqWaEJ1bZNGn6YEdwyAbSGPVDfmdo2sRYLmxDHmbueCQeghEw94hFiuxZx_PnMb0z4Lgrtn029hUt8x7Zcz55bxLO7tPeO7MNlUaUboB8sK_WUyrb0wKBIUN4XlVB6c_MDrhDUhA)
 
 ⚠️ RECOMMENDED ⚠️
 
@@ -406,20 +418,15 @@ Deployment steps are as follows, after account setup:
 
 - Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
 - Your app name must be unique, and then choose a region closest to you (EU or USA), then finally, click **Create App**.
-- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py`|`.env` file.
 
 > [!IMPORTANT]
 > This is a sample only; you would replace the values with your own if cloning/forking my repository.
 
-🛑 !!! ATTENTION KC-85 !!! 🛑
-
-⚠️ DO NOT update the environment variables to your own! These should never be public; only use the demo values below! ⚠️
-
-🛑 --- END --- 🛑
-
 | Key | Value |
 | --- | --- |
-| `CLOUDINARY_URL` | user-inserts-own-cloudinary-url |
+| `ALLOWED_HOSTS` | user-inserts-own-allowed-hosts |
+| `CSRF_TRUSTED_ORIGINS` | user-inserts-own-trusted-origins |
 | `DATABASE_URL` | user-inserts-own-postgres-database-url |
 | `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
 | `SECRET_KEY` | any-random-secret-key |
@@ -475,7 +482,7 @@ To obtain my own Postgres Database from Code Institute, I followed these steps:
 - An email was sent to me with my new Postgres Database.
 - The Database connection string will resemble something like this:
     - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
-- You can use the above URL with Django; simply paste it into your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
+- You can use the above URL with Django; simply paste it into your `env.py`|`.env` file and Heroku Config Vars as `DATABASE_URL`.
 
 ### WhiteNoise
 
@@ -508,25 +515,18 @@ For either method, you will need to install any applicable packages found within
 
 - `pip3 install -r requirements.txt`.
 
-You will need to create a new file called `env.py`or `.env` at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
+You will need to create a new file called `env.py` or `.env` at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
 
 > [!IMPORTANT]
 > This is a sample only; you would replace the values with your own if cloning/forking my repository.
 
-🛑 !!! ATTENTION KC-85 !!! 🛑
-
-⚠️ DO NOT update the environment variables to your own! These should never be public; only use the demo values below! ⚠️
-
-🛑 --- END --- 🛑
-
-Sample `env.py` file:
+Sample `env.py`|`.env` file:
 
 ```python
 import os
 
 os.environ.setdefault("SECRET_KEY", "any-random-secret-key")
 os.environ.setdefault("DATABASE_URL", "user-inserts-own-postgres-database-url")
-os.environ.setdefault("CLOUDINARY_URL", "user-inserts-own-cloudinary-url")  # only if using Cloudinary
 
 # local environment only (do not include these in production/deployment!)
 os.environ.setdefault("DEBUG", "True")
