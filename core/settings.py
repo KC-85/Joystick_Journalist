@@ -17,8 +17,6 @@ ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
     "joystick-journalist-3eda94de87b5.herokuapp.com",
-    "kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
-    "8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -26,8 +24,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://127.0.0.1:8000",
     "https://localhost:8000",
     "https://joystick-journalist-3eda94de87b5.herokuapp.com",
-    "https://kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net",
-    "https://8000-kc85-joystickjournali-po74vp49ye6.ws.codeinstitute-ide.net"
 ]
 
 # === HTTPS Security (Heroku Only) ===
@@ -78,7 +74,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django_otp.middleware.OTPMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -143,24 +138,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # === Login/Logout Redirects ===
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/account/login/'
 
 # === Allauth Settings ===
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
-
-# === Email ===
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your_yahoo_email@yahoo.com'
-EMAIL_HOST_PASSWORD = 'your_yahoo_app_password'
-DEFAULT_FROM_EMAIL = 'your_yahoo_email@yahoo.com'
 
 # === Axes (Brute Force Protection) ===
 AXES_ENABLED = True
