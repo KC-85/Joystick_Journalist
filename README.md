@@ -166,9 +166,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Register | ![screenshot](documentation/wireframes/mobile-register.png) | ![screenshot](documentation/wireframes/tablet-register.png) | ![screenshot](documentation/wireframes/desktop-register.png) |
 | Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/tablet-login.png) | ![screenshot](documentation/wireframes/desktop_login.png) |
 | Landing Page | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop_landing_page.png) |
-| Add Blog | ![screenshot](documentation/wireframes/mobile-add-blog.png) | ![screenshot](documentation/wireframes/tablet-add-blog.png) | ![screenshot](documentation/wireframes/desktop-add-blog.png) |
+| Add Game | ![screenshot](documentation/wireframes/mobile_add_game.png) | ![screenshot](documentation/wireframes/tablet-add-blog.png) | ![screenshot](documentation/wireframes/desktop_add_game.png) |
 | Edit Blog | ![screenshot](documentation/wireframes/mobile-edit-blog.png) | ![screenshot](documentation/wireframes/tablet-edit-blog.png) | ![screenshot](documentation/wireframes/desktop-edit-blog.png) |
-| Blog Post | ![screenshot](documentation/wireframes/mobile-blog-post.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop-blog-post.png) |
+| Delete Game | ![screenshot](documentation/wireframes/mobile-blog-post.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop-blog-post.png) |
 | 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
 
 ## Features
@@ -189,8 +189,8 @@ In this section, you should go over the different parts of your project, and des
 | Login | Authentication is handled by Django-auth and Django-axes, allowing users to log in to their existing accounts with the correct credentials. | ![screenshot](documentation/features/login.png) |
 | Logout | Authentication is handled by Django-auth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
 | Game List | The landing page displays basic information about games, including title and genre. | ![screenshot](documentation/features/landing_page_game_list.png) |
-| Add Game | Authenticated users can add any 90s game of their choosing | ![screenshot](documentation/features/add_game.png) |
-| Delete Game | Admin/Site Owner can delete games, users can delete their own added games. | ![screenshot](documentation/features/delete_game.png) |
+| Add Game | Superusers can add any 90s game of their choosing | ![screenshot](documentation/features/add_game.png) |
+| Delete Game | Superusers can delete games, users can delete their own added games. | ![screenshot](documentation/features/delete_game.png) |
 | Add Review | Authenticated users can review games. | ![screenshot](documentation/features/add_review.png) |
 | Edit Review | Authenticated users can edit their own reviews. | ![screenshot](documentation/features/edit_review.png) |
 | Delete Review | Authenticated users can delete their own reviews. | ![screenshot](documentation/features/delete_review.png) |
