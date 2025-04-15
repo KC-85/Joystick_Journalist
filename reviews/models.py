@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Genre(models.Model):
     name = models.CharField(
@@ -35,8 +36,10 @@ class Review(models.Model):
         related_name="reviews"
     )  # Link to the Game model; delete reviews if the game is deleted
 
-    reviewer_name = models.CharField(
-        max_length=100
+    reviewer_name = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="reviewers"
     )  # Name of the reviewer
 
     rating = models.IntegerField(
@@ -51,5 +54,5 @@ class Review(models.Model):
 
     def __str__(self):
         return (
-            f"{self.reviewer_name} - {self.game.title}"
+            f"{self.reviewer_name.username} - {self.game.title}"
         )  # Display reviewer name and game title
