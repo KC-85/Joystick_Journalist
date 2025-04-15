@@ -54,11 +54,8 @@ class GameForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['reviewer_name', 'rating', 'comment']
+        fields = ['rating', 'comment']
         widgets = {
-            'reviewer_name': forms.TextInput(
-                attrs={'class': 'form-control', 'placeholder': 'Your name'}
-            ),
             'rating': forms.Select(
                 choices=[(i, i) for i in range(1, 6)],
                 attrs={'class': 'form-control'}
