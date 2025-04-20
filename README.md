@@ -159,7 +159,7 @@ If you've created wireframes or mock-ups, use this section to display screenshot
 ⚠️ --- END --- ⚠️
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+I've used [Visily](https://app.visily.ai/projects) to manually design my site wireframes.
 
 | Page | Mobile | Tablet | Desktop |
 | --- | --- | --- | --- |
