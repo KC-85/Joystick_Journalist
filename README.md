@@ -210,6 +210,7 @@ In this section, you should go over the different parts of your project, and des
 | User Feedback | Clear and obvious Django messages are used to provide feedback to user actions. | ![screenshot](documentation/features/messages.png) |
 | Heroku Deployment | The site is fully deployed to Heroku, making it accessible online and easy to manage. | ![screenshot](documentation/features/heroku.png) |
 | 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
+| Site Lockout | The lockout page will indicate when a user has tried to log in with the wrong credentials three times in a row and to try again later. | ![screenshot](documentation/features/lockout_page.png) |
 
 ### Future Features
 
