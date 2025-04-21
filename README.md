@@ -167,12 +167,12 @@ I've used [Visily](https://app.visily.ai/projects) to manually design my site wi
 | Register | ![screenshot](documentation/wireframes/mobile_register.png) | ![screenshot](documentation/wireframes/tablet_register.png) | ![screenshot](documentation/wireframes/desktop_register.png) |
 | Login | ![screenshot](documentation/wireframes/mobile_login.png) | ![screenshot](documentation/wireframes/tablet_login.png) | ![screenshot](documentation/wireframes/desktop_login.png) |
 | Landing Page | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet_landing_page.png) | ![screenshot](documentation/wireframes/desktop_landing_page.png) |
-| Add Game | ![screenshot](documentation/wireframes/mobile_add_game.png) | ![screenshot](documentation/wireframes/tablet-add-blog.png) | ![screenshot](documentation/wireframes/desktop_add_game.png) |
-| Add Review | ![screenshot](documentation/wireframes/mobile_add_review.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop_add_review.png) |
-| Edit Review | ![screenshot](documentation/wireframes/mobile_edit_review.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop_edit_review.png) |
-| All Reviews | ![screenshot](documentation/wireframes/mobile_all_reviews.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop_all_reviews.png) |
-| Lockout Page | ![screenshot](documentation/wireframes/mobile_lockout_page.png) | ![screenshot](documentation/wireframes/tablet-blog-post.png) | ![screenshot](documentation/wireframes/desktop_lockout_page.png) |
-| 404 | ![screenshot](documentation/wireframes/mobile_404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop_404.png) |
+| Add Game | ![screenshot](documentation/wireframes/mobile_add_game.png) | ![screenshot](documentation/wireframes/tablet_add_game.png) | ![screenshot](documentation/wireframes/desktop_add_game.png) |
+| Add Review | ![screenshot](documentation/wireframes/mobile_add_review.png) | ![screenshot](documentation/wireframes/tablet_add_review.png) | ![screenshot](documentation/wireframes/desktop_add_review.png) |
+| Edit Review | ![screenshot](documentation/wireframes/mobile_edit_review.png) | ![screenshot](documentation/wireframes/tablet_edit_review.png) | ![screenshot](documentation/wireframes/desktop_edit_review.png) |
+| All Reviews | ![screenshot](documentation/wireframes/mobile_all_reviews.png) | ![screenshot](documentation/wireframes/tablet_all_reviews.png) | ![screenshot](documentation/wireframes/desktop_all_reviews.png) |
+| Lockout Page | ![screenshot](documentation/wireframes/mobile_lockout_page.png) | ![screenshot](documentation/wireframes/tablet_lockout_page.png) | ![screenshot](documentation/wireframes/desktop_lockout_page.png) |
+| 404 | ![screenshot](documentation/wireframes/mobile_404.png) | ![screenshot](documentation/wireframes/tablet_404.png) | ![screenshot](documentation/wireframes/desktop_404.png) |
 
 ## Features
 
