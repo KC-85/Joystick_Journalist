@@ -581,12 +581,6 @@ By forking the GitHub Repository, you make a copy of the original repository on 
 
 ### Local VS Deployment
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site. Generally, there shouldn't be [m]any major differences, so if you honestly cannot find any differences, feel free to use the following example:
-
-⚠️ --- END --- ⚠️
-
 There are no remaining major differences between the local version when compared to the deployed version online.
 
 ## Credits
@@ -617,51 +611,12 @@ Use this space to provide attribution links for any borrowed code snippets, elem
 
 ### Media
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution links to any media files borrowed from elsewhere (images, videos, audio, etc.). If you're the owner (or a close acquaintance) of some/all media files, then make sure to specify this information. Let the assessors know that you have explicit rights to use the media files within your project. Ideally, you should provide an actual link to every media file used, not just a generic link to the main site, unless it's AI-generated artwork.
-
-Looking for some media files? Here are some popular sites to use. The list of examples below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links by sending yourself (or Slackbot) the following command: `!freemedia`.
-
-- Images
-    - [Pexels](https://www.pexels.com)
-    - [Unsplash](https://unsplash.com)
-    - [Pixabay](https://pixabay.com)
-    - [Lorem Picsum](https://picsum.photos) (placeholder images)
-    - [Wallhere](https://wallhere.com) (wallpaper / backgrounds)
-    - [This Person Does Not Exist](https://thispersondoesnotexist.com) (reload to get a new person)
-- Audio
-    - [Audio Micro](https://www.audiomicro.com/free-sound-effects)
-- Video
-    - [Videvo](https://www.videvo.net)
-- Image Compression
-    - [TinyPNG](https://tinypng.com) (for images <5MB)
-    - [CompressPNG](https://compresspng.com) (for images >5MB)
-
-A few examples have been provided below to give you some ideas on how to do your own Media credits.
-
-⚠️ --- END ---⚠️
-
 | Source | Notes |
 | --- | --- |
-| [favicon.io](https://favicon.io) | Generating the favicon |
-| [I Think Therefore I Blog](https://codeinstitute.net) | Sample images provided from the walkthrough projects |
 | [ChatGPT](https://chatgpt.com) | Icons used throughout the site |
-| [Pexels](https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg) | Hero image |
-| [Wallhere](https://c.wallhere.com/images/9c/c8/da4b4009f070c8e1dfee43d25f99-2318808.jpg!d) | Background wallpaper |
-| [Pixabay](https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg) | Background wallpaper |
-| [DALL-E 3](https://openai.com/index/dall-e-3) | AI generated artwork |
-| [TinyPNG](https://tinypng.com) | Compressing images < 5MB |
-| [CompressPNG](https://compresspng.com) | Compressing images > 5MB |
-| [CloudConvert](https://cloudconvert.com/webp-converter) | Converting images to `.webp` |
+
 
 ### Acknowledgements
-
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution and acknowledgement to any supports that helped, encouraged, or supported you throughout the development stages of this project. It's always lovely to appreciate those that help us grow and improve our developer skills. A few examples have been provided below to give you some ideas.
-
-⚠️ --- END ---⚠️
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for the support & answers to my questions throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their assistance with troubleshooting and debugging some project issues.
