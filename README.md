@@ -393,8 +393,8 @@ Consider adding screenshots of your Projects Board(s), Issues (open and closed),
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/gh-issues-open.png) |
-| [![GitHub closed issues](https://img.shields.io/github/issues-closed/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh-issues-closed.png) |
+| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/gh_issues-open_png) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-closed/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh_issues_closed.png) |
 
 ### MoSCoW Prioritization
 
