@@ -310,7 +310,7 @@ source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to
 
 [GitHub Projects](https://www.github.com/KC-85/Joystick_Journalist/projects) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
-![screenshot](documentation/gh_projects.png)
+![screenshot](documentation/github/gh_projects.png)
 
 ### GitHub Issues
 
@@ -318,8 +318,8 @@ source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/gh_issues_open_png) |
-| [![GitHub closed issues](https://img.shields.io/github/issues-closed/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh_issues_closed.png) |
+| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/github/gh_issues_open_png) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-closed/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/github/gh_issues_closed.png) |
 
 ### MoSCoW Prioritization
 
