@@ -88,13 +88,9 @@ source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=htt
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
-
 The Joystick Journalist platform embraces a retro-futuristic neon aesthetic, inspired by classic arcade gaming and cyberpunk themes.
 
 The dark background enhances readability while allowing neon colors to pop, evoking the nostalgic feel of old CRT monitors and neon-lit arcades.
-
-⚠️ --- END --- ⚠️
 
 I used [coolors.co](https://coolors.co/000000-00ff00-ffcc00-ff00ff) to generate my color palette.
 - `#000000` (Black) - Primary Background (Dark theme for retro aesthetic).
@@ -106,8 +102,6 @@ I used [coolors.co](https://coolors.co/000000-00ff00-ffcc00-ff00ff) to generate 
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
-
 The primary font used in this project is VT323, a monospace font that gives the site a retro gaming aesthetic. It was imported from Google Fonts and applied site-wide to maintain a consistent theme.
 
 - [VT323](https://fonts.google.com/specimen/VT323) was used for all text within the site in keeping with the 90s retro theme.
@@ -117,19 +111,11 @@ Instead of Font Awesome, the project utilizes Unicode symbols and emojis to repr
 
 - [ChatGPT] all icons within the site was generated via ChatGPT to represent interactive elements.
 
-⚠️ --- END --- ⚠️
-
 - [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
 - [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User Stories
-
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
 
 | Target | Expectation | Outcome |
 | --- | --- | --- |
@@ -152,12 +138,6 @@ In this section, list all of your possible user stories for the project. Samples
 
 ## Wireframes
 
-⚠️ INSTRUCTIONS ⚠️
-
-If you've created wireframes or mock-ups, use this section to display screenshots of your wireframes. The example table below uses sample pages from the walkthrough project to give you some inspiration for your own project, so please adjust accordingly.
-
-⚠️ --- END --- ⚠️
-
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Visily](https://app.visily.ai/projects) to manually design my site wireframes.
 
@@ -175,14 +155,6 @@ I've used [Visily](https://app.visily.ai/projects) to manually design my site wi
 | 404 | ![screenshot](documentation/wireframes/mobile_404.png) | ![screenshot](documentation/wireframes/tablet_404.png) | ![screenshot](documentation/wireframes/desktop_404.png) |
 
 ## Features
-
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, you should go over the different parts of your project, and describe each feature. You should explain what value each of the features provides for the user, focusing on your target audience, what they want to achieve, and how your project can help them achieve these things.
-
-**IMPORTANT**: Remember to always include a screenshot of each individual feature!
-
-⚠️ --- END --- ⚠️
 
 ### Existing Features
 
@@ -213,14 +185,6 @@ In this section, you should go over the different parts of your project, and des
 | Site Lockout | The lockout page will indicate when a user has tried to log in with the wrong credentials three times in a row and to try again later. | ![screenshot](documentation/features/lockout_page.png) |
 
 ### Future Features
-
-⚠️ INSTRUCTIONS ⚠️
-
-Do you have additional ideas that you'd like to include on your project in the future? Fantastic, list them here! It's always great to have plans for future improvements. Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-A few examples are listed below to align with possible ways to improve on the sample walkthrough project, to give you some inspiration.
-
-⚠️ --- END ---⚠️
 
 - **Two-Factor Authentication**: Allows users to login securely with either a one-time passcode or a QR Code.
 - **Post Categories/Tags**: Allow users to categorize and tag games and reviews.
@@ -270,16 +234,6 @@ A few examples are listed below to align with possible ways to improve on the sa
 | [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) | Icons. |
 | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
 
-⚠️ NOTE ⚠️
-
-Want to add more?
-
-- Tutorial: https://shields.io/badges/static-badge
-- Icons/Logos: https://simpleicons.org
-  - FYI: not all logos are available to use
-
-🛑 --- END --- 🛑
-
 ## Database Design
 
 ### Data Model
@@ -287,24 +241,6 @@ Want to add more?
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
 
 ![screenshot](documentation/erd/erd_diagram.png)
-
-⚠️ INSTRUCTIONS ⚠️
-
-Using your defined models, create an ERD with the relationships identified. A couple of recommendations for building your own free ERDs:
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-- [Draw.io](https://draw.io)
-
-Looking for an interactive version of your ERD? Consider using a [`Mermaid flowchart`](https://mermaid.live). To simplify the process, you can ask ChatGPT (or similar) the following prompt:
-
-> ChatGPT Prompt:
-> "Generate a Markdown syntax Mermaid ERD using my Django models"
-> [paste-your-django-models-into-ChatGPT]
-
-The "I Think Therefore I Blog" sample ERD in Markdown syntax using Mermaid can be seen below as an example.
-
-**NOTE**: A Markdown Preview tool doesn't show the interactive ERD; you must first commit/push the code to your GitHub repository in order to see it live in action.
-
-⚠️ --- END --- ⚠️
 
 I have used `Mermaid` to generate an interactive ERD of my project.
 
@@ -343,11 +279,6 @@ erDiagram
 
 source: [Mermaid](https://mermaid.live/edit#pako:eNqFUltvgjAU_ivkPKNRwAJ9WzZi9rA9aLYlCwlp4AybQTGlTB3y31duOhcz-9Tz3c7HpYa4SBAooHzgLJUsD4Whz8s6WBnH42RS1MYqeH0M3gxq7CRXWPaCZfC8CkbF8u4p0DwXcVYlJ0UL_o3YMM3-WlH39_ZwoQyenOdSSS5SoypRCpZjTzSju99_237N2ha77VRcZXipkpghKzE6IJOXTIpCYjSmnFYNz_3Pss6sO0Z_QYlfHHcoI3GVZUp3PGMK98qIizxHoc5owhQqnuMQFrXzqSGYkKPMGU_05-8ahqA2qF8XUH1NmPwMIRSN1rFKFeuDiIEqWaEJ1bZNGn6YEdwyAbSGPVDfmdo2sRYLmxDHmbueCQeghEw94hFiuxZx_PnMb0z4Lgrtn029hUt8x7Zcz55bxLO7tPeO7MNlUaUboB8sK_WUyrb0wKBIUN4XlVB6c_MDrhDUhA)
 
-⚠️ RECOMMENDED ⚠️
-
-Alternatively, or in addition to, a more comprehensive ERD can be auto-generated once you're at the end of your development stages, just before you submit. Follow the steps below to obtain a thorough ERD that you can include. Feel free to leave the steps below in the README for future use to yourself.
-
-⚠️ --- END --- ⚠️
 
 I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
 
@@ -377,15 +308,9 @@ source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to
 
 ### GitHub Projects
 
-⚠️ TIP ⚠️
-
-Consider adding screenshots of your Projects Board(s), Issues (open and closed), and Milestone tasks.
-
-⚠️ --- END ---⚠️
-
 [GitHub Projects](https://www.github.com/KC-85/Joystick_Journalist/projects) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
-![screenshot](documentation/gh-projects.png)
+![screenshot](documentation/gh_projects.png)
 
 ### GitHub Issues
 
@@ -393,7 +318,7 @@ Consider adding screenshots of your Projects Board(s), Issues (open and closed),
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/gh_issues-open_png) |
+| [![GitHub issues](https://img.shields.io/github/issues/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues) | ![screenshot](documentation/gh_issues_open_png) |
 | [![GitHub closed issues](https://img.shields.io/github/issues-closed/KC-85/Joystick_Journalist)](https://www.github.com/KC-85/Joystick_Journalist/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh_issues_closed.png) |
 
 ### MoSCoW Prioritization
@@ -585,19 +510,7 @@ There are no remaining major differences between the local version when compared
 
 ## Credits
 
-⚠️ INSTRUCTIONS ⚠️
-
-In the following sections, you need to reference where you got your content, media, and any extra help. It is common practice to use code from other repositories and tutorials (which is totally acceptable), however, it is important to be very specific about these sources to avoid potential plagiarism.
-
-⚠️ --- END ---⚠️
-
 ### Content
-
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution links for any borrowed code snippets, elements, and resources. Ideally, you should provide an actual link to every resource used, not just a generic link to the main site. If you've used multiple components from the same source (such as Bootstrap), then you only need to list it once, but if it's multiple Codepen samples, then you should list each example individually. If you've used AI for some assistance (such as ChatGPT or Perplexity), be sure to mention that as well. A few examples have been provided below to give you some ideas.
-
-⚠️ --- END ---⚠️
 
 | Source | Notes |
 | --- | --- |
@@ -608,6 +521,7 @@ Use this space to provide attribution links for any borrowed code snippets, elem
 | [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
 | [Python Tutor](https://pythontutor.com) | Additional Python help |
 | [ChatGPT](https://chatgpt.com) | Help with code logic and explanations |
+| [Udemy](https://www.udemy.com/course/python-django-the-practical-guide/) | Help with the more intricate sections of Django |
 
 ### Media
 
