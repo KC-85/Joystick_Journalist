@@ -146,7 +146,7 @@ I've used [Visily](https://app.visily.ai/projects) to manually design my site wi
 | Hero Section | ![screenshot](documentation/wireframes/mobile_hero_section.png) | ![screenshot](documentation/wireframes/tablet_hero_section.png) | ![screenshot](documentation/wireframes/desktop_hero_section.png) |
 | Register | ![screenshot](documentation/wireframes/mobile_register.png) | ![screenshot](documentation/wireframes/tablet_register.png) | ![screenshot](documentation/wireframes/desktop_register.png) |
 | Login | ![screenshot](documentation/wireframes/mobile_login.png) | ![screenshot](documentation/wireframes/tablet_login.png) | ![screenshot](documentation/wireframes/desktop_login.png) |
-| Landing Page | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet_landing_page.png) | ![screenshot](documentation/wireframes/desktop_landing_page.png) |
+| Landing Page | ![screenshot](documentation/wireframes/mobile_landing_page.png) | ![screenshot](documentation/wireframes/tablet_landing_page.png) | ![screenshot](documentation/wireframes/desktop_landing_page.png) |
 | Add Game | ![screenshot](documentation/wireframes/mobile_add_game.png) | ![screenshot](documentation/wireframes/tablet_add_game.png) | ![screenshot](documentation/wireframes/desktop_add_game.png) |
 | Add Review | ![screenshot](documentation/wireframes/mobile_add_review.png) | ![screenshot](documentation/wireframes/tablet_add_review.png) | ![screenshot](documentation/wireframes/desktop_add_review.png) |
 | Edit Review | ![screenshot](documentation/wireframes/mobile_edit_review.png) | ![screenshot](documentation/wireframes/tablet_edit_review.png) | ![screenshot](documentation/wireframes/desktop_edit_review.png) |
@@ -178,7 +178,6 @@ I've used [Visily](https://app.visily.ai/projects) to manually design my site wi
 | Create Genre | Site owners can create genres from the Django admin dashboard. | ![screenshot](documentation/features/create_genre_admin.png) |
 | Update Genre | Site owners can update genres from the Django admin dashboard. | ![screenshot](documentation/features/update_genre_admin.png) |
 | Delete Genre | Site owners can delete genres from the Django admin dashboard. | ![screenshot](documentation/features/delete_genre_admin.png) |
-
 | User Feedback | Clear and obvious Django messages are used to provide feedback to user actions. | ![screenshot](documentation/features/messages.png) |
 | Heroku Deployment | The site is fully deployed to Heroku, making it accessible online and easy to manage. | ![screenshot](documentation/features/heroku.png) |
 | 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
