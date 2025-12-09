@@ -3,11 +3,11 @@ import os
 from decouple import AutoConfig
 import dj_database_url
 
-# === Project Paths ===
+# Project Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 config = AutoConfig(BASE_DIR)
 
-# === Security ===
+# Security
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 IS_HEROKU = "DYNO" in os.environ
@@ -26,7 +26,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://joystick-journalist-3eda94de87b5.herokuapp.com",
 ]
 
-# === HTTPS Security (Heroku Only) ===
+# HTTPS Security (Heroku Only)
 SECURE_SSL_REDIRECT = IS_HEROKU
 SESSION_COOKIE_SECURE = IS_HEROKU
 CSRF_COOKIE_SECURE = IS_HEROKU
@@ -36,7 +36,7 @@ X_FRAME_OPTIONS = "DENY"
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 DEBUG_PROPAGATE_EXCEPTIONS = False
 
-# === Installed Apps ===
+# Installed Apps
 INSTALLED_APPS = [
     # Django Core
     'django.contrib.admin',
@@ -61,13 +61,13 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-# === Authentication Backends ===
+# Authentication Backends
 AUTHENTICATION_BACKENDS = [
     'axes.backends.AxesBackend',  # Protects from brute-force attacks
     'django.contrib.auth.backends.ModelBackend',  # Default Django backend
 ]
 
-# === Middleware ===
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -81,7 +81,7 @@ MIDDLEWARE = [
     'reviews.login_middleware.LoginRequiredMiddleware',
 ]
 
-# === Templates ===
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -98,11 +98,11 @@ TEMPLATES = [
     },
 ]
 
-# === Root & WSGI ===
+# Root & WSGI
 ROOT_URLCONF = 'core.urls'
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# === Database ===
+# Database
 DATABASE_URL = config('DATABASE_URL', default=None)
 if not DATABASE_URL:
     raise ValueError("❌ DATABASE_URL is missing.")
@@ -110,7 +110,7 @@ DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL, conn_max_age=900, ssl_require=True)
 }
 
-# === Password Validators ===
+# Password Validators
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},  #noqa
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  #noqa
@@ -120,40 +120,40 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},  #noqa
 ]
 
-# === i18n & Timezone ===
+# i18n & Timezone
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# === Static Files ===
+# Static Files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# === Default PK ===
+# Default PK
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# === Login/Logout Redirects ===
+# Login/Logout Redirects
 LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/account/login/'
 
-# === Allauth Settings ===
+# Allauth Settings
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
-# === Axes (Brute Force Protection) ===
+# Axes (Brute Force Protection)
 AXES_ENABLED = True
 AXES_FAILURE_LIMIT = 3
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = 'reviews/lockout.html'
 AXES_RESET_ON_SUCCESS = True
 
-# === Logging (Production) ===
+# Logging (Production)
 if not DEBUG:
     LOGGING = {
         "version": 1,
