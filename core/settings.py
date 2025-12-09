@@ -32,7 +32,7 @@ SESSION_COOKIE_SECURE = IS_HEROKU
 CSRF_COOKIE_SECURE = IS_HEROKU
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = "DENY"
+X_FRAME_OPTIONS = "SAMEORIGIN"
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 DEBUG_PROPAGATE_EXCEPTIONS = False
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',  # 🔐 Required for allauth
+    'django.contrib.sites',  # Required for allauth
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
@@ -113,8 +113,7 @@ DATABASES = {
 # === Password Validators ===
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},  #noqa
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  #noqa
         'OPTIONS': {'min_length': 8}
     },
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},  #noqa

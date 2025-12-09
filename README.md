@@ -25,7 +25,7 @@ Designed with a responsive layout, it offers a seamless experience across both d
 **Site Mockups**
 *([amiresponsive](https://ui.dev/amiresponsive?url=https://joystick-journalist-3eda94de87b5.herokuapp.com), [techsini](https://techsini.com/multi-mockup), etc.)*
 
-![screenshot](documentation/mockup.png)
+![screenshot](documentation/mockup/mockup.png)
 
 source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=https://joystick-journalist-3eda94de87b5.herokuapp.com)
 
