@@ -32,6 +32,9 @@ source: [Joystick_Journalist amiresponsive](https://ui.dev/amiresponsive?url=htt
 > [!IMPORTANT]
 > The examples in these templates are strongly influenced by the Code Institute walkthrough project called "I Think Therefore I Blog".
 
+> [!IMPORTANT]
+> In order to generate the site mockup, I had to use a browser extension to disable iFrames.
+
 ## UX
 
 ### The 5 Planes of UX
