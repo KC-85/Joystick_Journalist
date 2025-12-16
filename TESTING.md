@@ -357,7 +357,7 @@ Most of your project's **Features** should already align with the **User Stories
 | As a registered user  | I would like to delete a game review that i made | Pass | ![screenshot](documentation/features/delete_review.png) |
 | As a registered user | I would like to delete a game that i added | Pass | ![screenshot](documentation/features/delete_game.png) |
 | As a site owner | I would like to edit or delete a user review | Pass | ![screenshot](documentation/features/update_review_admin.png) |
-| As a registered user | I would like my comment to show my name and the timestamp | Pass | ![screenshot](documentation/features/all_reviews.png) |
+| As a registered user | I would like my comment to show my name | Pass | ![screenshot](documentation/features/all_reviews.png) |
 | As a registered user | I would like to receive a notification or message saying my review is pending approval | Pass | ![screenshot](documentation/features/messages.png) |
 | As a registered user | I would like to edit or delete my own reviews | Pass | ![screenshot](documentation/features/edit_review.png) |
 | As a registered user | I would like to see a 404 error page if I get lost | Pass | ![screenshot](documentation/features/404.png) |
