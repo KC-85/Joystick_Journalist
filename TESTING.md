@@ -249,7 +249,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Page | Chrome | Firefox | Brave | Notes |
 | --- | --- | --- | --- | --- |
-| Register | ![screenshot](documentation/browsers/chrome-register.png) | ![screenshot](documentation/browsers/firefox-register.png) | ![screenshot](documentation/browsers/safari-register.png) | Works as expected |
+| Register | ![screenshot](documentation/browsers/chrome-register.png) | ![screenshot](documentation/browsers/firefox-register.png) | ![screenshot](documentation/browsers/brave-register.png) | Works as expected |
 | Login | ![screenshot](documentation/browsers/chrome-login.png) | ![screenshot](documentation/browsers/firefox-login.png) | ![screenshot](documentation/browsers/brave-login.png) | Works as expected |
 | Home | ![screenshot](documentation/browsers/chrome-home.png) | ![screenshot](documentation/browsers/firefox-home.png) | ![screenshot](documentation/browsers/safari-home.png) | Works as expected |
 | Add Blog | ![screenshot](documentation/browsers/chrome-add-blog.png) | ![screenshot](documentation/browsers/firefox-add-blog.png) | ![screenshot](documentation/browsers/safari-add-blog.png) | Works as expected |
@@ -273,13 +273,18 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 | Page | Mobile | Desktop |
 | --- | --- | --- |
+| Hero | ![screenshot](documentation/lighthouse/mobile/hero_section.png) | ![screenshot](documentation/lighthouse/desktop/hero_section.png) |
+| Login | ![screenshot](documentation/lighthouse/mobile/login.png) | ![screenshot](documentation/lighthouse/desktop/login.png) |
 | Register | ![screenshot](documentation/lighthouse/mobile-register.png) | ![screenshot](documentation/lighthouse/desktop-register.png) |
-| Login | ![screenshot](documentation/lighthouse/mobile-login.png) | ![screenshot](documentation/lighthouse/desktop-login.png) |
-| Home | ![screenshot](documentation/lighthouse/mobile-home.png) | ![screenshot](documentation/lighthouse/desktop-home.png) |
-| Add Blog | ![screenshot](documentation/lighthouse/mobile-add-blog.png) | ![screenshot](documentation/lighthouse/desktop-add-blog.png) |
-| Edit Blog | ![screenshot](documentation/lighthouse/mobile-edit-blog.png) | ![screenshot](documentation/lighthouse/desktop-edit-blog.png) |
-| Blog Post | ![screenshot](documentation/lighthouse/mobile-blog-post.png) | ![screenshot](documentation/lighthouse/desktop-blog-post.png) |
+| Landing Page (Game List) | ![screenshot](documentation/lighthouse/mobile/landing_page.png) | ![screenshot](documentation/lighthouse/desktop/landing_page.png) |
+| Add Game | ![screenshot](documentation/lighthouse/mobile/add_game.png) | ![screenshot](documentation/lighthouse/desktop/add_game.png) |
+| Delete Game | ![screenshot](documentation/lighthouse/mobile/delete_game.png) | ![screenshot](documentation/lighthouse/desktop/delete_game.png) |
+| Add Review | ![screenshot](documentation/lighthouse/mobile/add_review.png) | ![screenshot](documentation/lighthouse/desktop/add_review.png) |
+| Edit Review | ![screenshot](documentation/lighthouse/mobile/edit_review.png) | ![screenshot](documentation/lighthouse/desktop/edit_review.png) |
+| All Reviews | ![screenshot](documentation/lighthouse/mobile-all-reviews.png) | ![screenshot](documentation/lighthouse/desktop-all-reviews.png) |
 | 404 | ![screenshot](documentation/lighthouse/mobile-404.png) | ![screenshot](documentation/lighthouse/desktop-404.png) |
+
+- **Note:** Delete Review shows up a pop up message instead of a seperate page, and therefore I am unable to test it's lighthouse score.
 
 ## Defensive Programming
 
@@ -358,7 +363,6 @@ Most of your project's **Features** should already align with the **User Stories
 | As a registered user | I would like to delete a game that i added | Pass | ![screenshot](documentation/features/delete_game.png) |
 | As a site owner | I would like to edit or delete a user review | Pass | ![screenshot](documentation/features/update_review_admin.png) |
 | As a registered user | I would like my comment to show my name | Pass | ![screenshot](documentation/features/all_reviews.png) |
-| As a registered user | I would like to receive a notification or message saying my review is pending approval | Pass | ![screenshot](documentation/features/messages.png) |
 | As a registered user | I would like to edit or delete my own reviews | Pass | ![screenshot](documentation/features/edit_review.png) |
 | As a registered user | I would like to see a 404 error page if I get lost | Pass | ![screenshot](documentation/features/404.png) |
 | As a site owner | I would like to see a login error page | Pass | ![screenshot](documentation/features/lockout_page.png) |
