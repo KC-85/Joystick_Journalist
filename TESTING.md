@@ -275,7 +275,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | --- | --- | --- |
 | Hero | ![screenshot](documentation/lighthouse/mobile/hero_section.png) | ![screenshot](documentation/lighthouse/desktop/hero_section.png) |
 | Login | ![screenshot](documentation/lighthouse/mobile/login.png) | ![screenshot](documentation/lighthouse/desktop/login.png) |
-| Register | ![screenshot](documentation/lighthouse/mobile-register.png) | ![screenshot](documentation/lighthouse/desktop-register.png) |
+| Register | ![screenshot](documentation/lighthouse/mobile/register.png) | ![screenshot](documentation/lighthouse/desktop/register.png) |
 | Landing Page (Game List) | ![screenshot](documentation/lighthouse/mobile/landing_page.png) | ![screenshot](documentation/lighthouse/desktop/landing_page.png) |
 | Add Game | ![screenshot](documentation/lighthouse/mobile/add_game.png) | ![screenshot](documentation/lighthouse/desktop/add_game.png) |
 | Delete Game | ![screenshot](documentation/lighthouse/mobile/delete_game.png) | ![screenshot](documentation/lighthouse/desktop/delete_game.png) |
