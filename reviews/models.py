@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Genre(models.Model):
     name = models.CharField(
         max_length=100
@@ -8,6 +9,7 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name  # Display the genre as the string representation
+
 
 # Model representing a 90s game
 class Game(models.Model):
@@ -24,8 +26,9 @@ class Game(models.Model):
         default=1
     )  # Genre of the game (e.g., Action)
 
+    # Display the game title as the string representation
     def __str__(self):
-        return self.title  # Display the game title as the string representation
+        return self.title
 
 
 # Model representing a review for a game
