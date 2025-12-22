@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Game, Review, Genre
-from axes.models import AccessAttempt, AccessLog  # Import Axes models for security monitoring
+
+# Import Axes models for security monitoring
+from axes.models import AccessAttempt, AccessLog
 
 # Register Models
 admin.site.register(Game)
