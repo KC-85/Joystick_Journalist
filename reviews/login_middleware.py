@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.conf import settings
 
+
 class LoginRequiredMiddleware:
     """
     Middleware to restrict all views to authenticated users,
