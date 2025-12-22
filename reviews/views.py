@@ -47,12 +47,17 @@ def register(request):
             user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
 
             login(request, user)
-            messages.success(request, "🎉 Account created successfully! Welcome to Joystick Journalist 🎮")
+            messages.success(
+                request,
+                "Account created successfully! Welcome to Joystick Journalist")
             return redirect('landing_page')
         else:
-            print("\n❌ DEBUG: Registration failed due to the following errors:")
+            print("\n DEBUG: Registration failed due to the following errors:")
             print(form.errors.as_json())
-            messages.error(request, "⚠️ Registration failed. Please fix the errors below.")
+            messages.error(
+                request,
+                "Registration failed. Please fix the errors below."
+                )
     else:
         form = RegisterForm()
 
