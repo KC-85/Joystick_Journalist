@@ -33,7 +33,7 @@ class RegisterForm(UserCreationForm):
     
         return password2   
 
-"""Form for creating or updating a Game"""
+# Form for creating or updating a Game
 class GameForm(forms.ModelForm):
     class Meta:
         model = Game
@@ -50,7 +50,7 @@ class GameForm(forms.ModelForm):
             ),
         }
 
-"""Form for creating or updating a Review"""
+# Form for creating or updating a Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
