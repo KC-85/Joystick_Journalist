@@ -29,6 +29,11 @@
                 <div class="mb-3">
                     <label for="id_username" class="form-label">Username</label>
                     {{ form.username }}
+                    {% if form.username.help_text %}
+                        <div id="id_username_helptext" class="form-text">
+                            {{ form.username.help_text|safe }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="mb-3">
@@ -36,14 +41,25 @@
                     {{ form.email }}
                 </div>
 
+                
                 <div class="mb-3">
                     <label for="id_password1" class="form-label">Password</label>
                     {{ form.password1 }}
+                    {% if form.password1.help_text %}
+                        <div id="id_password1_helptext" class="form-text">
+                            {{ form.password1.help_text|safe }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="mb-3">
                     <label for="id_password2" class="form-label">Confirm Password</label>
                     {{ form.password2 }}
+                    {% if form.password2.help_text %}
+                        <div id="id_password2_helptext" class="form-text">
+                            {{ form.password2.help_text|safe }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <button type="submit" class="btn btn-outline-success w-100 mt-3">
