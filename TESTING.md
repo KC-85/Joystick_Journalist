@@ -56,13 +56,12 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| reviews | [all_reviews.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/all_reviews.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-all_reviews.png) | Notes (if applicable) |
-| reviews | [form_page.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/form_page.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-form_page.png) | Notes (if applicable) |
+| reviews | [all_reviews.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/all_reviews.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-all_reviews.png) | Note: Delete review shows in the compiled HTML. |
+| reviews | [form_page.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/form_page.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-form_page.png) | Note: This template is for adding games. |
 | reviews | [hero.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/hero.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-hero.png) | Notes (if applicable) |
-| reviews | [landing_page.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/landing_page.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-landing_page.png) | Notes (if applicable) |
+| reviews | [landing_page.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/landing_page.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-landing_page.png) | Note: Add review shows in the compiled HTML. |
 | reviews | [login.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/login.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-login.png) | Notes (if applicable) |
 | reviews | [register.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/register.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-register.png) | Notes (if applicable) |
-| reviews | [review_page.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/review_page.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-review_page.png) | Notes (if applicable) |
 | reviews | [lockout.html](https://github.com/KC-85/Joystick_Journalist/blob/main/reviews/templates/reviews/lockout.html) | Link (if applicable) | ![screenshot](documentation/validation/html-reviews-lockout.png) | Notes (if applicable) |
 
 
