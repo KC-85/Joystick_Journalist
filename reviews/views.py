@@ -52,7 +52,6 @@ def register(request):
                 "Account created successfully! Welcome to Joystick Journalist")
             return redirect('landing_page')
         else:
-            print("\n DEBUG: Registration failed due to the following errors:")
             print(form.errors.as_json())
             messages.error(
                 request,
