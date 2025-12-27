@@ -252,8 +252,8 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Login | ![screenshot](documentation/browsers/chrome-login.png) | ![screenshot](documentation/browsers/firefox-login.png) | ![screenshot](documentation/browsers/brave-login.png) | Works as expected |
 | Landing Page | ![screenshot](documentation/browsers/chrome-landing_page.png) | ![screenshot](documentation/browsers/firefox-home.png) | ![screenshot](documentation/browsers/brave-home.png) | Works as expected |
 | Add Game | ![screenshot](documentation/browsers/chrome-add-game.png) | ![screenshot](documentation/browsers/firefox-add-game.png) | ![screenshot](documentation/browsers/brave-add-game.png) | Works as expected |
-| Edit Review | ![screenshot](documentation/browsers/chrome-edit-blog.png) | ![screenshot](documentation/browsers/firefox-edit-blog.png) | ![screenshot](documentation/browsers/safari-edit-blog.png) | Works as expected |
-| Delete Review | ![screenshot](documentation/browsers/chrome-blog-post.png) | ![screenshot](documentation/browsers/firefox-blog-post.png) | ![screenshot](documentation/browsers/safari-blog-post.png) | Works as expected |
+| Add Review | ![screenshot](documentation/browsers/chrome-add-review.png) | ![screenshot](documentation/browsers/firefox-add-review.png) | ![screenshot](documentation/browsers/brave-add-review.png) | Works as expected |
+| Edit Review | ![screenshot](documentation/browsers/chrome-edit-review.png) | ![screenshot](documentation/browsers/firefox-edit-review.png) | ![screenshot](documentation/browsers/brave-edit-review.png) | Works as expected |
 | 404 | ![screenshot](documentation/browsers/chrome-404.png) | ![screenshot](documentation/browsers/firefox-404.png) | ![screenshot](documentation/browsers/safari-404.png) | Works as expected |
 
 ## Lighthouse Audit
