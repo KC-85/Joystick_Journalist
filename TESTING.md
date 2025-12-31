@@ -216,11 +216,9 @@ I've tested my deployed project to check for responsiveness issues.
 | Login | ![screenshot](documentation/responsiveness/mobile_login.png) | ![screenshot](documentation/responsiveness/tablet_login.png) | ![screenshot](documentation/responsiveness/desktop_login.png) | Works as expected |
 | Landing Page | ![screenshot](documentation/responsiveness/mobile_landing_page.png) | ![screenshot](documentation/responsiveness/tablet_landing_page.png) | ![screenshot](documentation/responsiveness/desktop_landing_page.png) | Works as expected |
 | Add Game | ![screenshot](documentation/responsiveness/mobile_add_game.png) | ![screenshot](documentation/responsiveness/tablet_add_game.png) | ![screenshot](documentation/responsiveness/desktop_add_game.png) | Works as expected |
-| Delete Game | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
-| Add Review | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
-| Edit Review | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
-| Delete Review | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
-| All Reviews | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
+| Add Review | ![screenshot](documentation/responsiveness/mobile_add_review.png) | ![screenshot](documentation/responsiveness/tablet_add_review.png) | ![screenshot](documentation/responsiveness/desktop_add_review.png) | Works as expected |
+| Edit Review | ![screenshot](documentation/responsiveness/mobile_edit_review.png) | ![screenshot](documentation/responsiveness/tablet_edit_review.png) | ![screenshot](documentation/responsiveness/desktop_edit_review.png) | Works as expected |
+| All Reviews | ![screenshot](documentation/responsiveness/mobile_all_reviews.png) | ![screenshot](documentation/responsiveness/tablet_all_reviews.png) | ![screenshot](documentation/responsiveness/desktop_all_reviews.png) | Works as expected |
 | 404 | ![screenshot](documentation/responsiveness/mobile-404.png) | ![screenshot](documentation/responsiveness/tablet-404.png) | ![screenshot](documentation/responsiveness/desktop-404.png) | Works as expected |
 
 ## Browser Compatibility
@@ -376,12 +374,6 @@ I have conducted a series of automated tests on my application.
 
 ### Python (Unit Testing)
 
-⚠️ INSTRUCTIONS ⚠️
-
-Adjust the code below (file names, function names, etc.) to match your own project files/folders. Use these notes loosely when documenting your own Python Unit tests, and remove/adjust where applicable.
-
-⚠️ SAMPLE ⚠️
-
 I have used Django's built-in unit testing framework to test the application functionality. In order to run the tests, I ran the following command in the terminal each time:
 
 - `python3 manage.py test name-of-app`
@@ -390,13 +382,15 @@ To create the coverage report, I would then run the following commands:
 
 - `pip3 install coverage`
 - `pip3 freeze --local > requirements.txt`
-- `coverage run --omit=*/site-packages/*,*/migrations/*,*/__init__.py,env.py,manage.py test`
+- `pip freeze > requirements.txt`
+- `coverage run manage.py test`
 - `coverage report`
 
 To see the HTML version of the reports, and find out whether some pieces of code were missing, I ran the following commands:
 
 - `coverage html`
-- `python3 -m http.server`
+- `coverage run --source+'.' manage.py test`
+- `coverage report -m`
 
 Below are the results from the full coverage report on my application that I've tested:
 
