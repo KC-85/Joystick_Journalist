@@ -275,11 +275,10 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Register | ![screenshot](documentation/lighthouse/mobile/register.png) | ![screenshot](documentation/lighthouse/desktop/register.png) |
 | Landing Page (Game List) | ![screenshot](documentation/lighthouse/mobile/landing_page.png) | ![screenshot](documentation/lighthouse/desktop/landing_page.png) |
 | Add Game | ![screenshot](documentation/lighthouse/mobile/add_game.png) | ![screenshot](documentation/lighthouse/desktop/add_game.png) |
-| Delete Game | ![screenshot](documentation/lighthouse/mobile/delete_game.png) | ![screenshot](documentation/lighthouse/desktop/delete_game.png) |
 | Add Review | ![screenshot](documentation/lighthouse/mobile/add_review.png) | ![screenshot](documentation/lighthouse/desktop/add_review.png) |
 | Edit Review | ![screenshot](documentation/lighthouse/mobile/edit_review.png) | ![screenshot](documentation/lighthouse/desktop/edit_review.png) |
-| All Reviews | ![screenshot](documentation/lighthouse/mobile-all-reviews.png) | ![screenshot](documentation/lighthouse/desktop-all-reviews.png) |
-| 404 | ![screenshot](documentation/lighthouse/mobile-404.png) | ![screenshot](documentation/lighthouse/desktop-404.png) |
+| All Reviews | ![screenshot](documentation/lighthouse/mobile/all_reviews.png) | ![screenshot](documentation/lighthouse/desktop/all_reviews.png) |
+| 404 | ![screenshot](documentation/lighthouse/mobile/404.png) | ![screenshot](documentation/lighthouse/desktop/404.png) |
 
 - **Note:** Delete Review shows up a pop up message instead of a seperate page, and therefore I am unable to test it's lighthouse score.
 
