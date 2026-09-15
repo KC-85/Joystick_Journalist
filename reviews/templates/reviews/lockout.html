@@ -3,9 +3,18 @@
 {% block title %}Locked Out - Joystick Journalist{% endblock %}
 
 {% block content %}
-    <div class="container text-center">
-        <h1 class="text-danger">🚨 Account Locked 🚨</h1>
-        <p>Too many failed login attempts. Try again later.</p>
-        <a href="{% url 'login' %}" class="btn btn-warning">Go Back to Login</a>
+<section class="retro-panel mx-auto max-w-3xl px-6 py-10 text-center sm:px-10">
+    <p class="eyebrow">Security Triggered</p>
+    <h1 class="font-display text-3xl font-bold uppercase tracking-[0.14em] text-white sm:text-4xl">
+        Account Locked
+    </h1>
+    <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+        Too many failed login attempts were detected. Let the cooldown finish, then try signing in again.
+    </p>
+    <div class="mt-8 flex justify-center">
+        <a href="{% url 'login' %}" class="signal-button signal-button-primary justify-center">
+            Back to Login
+        </a>
     </div>
+</section>
 {% endblock %}

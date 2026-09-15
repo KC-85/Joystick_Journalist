@@ -3,9 +3,18 @@
 {% block title %}Page Not Found - Joystick Journalist{% endblock %}
 
 {% block content %}
-<div class="error-container">
-    <h1>404 - Page Not Found</h1>
-    <p>Oops! The page you're looking for doesn't exist.</p>
-    <a href="{% url 'landing_page' %}" class="btn btn-primary">Return Home</a>
-</div>
+<section class="retro-panel mx-auto max-w-3xl px-6 py-10 text-center sm:px-10">
+    <p class="eyebrow">Signal Lost</p>
+    <h1 class="font-display text-3xl font-bold uppercase tracking-[0.14em] text-white sm:text-4xl">
+        404 - Page Not Found
+    </h1>
+    <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+        The page you were trying to load is not in this cartridge. Jump back home and pick a valid route from the archive.
+    </p>
+    <div class="mt-8 flex justify-center">
+        <a href="{% url 'landing_page' %}" class="signal-button signal-button-primary justify-center">
+            Return Home
+        </a>
+    </div>
+</section>
 {% endblock %}

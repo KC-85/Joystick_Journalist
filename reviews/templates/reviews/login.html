@@ -1,41 +1,72 @@
 {% extends 'reviews/base.html' %}
+{% load widget_tweaks %}
 
 {% block title %}Login - Joystick Journalist{% endblock %}
 
 {% block content %}
-<div class="login-container">
-    <h2 class="text-center neon-text">🎮 Log In</h2>
+<section class="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        <p class="eyebrow">Player Login</p>
+        <h2 class="font-display text-3xl font-bold uppercase tracking-[0.14em] text-white sm:text-4xl">
+            Re-enter the arcade
+        </h2>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+            Sign in to view the archive, add reviews, and manage your own contributions.
+        </p>
 
-    {% if form.errors %}
-        <div class="alert alert-danger text-center">
-            Invalid credentials. Please try again.
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div class="stat-panel">
+                <p class="stat-label">Unlocked</p>
+                <p class="stat-value">Game Reviews</p>
+            </div>
+            <div class="stat-panel">
+                <p class="stat-label">Security</p>
+                <p class="stat-value">Login Lockout</p>
+            </div>
         </div>
-    {% endif %}
+    </div>
 
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        
-        <div class="form-group">
-            {{ form.username.label_tag }}
-            {{ form.username }}
-            {% if form.username.errors %}
-                <div class="text-danger small">{{ form.username.errors|join:", " }}</div>
-            {% endif %}
-        </div>
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        {% if form.errors %}
+            <div class="flash-message flash-error mb-6">
+                Invalid credentials. Please try again.
+            </div>
+        {% endif %}
 
-        <div class="form-group">
-            {{ form.password.label_tag }}
-            {{ form.password }}
-            {% if form.password.errors %}
-                <div class="text-danger small">{{ form.password.errors|join:", " }}</div>
-            {% endif %}
-        </div>
+        <form method="post" action="{% url 'login' %}" class="retro-form space-y-5">
+            {% csrf_token %}
 
-        <button type="submit" class="btn btn-neon btn-block">Login</button>
-    </form>
+            <div class="space-y-2">
+                <label for="{{ form.username.id_for_label }}" class="block text-sm font-bold uppercase tracking-[0.18em] text-slate-300">
+                    {{ form.username.label }}
+                </label>
+                {{ form.username|add_class:"block w-full rounded-[1.25rem] border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-signal/60 focus:ring-2 focus:ring-signal/20" }}
+                {% for error in form.username.errors %}
+                    <p class="text-sm text-rose-300">{{ error }}</p>
+                {% endfor %}
+            </div>
 
-    <p class="text-center mt-3">
-        Don't have an account? <a href="{% url 'register' %}" class="neon-link">Register Here</a>
-    </p>
-</div>
+            <div class="space-y-2">
+                <label for="{{ form.password.id_for_label }}" class="block text-sm font-bold uppercase tracking-[0.18em] text-slate-300">
+                    {{ form.password.label }}
+                </label>
+                {{ form.password|add_class:"block w-full rounded-[1.25rem] border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-signal/60 focus:ring-2 focus:ring-signal/20" }}
+                {% for error in form.password.errors %}
+                    <p class="text-sm text-rose-300">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="signal-button signal-button-primary w-full justify-center">
+                Login
+            </button>
+        </form>
+
+        <p class="mt-6 text-sm text-slate-300">
+            New around here?
+            <a href="{% url 'register' %}" class="text-signal transition hover:text-acid">
+                Create an account
+            </a>
+        </p>
+    </div>
+</section>
 {% endblock %}

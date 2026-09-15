@@ -1,824 +1,386 @@
-/* 🌌 Full-Page Black Theme */
-html, body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: black; /* ✅ Full black background */
-    color: #00ff00; /* ✅ Retro neon green text */
-    font-family: 'VT323', monospace;
-    display: flex;
-    flex-direction: column;
+:root {
+    color-scheme: dark;
+    --panel-bg: linear-gradient(180deg, rgba(17, 23, 44, 0.86) 0%, rgba(7, 10, 24, 0.92) 100%);
+    --panel-border: rgba(130, 247, 255, 0.16);
+    --panel-highlight: rgba(255, 255, 255, 0.06);
+    --signal: #82f7ff;
+    --laser: #ff4fa3;
+    --acid: #d1ff72;
+    --ember: #ffb86a;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-/* 📦 Main Container */
-.container {
-    flex: 1; /* ✅ Pushes footer down */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    padding-bottom: 20px; /* ✅ Prevents footer from overlapping */
-}
-
-/* 🟢 Joystick Journalist Title - Neon Glow */
-.neon-title {
-    color: #00ff00 !important; /* ✅ Green neon */
-    text-shadow: 0 0 5px #00ff00;
-    font-weight: bold;
-    font-size: 3rem;
-    display: inline-block;
-    text-align: center;
-}
-
-/* 🟢 Navbar with Neon Border */
-/* 🎮 Fix Navbar Alignment */
-.navbar {
-    background-color: black;
-    padding: 15px; /* Slightly more padding for better spacing */
-    display: flex;
-    justify-content: center; /* Ensures all links are centered */
-    align-items: center;
-    width: 100%;
-    border: 2px solid #00ff00; /* ✅ Thin neon green border */
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
-}
-
-/* 🎯 Aligns Navbar Links Properly */
-.navbar .nav-link {
-    font-size: 2rem; /* Increase font size */
-    font-weight: bold;
-    color: #00ff00; /* Default Neon Green */
-    text-decoration: none;
-    padding: 10px 15px; /* Add padding for consistent size */
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-/* 🟡 Navbar Link Hover Effect */
-.navbar .nav-link:hover {
-    color: #ffcc00; /* Glow Yellow */
-    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
-}
-
-/* 🎮 Add Game Link Styling */
-.navbar .add-game-link {
-    font-size: 2rem; /* Make it same size as Home */
-    font-weight: bold;
-    color: #ffcc00; /* Gold for visibility */
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Space between icon & text */
-}
-
-/* 🔆 Add Game Icon */
-.add-game-icon {
-    font-size: 2rem; /* Match text size */
-    color: #ff00ff; /* Neon Purple */
-}
-
-/* 🔥 Logout Button - Align with Navbar Links */
-.logout-form {
-    display: flex;
-    align-items: center; /* Aligns it with the rest of the navbar */
-    justify-content: center;
-    height: 100%;
-    margin-left: 15px; /* Optional spacing */
-}
-
-/* 🔥 Logout Button (Ensure Consistency) */
-.logout-btn {
-    font-size: 2rem; /* Match Home & Add Game */
-    font-weight: bold;
-    color: #00ff00;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-}
-
-.logout-btn:hover {
-    color: #ffcc00;
-}
-
-/* 🔥 Flash Messages (Neon Alert) */
-.neon-alert {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-    border-radius: 10px;
-    padding: 15px;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* 🟢 Success Message (Green Glow) */
-.alert-success {
-    background: black;
-    color: #00ff00;
-    border: 2px solid #00ff00;
-}
-
-/* 🔴 Error Message (Red Glow) */
-.alert-danger {
-    background: black;
-    color: #ff4444;
-    border: 2px solid #ff4444;
-}
-
-/* 🎭 Auto Fade Out Effect */
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-.neon-alert.fade-out {
-    animation: fadeOut 3s forwards;
-}
-
-/* 🔴 Logout Button (Styled as Navbar Link) */
-.logout-btn {
-    background: none;
-    border: none;
-    color: #00ff00;
-    font-size: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.3s;
-    padding: 0;
-}
-
-.logout-btn:hover {
-    color: #ffcc00;
-}
-
-/* 🎮 Registration Form Styling */
-.register-container {
-    display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;  /* Centers vertically */
-    min-height: 60vh; /* Ensures it fills the full screen */
-    width: 100%;
-    padding: 20px 20px; /* Adds padding to prevent overlap */
-    flex-direction: column;
-}
-
-/* 🟢 Ensures the Form Itself is Centered */
-.register-card {
-    width: 100%;
-    max-width: 500px;
-    background: black;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-    padding: 30px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.register-title {
-    text-align: center;
-    font-size: 28px;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-}
-
-/* 🔥 Input Fields */
-.register-card input {
-    background: black;
-    border: 2px solid #00ff00;
-    color: #00ff00;
-    font-size: 18px;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-}
-
-/* 📌 Input Focus Effect */
-.register-card input:focus {
-    border-color: #ffcc00;
-    box-shadow: 0 0 15px #ffcc00;
-    outline: none;
-}
-
-/* 🟢 Register Button */
-.register-btn {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 2px solid black;
-    width: 100%;
-    transition: background 0.3s ease-in-out;
-}
-
-.register-btn:hover {
-    background-color: #ffcc00;
-    color: black;
-}
-
-/* 🔴 Error Message Styling */
-.alert-danger {
-    background: black;
-    color: #ff4444;
-    border: 2px solid #ff4444;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-/* 🟢 Hero Section with Neon Glow */
-.hero-section {
-    background: rgba(0, 0, 0, 0.85);
-    padding: 80px 40px;
-    width: 85%;
-    max-width: 950px;
-    margin: 40px auto;
-    border-radius: 15px;
-    border: 3px solid #ff00ff; /* ✅ Neon pink border */
-    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
-    text-align: center;
-}
-
-.hero-text {
-    font-size: 2.5rem;
-    text-shadow: 0 0 10px #00ff00;
-}
-
-/* 🟢 Register Button */
-.hero-btn {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 12px 25px;
-    border: 3px solid black;
-    font-size: 1.2rem;
-    transition: background 0.3s ease-in-out, transform 0.2s;
-}
-
-.hero-btn:hover {
-    background-color: #ffcc00;
-    color: black;
-    transform: scale(1.1);
-}
-
-/* 🔐 Login Container */
-.login-container {
-    max-width: 400px;
-    margin: 80px auto;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-    text-align: center;
-}
-
-/* 🟢 Neon Login Heading */
-.neon-text {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
-}
-
-/* 🔵 Neon Input Fields */
-.neon-input {
-    background-color: black;
-    border: 2px solid #00ff00;
-    color: #00ff00;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.neon-input:focus {
-    outline: none;
-    border-color: #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
-}
-
-/* ✨ Neon Button */
-.btn-neon {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 12px;
-    font-size: 1.2rem;
-    border: 2px solid black;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-neon:hover {
-    background-color: #ff00ff;
-    transform: scale(1.05);
-}
-
-/* Form Container */
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh; /* Adjust height to center properly */
-    width: 100%;
-    padding-top: 20px; /* Prevent overlap with navbar */
-}
-
-/* 🎮 Neon Form Card - WIDER */
-.neon-card {
-    width: 100%;
-    max-width: 600px; /* Increased width for better readability */
-    background: black;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-    padding: 40px; /* Added more padding */
-    text-align: center;
-}
-
-/* ✨ Neon Header */
-.neon-header h2 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
-    margin-bottom: 20px; /* Adds spacing below header */
-}
-
-/* 🔵 Form Input Fields - FULL WIDTH */
-.neon-card input, 
-.neon-card textarea, 
-.neon-card select {
-    background-color: black;
-    border: 2px solid #00ff00;
-    color: #00ff00;
-    font-size: 1.2rem;
-    padding: 12px; /* Increased padding */
-    width: 100%; /* Ensures inputs are full width */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-    transition: box-shadow 0.3s ease-in-out;
-    margin-bottom: 15px; /* Adds spacing between inputs */
-}
-
-/* 🚀 Focus Effect */
-.neon-card input:focus, 
-.neon-card textarea:focus, 
-.neon-card select:focus {
-    outline: none;
-    border-color: #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
-}
-
-/* 🟢 Submit Button */
-.btn-neon {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 14px; /* Slightly larger button */
-    font-size: 1.3rem; /* Bigger font */
-    border: 2px solid black;
-    transition: background 0.3s, transform 0.2s;
-    width: 100%; /* Full width button */
-}
-
-/* 🟣 Hover Effect */
-.btn-neon:hover {
-    background-color: #ff00ff;
-    transform: scale(1.05);
-}
-
-/* 🔗 Cancel Link */
-.neon-link {
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-    transition: color 0.3s ease-in-out;
-    font-size: 1.1rem;
-}
-
-.neon-link:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-}
-
-
-/* 🔗 Neon Register Link */
-.neon-link {
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-    transition: color 0.3s ease-in-out;
-}
-
-.neon-link:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-}
-
-/* 🔒 Locked Content Message */
-.locked-content {
-    font-size: 1.5rem;
-    color: #ffcc00;
-    text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc00;
-    font-weight: bold;
-    padding: 20px;
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-/* 🎬 Smooth Fade-in Animation */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* 🟢 Game Section */
-.game-section {
-    background: black;
-    padding: 40px 0 80px 0; /* ✅ Adds more space at the bottom */
-    width: 85%;
-    max-width: 1200px;
-    margin: auto;
-    border-radius: 15px;
-}
-
-/* 🎮 Game & Review Cards */
-.game-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* ✅ Consistent spacing */
-}
-
-/* 🟢 Game Cards */
-.card {
-    background-color: #1a1a1a;
-    border: 2px solid #00ff00;
-    padding: 20px;
-    width: 300px; 
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 25px rgba(0, 255, 0, 0.8);
-}
-
-/* 🟢 Game Card Buttons */
-.card .btn {
-    background-color: #000000;
-    color: #00ff00;
-    font-weight: bold;
-    border: 2px solid #00ff00;
-    padding: 8px 15px;
-    text-transform: uppercase;
-    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
-    transition: background 0.3s, transform 0.2s;
-}
-
-.card .btn:hover {
-    background-color: #00ff00;
-    color: #000000;
-    transform: scale(1.1);
-}
-
-/* 🟢 Add Game Button */
-.btn-neon {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 8px 15px;
-    font-size: 1rem;
-    border: 2px solid black;
-    text-transform: uppercase;
-    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
-    transition: background 0.3s, transform 0.2s;
-}
-
-/* 🔥 Hover Effect */
-.btn-neon:hover {
-    background-color: #ff00ff;
-    transform: scale(1.1);
-    color: black;
-}
-
-/* 🟢 Review Section */
-.review-container {
-    max-width: 800px;
-    margin: auto;
-    padding-top: 20px;
-}
-
-/* 📝 Review List - Organizes Reviews in a Column */
-.review-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Adds space between reviews */
-}
-
-/* 🔥 Neon-Styled Review Cards */
-.review-card {
-    background-color: black;
-    border: 2px solid #00ff00;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-}
-
-/* 🎮 Review Text - Content of Review */
-.review-text {
-    font-size: 1.2rem;
-    color: white;
-    text-align: center;
-}
-
-/* ⭐ Review Rating - Highlights Rating */
-.review-rating {
-    font-weight: bold;
-    color: #ffcc00;
-    text-align: center;
-}
-
-/* ✍️ Review Author - Credits the Reviewer */
-.review-author {
-    font-style: italic;
-    color: #00ff00;
-    text-align: center;
-}
-
-/* 🎛️ Review Actions - Aligns Edit/Delete Buttons */
-.review-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-/* ✨ Add Review Button */
-.btn-neon {
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 10px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-/* 🟣 Neon Hover Effect */
-.btn-neon:hover {
-    background-color: #ff00ff;
-    transform: scale(1.05);
-}
-
-/* 🔗 Back Link */
-.neon-link {
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-    transition: color 0.3s ease-in-out;
-}
-
-.neon-link:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-}
-
-/* 🎮 All Reviews Container */
-.review-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* 🟢 Game Title Styling */
-.game-reviews h2 {
-    font-size: 2rem;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-/* ✨ Neon Review Card */
-.neon-card {
-    background: black;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.neon-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(0, 255, 0, 1);
-}
-
-/* 🔥 Review Content */
-.review-content {
-    font-size: 1.2rem;
-    color: #fff;
-    text-shadow: 0 0 5px #00ff00;
-    margin-bottom: 15px;
-}
-
-/* 🟡 Review Meta Data */
-.neon-card p {
-    font-size: 1.1rem;
-    color: #ffcc00;
-}
-
-/* ⭐ Review Rating */
-.neon-card p strong {
-    color: #00ff00;
-}
-
-/* 🟢 View Game Reviews Button */
-.btn-neon {
-    display: inline-block;
-    background-color: #00ff00;
-    color: black;
-    font-weight: bold;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 2px solid black;
-    border-radius: 5px;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-neon:hover {
-    background-color: #ff00ff;
-    color: black;
-    transform: scale(1.1);
-}
-
-/* 🔙 Back Link */
-.neon-link {
-    display: block;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-    margin-top: 20px;
-}
-
-.neon-link:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 15px #ffcc00;
-}
-
-/* 🟢 Footer with Neon Border */
-footer {
-    background-color: black;
-    color: #00ff00;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
+body {
+    min-height: 100vh;
+}
+
+.scanlines {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.04) 0,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    background-size: 100% 3px;
+    mix-blend-mode: soft-light;
+    animation: scanDrift 10s ease-in-out infinite;
+}
+
+.retro-panel {
     position: relative;
-    bottom: 0;
-    border: 2px solid #00ff00; /* ✅ Thin neon green border */
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* ✅ Neon glow */
+    border: 1px solid var(--panel-border);
+    border-radius: 2rem;
+    background: var(--panel-bg);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 24px 80px rgba(2, 4, 12, 0.55),
+        inset 0 1px 0 var(--panel-highlight);
+    backdrop-filter: blur(18px);
 }
 
-/* 🚀 Hero Section - Two-Color Neon Border (Blue & Pink) */
-.hero-container {
-    background: rgba(0, 0, 0, 0.85);
-    padding: 80px 40px;
-    width: 85%;
-    max-width: 950px;
-    margin: 40px auto;
-    border-radius: 15px;
-    border: 3px solid #00ccff; /* ✅ Starts with Blue */
-    box-shadow: 0 0 25px rgba(0, 204, 255, 0.7);
-    text-align: center;
-    animation: neon-border-cycle 3s infinite alternate;
+.retro-panel::before,
+.retro-card::before,
+.arcade-screen::before,
+.stat-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(130, 247, 255, 0.12), transparent 30%, transparent 70%, rgba(255, 79, 163, 0.09));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    padding: 1px;
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
 }
 
-/* ✨ Neon Border Animation - Blue to Pink */
-@keyframes neon-border-cycle {
-    0% {
-        border-color: #00ccff; /* ✅ Blue */
-        box-shadow: 0 0 15px #00ccff, 0 0 25px #00ccff;
-    }
-    100% {
-        border-color: #ff00ff; /* ✅ Pink */
-        box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
-    }
+.retro-card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.9rem;
+    background: linear-gradient(180deg, rgba(17, 23, 44, 0.9) 0%, rgba(8, 11, 24, 0.96) 100%);
+    box-shadow:
+        0 18px 40px rgba(4, 6, 16, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
 }
 
-/* 📌 Media Queries (Responsive Design) */
-/* 📌 General Styles for Responsiveness */
-@media (max-width: 1366px) {
-    .container {
-        padding: 20px;
-    }
-
-    .card {
-        width: 75%;
-    }
+.retro-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(130, 247, 255, 0.22);
+    box-shadow:
+        0 26px 56px rgba(4, 6, 16, 0.56),
+        0 0 36px rgba(130, 247, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-@media (min-width: 1367px) {
-    .container {
-        max-width: 1200px;
-    }
+.retro-badge {
+    border: 1px solid rgba(130, 247, 255, 0.22);
+    background:
+        radial-gradient(circle at 30% 30%, rgba(130, 247, 255, 0.18), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 25px rgba(130, 247, 255, 0.16);
 }
 
-/* ✅ Tablet & Small Desktop Adjustments */
-@media (max-width: 1024px) {
-    .card {
-        width: 80%;
-    }
+.eyebrow {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(130, 247, 255, 0.78);
 }
 
-/* ✅ Mobile & Tablet Layout Fixes */
-@media (max-width: 768px) {
-    /* 🔹 Game Container - Stacks Cards */
-    .game-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px; /* Prevents overlap */
-    }
-
-@media (max-width: 768px) {
-    /* 🔹 Game Cards - Fixed Layout */
-    .game-card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: space-between; /* Distributes content evenly */
-        padding: 25px;
-        min-height: 600px; /* ⬆️ Increased height */
-        width: 90%;
-        overflow: hidden; /* 🚀 Ensures content doesn't spill out */
-    }
-    
-    /* 🔹 Button Container - Stays Inside the Card */
-    .button-container {
-        position: absolute; /* ⬅️ Keeps it inside the card */
-        bottom: 20px; /* Moves it to the bottom inside the card */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    /* 🔹 Buttons - Properly Sized & Positioned */
-    .button-container .btn {
-        width: 80%; /* Adjusts button width for proper fit */
-        max-width: 220px;
-        margin: 5px auto;
-    }
-    
-    /* 🔹 Prevent Buttons From Overflowing */
-    .delete-game-btn {
-        margin-top: 10px; /* Keeps spacing consistent */
-    }
+.nav-chip,
+.signal-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition:
+        border-color 160ms ease,
+        color 160ms ease,
+        background-color 160ms ease,
+        transform 160ms ease,
+        box-shadow 160ms ease;
 }
 
-    /* 🔹 Fix Text Wrapping Issues */
-    h2, h3, p {
-        word-wrap: break-word;
-        text-align: center;
-    }
+.nav-chip {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgb(226 232 240);
+    padding: 0.8rem 1.05rem;
 }
 
-/* ✅ Extra Small Mobile (Phones < 600px) */
-@media (max-width: 600px) {
-    .game-container {
-        flex-direction: column;
-        align-items: center;
+.nav-chip:hover,
+.nav-chip:focus-visible {
+    border-color: rgba(130, 247, 255, 0.34);
+    color: var(--signal);
+    transform: translateY(-1px);
+}
+
+.nav-chip-active {
+    border-color: rgba(130, 247, 255, 0.44);
+    color: var(--signal);
+    box-shadow: 0 0 24px rgba(130, 247, 255, 0.12);
+}
+
+.nav-chip-hot {
+    color: var(--ember);
+}
+
+.signal-button {
+    justify-content: center;
+    border: 1px solid transparent;
+    padding: 0.95rem 1.35rem;
+}
+
+.signal-button:hover,
+.signal-button:focus-visible {
+    transform: translateY(-1px);
+}
+
+.signal-button-primary {
+    background: linear-gradient(135deg, rgba(130, 247, 255, 0.18), rgba(255, 79, 163, 0.18));
+    border-color: rgba(130, 247, 255, 0.24);
+    box-shadow: 0 0 30px rgba(130, 247, 255, 0.12);
+    color: white;
+}
+
+.signal-button-primary:hover,
+.signal-button-primary:focus-visible {
+    border-color: rgba(130, 247, 255, 0.4);
+    box-shadow: 0 0 36px rgba(130, 247, 255, 0.18);
+}
+
+.signal-button-muted {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgb(226 232 240);
+}
+
+.signal-button-muted:hover,
+.signal-button-muted:focus-visible {
+    border-color: rgba(255, 255, 255, 0.18);
+    color: var(--signal);
+}
+
+.signal-button-danger {
+    background: rgba(255, 79, 163, 0.08);
+    border-color: rgba(255, 79, 163, 0.18);
+    color: rgb(253 164 175);
+}
+
+.signal-button-danger:hover,
+.signal-button-danger:focus-visible {
+    border-color: rgba(255, 79, 163, 0.34);
+    box-shadow: 0 0 30px rgba(255, 79, 163, 0.12);
+}
+
+.flash-message {
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 1.2rem;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    backdrop-filter: blur(12px);
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.flash-success {
+    border-color: rgba(209, 255, 114, 0.22);
+    background: rgba(209, 255, 114, 0.08);
+    color: #efffc9;
+}
+
+.flash-error,
+.flash-danger {
+    border-color: rgba(255, 79, 163, 0.24);
+    background: rgba(255, 79, 163, 0.08);
+    color: #ffd2e7;
+}
+
+.flash-warning {
+    border-color: rgba(255, 184, 106, 0.28);
+    background: rgba(255, 184, 106, 0.08);
+    color: #ffe5c2;
+}
+
+.flash-info {
+    border-color: rgba(130, 247, 255, 0.24);
+    background: rgba(130, 247, 255, 0.08);
+    color: #dcfcff;
+}
+
+.stat-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 1rem 1.1rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(130, 247, 255, 0.72);
+}
+
+.stat-value {
+    margin-top: 0.45rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+}
+
+.info-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.95rem 1rem;
+}
+
+.info-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, 0.62);
+}
+
+.info-value {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgb(248 250 252);
+}
+
+.score-badge {
+    display: inline-flex;
+    min-width: 4.1rem;
+    justify-content: center;
+    border-radius: 1.2rem;
+    border: 1px solid rgba(255, 184, 106, 0.18);
+    background: rgba(255, 184, 106, 0.08);
+    padding: 0.8rem 0.95rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+}
+
+.arcade-screen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 1px solid rgba(130, 247, 255, 0.18);
+    background: linear-gradient(180deg, rgba(6, 8, 22, 0.9) 0%, rgba(10, 16, 34, 0.98) 100%);
+    padding: 1.4rem;
+    box-shadow:
+        0 0 40px rgba(130, 247, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.85rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(130, 247, 255, 0.76);
+}
+
+.feed-row {
+    border-radius: 1.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.95rem 1rem;
+}
+
+.feed-row p {
+    margin: 0.5rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgb(226 232 240);
+}
+
+.feed-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--acid);
+}
+
+.retro-form input,
+.retro-form textarea,
+.retro-form select {
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
+}
+
+.retro-form textarea {
+    min-height: 9rem;
+}
+
+.retro-form input:focus,
+.retro-form textarea:focus,
+.retro-form select:focus {
+    background: rgba(2, 6, 23, 0.96);
+}
+
+.review-card {
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(130, 247, 255, 0.16);
+    box-shadow: 0 20px 45px rgba(4, 6, 16, 0.38);
+}
+
+@media (max-width: 639px) {
+    .eyebrow {
+        letter-spacing: 0.28em;
     }
 
-    .game-card {
-        width: 95%;
-        padding: 18px;
-        min-height: 420px; /* ⬆️ Slightly more height for smaller screens */
-    }
-
-    .game-card .btn {
-        font-size: 14px; /* Smaller buttons for compact screens */
-    }
-
-    .button-container {
-        gap: 10px; /* Slightly more space for smaller screens */
+    .nav-chip,
+    .signal-button {
+        letter-spacing: 0.12em;
     }
 }

@@ -1,82 +1,31 @@
 /* jshint esversion: 11 */
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript Loaded!");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    // 🎭 TOGGLE REVIEW FORM
-    const toggleButton = document.getElementById("toggle-review-form");
-    const reviewForm = document.querySelector(".review-form");
-
-    if (toggleButton && reviewForm) {
-        console.log("✅ Found button & form.");
-        const isFormOpen = sessionStorage.getItem("reviewFormOpen");
-
-        if (isFormOpen === "true") {
-            reviewForm.style.display = "block";
-        }
-
-        toggleButton.addEventListener("click", function () {
-            console.log("📝 Button clicked!");
-            reviewForm.style.display = reviewForm.style.display === "none" || reviewForm.style.display === "" ? "block" : "none";
-            sessionStorage.setItem("reviewFormOpen", reviewForm.style.display === "block" ? "true" : "false");
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", function () {
+            const isHidden = mobileMenu.classList.toggle("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", String(!isHidden));
         });
     }
 
-    // ✅ SMOOTH SCROLL TO REVIEWS
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    });
-
-    // ✅ AUTO-CLOSE MOBILE NAVBAR
-    const navbarToggler = document.querySelector(".navbar-toggler");
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-    if (navbarToggler) {
-        navLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                if (window.innerWidth <= 992) {
-                    navbarToggler.click();
-                }
-            });
-        });
-    }
-
-    // ⚠️ CONFIRM BEFORE DELETION
-    document.querySelectorAll(".delete-btn").forEach(button => {
-        button.addEventListener("click", function (event) {
-            const confirmDelete = confirm("🚨 Are you sure you want to delete this?");
-            if (!confirmDelete) {
+    document.querySelectorAll("[data-confirm]").forEach(element => {
+        element.addEventListener("click", function (event) {
+            const message = element.getAttribute("data-confirm");
+            if (message && !window.confirm(message)) {
                 event.preventDefault();
             }
         });
     });
 
-    // ✅ HOVER EFFECT FOR CARDS
-    document.querySelectorAll(".card").forEach(card => {
-        card.addEventListener("mouseover", () => {
-            card.style.transform = "scale(1.05)";
-            card.style.boxShadow = "0 0 20px rgba(0, 255, 0, 0.8)";
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "scale(1)";
-            card.style.boxShadow = "0 0 15px rgba(0, 255, 0, 0.5)";
-        });
+    document.querySelectorAll("[data-autodismiss='true']").forEach(message => {
+        window.setTimeout(() => {
+            message.classList.add("opacity-0", "translate-y-1");
+            window.setTimeout(() => {
+                message.remove();
+            }, 250);
+        }, 3200);
     });
-
-    // ✅ HERO BUTTON CLICK FIX
-    document.querySelectorAll(".hero-btn").forEach(button => {
-        button.addEventListener("click", function (event) {
-            console.log("✅ Hero Button Clicked:", event.target);
-            event.stopPropagation();  // Ensures JavaScript does not block navigation
-        });
-    });
-}); // <--- Ensure this closing bracket is here
+});

@@ -1,15 +1,59 @@
-<section id="hero-section" class="container text-center mt-5">
-    <div class="neon-border hero-container d-flex flex-column justify-content-between p-5">
-        <p class="hero-text text-light fs-2 fw-bold">
-            Relive the golden era of gaming with the best 90s game reviews!<br>
-            The best review site on the internet.<br>
-            <strong>DO NOT MISS OUT!!!</strong>
-        </p>
+<section class="retro-panel relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+    <div class="absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_center,rgba(255,79,163,0.16),transparent_70%)] lg:block"></div>
+    <div class="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div class="space-y-6">
+            <p class="eyebrow">Insert Coin</p>
+            <h2 class="font-display text-4xl font-extrabold uppercase tracking-[0.14em] text-white sm:text-5xl">
+                Retro nostalgia with a cleaner modern edge
+            </h2>
+            <p class="max-w-2xl text-base leading-8 text-slate-300">
+                Joystick Journalist is a community archive for 90s classics. Create an account, explore the collection, and rate the games that still deserve screen time.
+            </p>
 
-        <div class="mt-auto">
-            <a href="{% url 'register' %}" class="btn btn-outline-info btn-lg">
-                Register Here 🚀
-            </a>
+            <div class="flex flex-col gap-3 sm:flex-row">
+                <a href="{% url 'register' %}" class="signal-button signal-button-primary hero-btn justify-center sm:justify-start">
+                    Register Now
+                </a>
+                <a href="{% url 'login' %}" class="signal-button signal-button-muted justify-center sm:justify-start">
+                    Existing Player Login
+                </a>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+                <div class="stat-panel">
+                    <p class="stat-label">Archive</p>
+                    <p class="stat-value">90s Only</p>
+                </div>
+                <div class="stat-panel">
+                    <p class="stat-label">Community</p>
+                    <p class="stat-value">User Reviews</p>
+                </div>
+                <div class="stat-panel">
+                    <p class="stat-label">Access</p>
+                    <p class="stat-value">Free Signup</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="arcade-screen animate-hoverPulse">
+            <div class="screen-header">
+                <span>Signal Feed</span>
+                <span>LIVE</span>
+            </div>
+            <div class="space-y-4">
+                <div class="feed-row">
+                    <span class="feed-tag">TOPIC</span>
+                    <p>Community ratings for cult classics and big cartridge legends.</p>
+                </div>
+                <div class="feed-row">
+                    <span class="feed-tag">STYLE</span>
+                    <p>Retro-futurist visuals with a cleaner, more modern dashboard feel.</p>
+                </div>
+                <div class="feed-row">
+                    <span class="feed-tag">GOAL</span>
+                    <p>Make it easy to browse, react, and share your take on iconic games.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -1,76 +1,72 @@
 {% extends 'reviews/base.html' %}
+{% load widget_tweaks %}
 
 {% block title %}Register - Joystick Journalist{% endblock %}
 
 {% block content %}
-<div class="register-container">
-    <div class="register-card">
-        <div class="card-body">
-            <h2 class="text-center text-success">Create an Account</h2>
+<section class="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        <p class="eyebrow">New Player Setup</p>
+        <h2 class="font-display text-3xl font-bold uppercase tracking-[0.14em] text-white sm:text-4xl">
+            Claim your player tag
+        </h2>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+            Register to unlock the game list, publish ratings, and keep your own review history in one place.
+        </p>
 
-            <!-- 🚨 Show Error Messages (if any) -->
-            {% if form.errors %}
-            <div class="alert alert-danger text-center neon-alert">
-                <strong>⚠️ Registration failed.</strong> Please fix the errors below and try again.
-                <ul>
-                    {% for field, errors in form.errors.items %}
-                        {% for error in errors %}
-                            <li><strong>{{ field|title }}:</strong> {{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
+        <div class="mt-6 space-y-4">
+            <div class="info-strip">
+                <span class="info-label">Account Benefit</span>
+                <span class="info-value">Add and manage your own reviews</span>
             </div>
-            {% endif %}
-
-            <!-- 📝 Registration Form -->
-            <form method="post">
-                {% csrf_token %}
-                
-                <div class="mb-3">
-                    <label for="id_username" class="form-label">Username</label>
-                    {{ form.username }}
-                    {% if form.username.help_text %}
-                        <div id="id_username_helptext" class="form-text">
-                            {{ form.username.help_text|safe }}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="mb-3">
-                    <label for="id_email" class="form-label">Email Address</label>
-                    {{ form.email }}
-                </div>
-
-                
-                <div class="mb-3">
-                    <label for="id_password1" class="form-label">Password</label>
-                    {{ form.password1 }}
-                    {% if form.password1.help_text %}
-                        <div id="id_password1_helptext" class="form-text">
-                            {{ form.password1.help_text|safe }}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="mb-3">
-                    <label for="id_password2" class="form-label">Confirm Password</label>
-                    {{ form.password2 }}
-                    {% if form.password2.help_text %}
-                        <div id="id_password2_helptext" class="form-text">
-                            {{ form.password2.help_text|safe }}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <button type="submit" class="btn btn-outline-success w-100 mt-3">
-                    Register
-                </button>
-            </form>
-
-            <p class="text-center mt-3">
-                Already have an account? <a href="{% url 'login' %}" class="text-warning">Login here</a>.
-            </p>
+            <div class="info-strip">
+                <span class="info-label">Library Access</span>
+                <span class="info-value">Browse the full 90s archive</span>
+            </div>
+            <div class="info-strip">
+                <span class="info-label">Password Rule</span>
+                <span class="info-value">Minimum 8 characters</span>
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        {% if form.errors %}
+            <div class="flash-message flash-error mb-6">
+                <strong class="font-display uppercase tracking-[0.14em]">Registration failed.</strong>
+                Please fix the highlighted fields and try again.
+            </div>
+        {% endif %}
+
+        <form method="post" class="retro-form space-y-5">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="space-y-2">
+                    <label for="{{ field.id_for_label }}" class="block text-sm font-bold uppercase tracking-[0.18em] text-slate-300">
+                        {{ field.label }}
+                    </label>
+                    {{ field|add_class:"block w-full rounded-[1.25rem] border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-signal/60 focus:ring-2 focus:ring-signal/20" }}
+                    {% if field.help_text %}
+                        <p class="text-xs leading-6 text-slate-400">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="text-sm text-rose-300">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="signal-button signal-button-primary w-full justify-center">
+                Register
+            </button>
+        </form>
+
+        <p class="mt-6 text-sm text-slate-300">
+            Already have an account?
+            <a href="{% url 'login' %}" class="text-signal transition hover:text-acid">
+                Log in here
+            </a>
+        </p>
+    </div>
+</section>
 {% endblock %}

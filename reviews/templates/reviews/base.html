@@ -1,129 +1,198 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ✅ SEO Meta Tags -->
     <meta name="description" content="Joystick Journalist is your ultimate hub for reviewing classic 90s video games. Rate, review, and explore retro gaming!">
     <meta name="keywords" content="90s games, retro games, classic games, video game reviews, vintage gaming, arcade games, SNES, Sega, PlayStation, Nintendo, PC">
     <meta name="author" content="Joystick Journalist">
-    <meta name="robots" content="index, follow"> <!-- Ensure search engines can index your site -->
+    <meta name="robots" content="index, follow">
 
-    <!-- ✅ Open Graph (For Social Media Previews) -->
     <meta property="og:title" content="Joystick Journalist - Classic Game Reviews">
     <meta property="og:description" content="Discover and review legendary 90s video games. Join the retro gaming community!">
     <meta property="og:image" content="https://yourwebsite.com/static/images/og-image.jpg">
     <meta property="og:url" content="https://yourwebsite.com">
     <meta property="og:type" content="website">
 
-    <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Joystick Journalist - Retro Game Reviews">
     <meta name="twitter:description" content="Join us in exploring and reviewing the best 90s games ever made!">
     <meta name="twitter:image" content="https://yourwebsite.com/static/images/twitter-image.jpg">
 
-    <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://yourwebsite.com">
-
-    <!-- ✅ Favicon -->
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon-16x16.png' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon-32x32.png' %}" type="image/x-icon">
 
     <title>{% block title %}Joystick Journalist{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    <!-- ✅ VT323 Font Import -->
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: "#060816",
+                        signal: "#82f7ff",
+                        laser: "#ff4fa3",
+                        acid: "#d1ff72",
+                        ember: "#ffb86a",
+                    },
+                    fontFamily: {
+                        display: ["Orbitron", "sans-serif"],
+                        body: ["'Space Mono'", "monospace"],
+                    },
+                    keyframes: {
+                        hoverPulse: {
+                            "0%, 100%": { transform: "translateY(0px)" },
+                            "50%": { transform: "translateY(-8px)" },
+                        },
+                        scanDrift: {
+                            "0%, 100%": { transform: "translate3d(0, 0, 0)" },
+                            "50%": { transform: "translate3d(0, 12px, 0)" },
+                        },
+                    },
+                    animation: {
+                        hoverPulse: "hoverPulse 8s ease-in-out infinite",
+                        scanDrift: "scanDrift 10s ease-in-out infinite",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-dark text-light">
-
-    <!-- ✅ Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
-        <div class="container">
-
-            <!-- Mobile Toggle Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Navbar Links -->
-            <div class="collapse navbar-collapse text-center" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="btn btn-link nav-link text-success fw-bold px-3" href="{% url 'landing_page' %}">
-                            Home
-                        </a>
-                    </li>
-
-                    {% if request.user.is_authenticated %}
-                        <!-- 📝 All Reviews Link -->
-                        <li class="nav-item">
-                            <a class="nav-link text-primary fw-bold px-3" href="{% url 'all_reviews' %}">All Reviews</a>
-                        </li>
-                        {% if request.user.is_superuser %}
-                            <li class="nav-item">
-                                <a class="btn btn-link nav-link add-game-link" href="{% url 'game_form' %}">
-                                    <span class="add-game-icon">➕</span> Add Game
-                                </a>
-                            </li>
-                        {% endif %}
-                        <li class="nav-item">
-                            <form action="{% url 'logout' %}" method="post" class="logout-form">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-link logout-btn">Logout</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a href="{% url 'login' %}" class="btn btn-link nav-link">Login</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ✅ Neon Title Below Navbar -->
-    <div class="container text-center mt-4">
-        <h1 class="neon-title">Joystick Journalist</h1>
+<body class="min-h-full bg-abyss font-body text-slate-100 antialiased">
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(130,247,255,0.14),transparent_30%),radial-gradient(circle_at_20%_80%,rgba(255,79,163,0.14),transparent_25%),radial-gradient(circle_at_80%_70%,rgba(209,255,114,0.12),transparent_24%),linear-gradient(180deg,#060816_0%,#090d1f_45%,#04050b_100%)]"></div>
+        <div class="scanlines absolute inset-0 opacity-25"></div>
+        <div class="absolute left-[-12rem] top-20 h-80 w-80 rounded-full bg-laser/20 blur-3xl"></div>
+        <div class="absolute right-[-8rem] top-1/3 h-72 w-72 rounded-full bg-signal/20 blur-3xl"></div>
+        <div class="absolute bottom-[-8rem] left-1/3 h-72 w-72 rounded-full bg-acid/10 blur-3xl"></div>
     </div>
 
-    <!-- ✅ Main Content Block -->
-    <main class="container mt-4">
-        {% if messages %}
-            <div class="container mt-3">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} text-center neon-alert">
-                        {{ message }}
+    <div class="relative flex min-h-screen flex-col">
+        <header class="px-4 pt-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <div class="retro-panel overflow-hidden px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between gap-4">
+                        <a href="{% url 'landing_page' %}" class="flex min-w-0 items-center gap-4">
+                            <div class="retro-badge hidden h-12 w-12 items-center justify-center rounded-2xl sm:flex">
+                                <span class="font-display text-lg font-bold tracking-[0.3em] text-signal">JJ</span>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-[0.65rem] uppercase tracking-[0.42em] text-signal/70">Retro Review Signal</p>
+                                <h1 class="truncate font-display text-lg font-bold uppercase tracking-[0.18em] text-white sm:text-2xl">
+                                    Joystick Journalist
+                                </h1>
+                            </div>
+                        </a>
+
+                        <button
+                            id="mobile-menu-button"
+                            type="button"
+                            class="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-200 transition hover:border-signal/40 hover:text-signal md:hidden"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu"
+                        >
+                            Menu
+                        </button>
+
+                        <nav class="hidden items-center gap-3 md:flex">
+                            <a href="{% url 'landing_page' %}" class="nav-chip {% if request.resolver_match.url_name == 'landing_page' %}nav-chip-active{% endif %}">
+                                Home
+                            </a>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'all_reviews' %}" class="nav-chip {% if request.resolver_match.url_name == 'all_reviews' %}nav-chip-active{% endif %}">
+                                    All Reviews
+                                </a>
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'game_form' %}" class="nav-chip nav-chip-hot {% if request.resolver_match.url_name == 'game_form' %}nav-chip-active{% endif %}">
+                                        Add Game
+                                    </a>
+                                {% endif %}
+                                <form action="{% url 'logout' %}" method="post" class="m-0">
+                                    {% csrf_token %}
+                                    <button type="submit" class="nav-chip">
+                                        Logout
+                                    </button>
+                                </form>
+                            {% else %}
+                                <a href="{% url 'login' %}" class="nav-chip {% if request.resolver_match.url_name == 'login' %}nav-chip-active{% endif %}">
+                                    Login
+                                </a>
+                                <a href="{% url 'register' %}" class="signal-button signal-button-primary">
+                                    Join the Arcade
+                                </a>
+                            {% endif %}
+                        </nav>
                     </div>
-                {% endfor %}
+
+                    <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
+                        <div class="grid gap-3">
+                            <a href="{% url 'landing_page' %}" class="nav-chip w-full justify-center {% if request.resolver_match.url_name == 'landing_page' %}nav-chip-active{% endif %}">
+                                Home
+                            </a>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'all_reviews' %}" class="nav-chip w-full justify-center {% if request.resolver_match.url_name == 'all_reviews' %}nav-chip-active{% endif %}">
+                                    All Reviews
+                                </a>
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'game_form' %}" class="nav-chip nav-chip-hot w-full justify-center {% if request.resolver_match.url_name == 'game_form' %}nav-chip-active{% endif %}">
+                                        Add Game
+                                    </a>
+                                {% endif %}
+                                <form action="{% url 'logout' %}" method="post" class="m-0">
+                                    {% csrf_token %}
+                                    <button type="submit" class="nav-chip w-full justify-center">
+                                        Logout
+                                    </button>
+                                </form>
+                            {% else %}
+                                <a href="{% url 'login' %}" class="nav-chip w-full justify-center {% if request.resolver_match.url_name == 'login' %}nav-chip-active{% endif %}">
+                                    Login
+                                </a>
+                                <a href="{% url 'register' %}" class="signal-button signal-button-primary w-full justify-center">
+                                    Join the Arcade
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
-        {% endif %}
+        </header>
 
-        {% block content %}{% endblock %}
-    </main>
+        <main class="flex-1 px-4 pb-16 pt-6 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl space-y-6">
+                {% if messages %}
+                    <div class="space-y-3">
+                        {% for message in messages %}
+                            <div class="flash-message flash-{{ message.tags }}" data-autodismiss="true">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
 
-    <!-- ✅ Footer -->
-    <footer class="text-center mt-5 py-3 bg-black text-light">
-        <p class="mb-0">&copy; 2025 Joystick Journalist</p>
-        <p class="mb-0">Kristian Cross</p>
-    </footer>
+                {% block content %}{% endblock %}
+            </div>
+        </main>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
+        <footer class="px-4 pb-6 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <div class="retro-panel flex flex-col gap-3 px-5 py-4 text-sm text-slate-300 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="uppercase tracking-[0.18em] text-signal/80">Joystick Journalist Archive</p>
+                    <p>&copy; 2025 Kristian Cross</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
     <script src="{% static 'js/main.js' %}" defer></script>
 </body>
 </html>

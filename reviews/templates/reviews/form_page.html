@@ -1,52 +1,81 @@
 {% extends 'reviews/base.html' %}
+{% load widget_tweaks %}
 
 {% block title %}{{ title }} - Joystick Journalist{% endblock %}
 
 {% block content %}
-<div class="container form-container">
-    <div class="row justify-content-center">
-        <div class="col-auto">
-            <div class="neon-card">
-                <div class="neon-header">
-                    <h2 class="text-center neon-text">{{ title }}</h2>
-                    <h4 class="text-center neon-text">{{ game.title }}</h4>
-                    <h5 class="text-center neon-text">
-                        by:
+<section class="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        <p class="eyebrow">
+            {% if game %}Review Console{% else %}Archive Control{% endif %}
+        </p>
+        <h2 class="font-display text-3xl font-bold uppercase tracking-[0.14em] text-white">
+            {{ title }}
+        </h2>
+
+        {% if game %}
+            <div class="mt-6 space-y-4">
+                <div class="info-strip">
+                    <span class="info-label">Game</span>
+                    <span class="info-value">{{ game.title }}</span>
+                </div>
+                <div class="info-strip">
+                    <span class="info-label">Active User</span>
+                    <span class="info-value">
                         {% if review.reviewer_name %}
                             {{ review.reviewer_name }}
                         {% else %}
                             {{ request.user.username }}
                         {% endif %}
-                    </h5>
+                    </span>
                 </div>
-
-                <!-- 🚨 Show Form Errors -->
-                {% if form.errors %}
-                    <div class="alert alert-danger neon-alert">
-                        Please correct the errors below and try again.
+                {% if review.review_date %}
+                    <div class="info-strip">
+                        <span class="info-label">Original Post</span>
+                        <span class="info-value">{{ review.review_date|date:"M d, Y" }}</span>
                     </div>
                 {% endif %}
-
-                <!-- 📝 Form -->
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-
-                    <button type="submit" class="btn-neon w-100 mt-3">
-                        Save
-                    </button>
-                </form>
-
-                <!-- 🔙 Cancel Button -->
-                <div class="text-center mt-3">
-                    <a href="{% if game %}{% url 'all_reviews' %}{% else %}{% url 'landing_page' %}{% endif %}" 
-                       class="neon-link">
-                        Cancel
-                    </a>
-                </div>
             </div>
-        </div>
+        {% else %}
+            <p class="mt-4 max-w-xl text-sm leading-7 text-slate-300">
+                Use this panel to add new cartridges to the public library or tidy up an existing entry.
+            </p>
+        {% endif %}
     </div>
-</div>
-{% endblock %}
 
+    <div class="retro-panel px-6 py-8 sm:px-8">
+        {% if form.errors %}
+            <div class="flash-message flash-error mb-6">
+                Please correct the highlighted fields and try again.
+            </div>
+        {% endif %}
+
+        <form method="post" class="retro-form space-y-5">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="space-y-2">
+                    <label for="{{ field.id_for_label }}" class="block text-sm font-bold uppercase tracking-[0.18em] text-slate-300">
+                        {{ field.label }}
+                    </label>
+                    {{ field|add_class:"block w-full rounded-[1.25rem] border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-signal/60 focus:ring-2 focus:ring-signal/20" }}
+                    {% if field.help_text %}
+                        <p class="text-xs leading-6 text-slate-400">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="text-sm text-rose-300">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <div class="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
+                <a href="{% if game %}{% url 'all_reviews' %}{% else %}{% url 'landing_page' %}{% endif %}" class="signal-button signal-button-muted justify-center">
+                    Cancel
+                </a>
+                <button type="submit" class="signal-button signal-button-primary justify-center">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
