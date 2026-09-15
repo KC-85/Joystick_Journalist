@@ -11,18 +11,12 @@
             </p>
 
             <div class="cta-cluster">
-                <div class="cta-option">
-                    <p class="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-slate-400">New Player</p>
-                    <a href="{% url 'register' %}" class="signal-button signal-button-primary hero-btn w-full justify-center">
-                        Register Now
-                    </a>
-                </div>
-                <div class="cta-option">
-                    <p class="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-slate-400">Returning Player</p>
-                    <a href="{% url 'login' %}" class="signal-button signal-button-secondary w-full justify-center">
-                        Existing Player Login
-                    </a>
-                </div>
+                <a href="{% url 'register' %}" class="signal-button signal-button-primary hero-btn w-full justify-center sm:w-auto">
+                    Register Now
+                </a>
+                <a href="{% url 'login' %}" class="signal-button signal-button-secondary w-full justify-center sm:w-auto">
+                    Existing Player Login
+                </a>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-3">
