@@ -12,16 +12,16 @@
 
     <meta property="og:title" content="Joystick Journalist - Classic Game Reviews">
     <meta property="og:description" content="Discover and review legendary 90s video games. Join the retro gaming community!">
-    <meta property="og:image" content="https://yourwebsite.com/static/images/og-image.jpg">
-    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/favicon-32x32.png' %}">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Joystick Journalist - Retro Game Reviews">
     <meta name="twitter:description" content="Join us in exploring and reviewing the best 90s games ever made!">
-    <meta name="twitter:image" content="https://yourwebsite.com/static/images/twitter-image.jpg">
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/favicon-32x32.png' %}">
 
-    <link rel="canonical" href="https://yourwebsite.com">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon-16x16.png' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon-32x32.png' %}" type="image/x-icon">
@@ -170,10 +170,18 @@
         <main class="flex-1 px-4 pb-16 pt-6 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl space-y-6">
                 {% if messages %}
-                    <div class="space-y-3">
+                    <div class="space-y-3" aria-live="polite" aria-atomic="true">
                         {% for message in messages %}
-                            <div class="flash-message flash-{{ message.tags }}" data-autodismiss="true">
-                                {{ message }}
+                            <div class="flash-message flash-{{ message.tags }} flex items-start justify-between gap-4">
+                                <span class="min-w-0 flex-1">{{ message }}</span>
+                                <button
+                                    type="button"
+                                    class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-slate-200 transition hover:border-signal/40 hover:text-signal"
+                                    aria-label="Dismiss message"
+                                    data-flash-close
+                                >
+                                    ×
+                                </button>
                             </div>
                         {% endfor %}
                     </div>

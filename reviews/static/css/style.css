@@ -366,6 +366,21 @@ body {
     gap: 1rem;
 }
 
+.cta-option {
+    display: grid;
+    gap: 0.65rem;
+    min-width: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.95rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.cta-option p {
+    margin: 0;
+}
+
 .retro-form input,
 .retro-form textarea,
 .retro-form select {
@@ -411,7 +426,7 @@ body {
 
 @media (min-width: 640px) {
     .cta-cluster {
-        grid-template-columns: repeat(2, minmax(0, max-content));
-        align-items: end;
+        grid-template-columns: repeat(2, minmax(0, 15rem));
+        align-items: stretch;
     }
 }
