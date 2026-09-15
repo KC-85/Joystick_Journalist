@@ -11,6 +11,8 @@ config = AutoConfig(BASE_DIR)
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 IS_HEROKU = "DYNO" in os.environ
+IS_RENDER = "RENDER" in os.environ
+IS_PRODUCTION_HOST = IS_HEROKU or IS_RENDER
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -26,10 +28,15 @@ CSRF_TRUSTED_ORIGINS = [
     "https://joystick-journalist-3eda94de87b5.herokuapp.com",
 ]
 
-# HTTPS Security (Heroku Only)
-SECURE_SSL_REDIRECT = IS_HEROKU
-SESSION_COOKIE_SECURE = IS_HEROKU
-CSRF_COOKIE_SECURE = IS_HEROKU
+render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if render_hostname:
+    ALLOWED_HOSTS.append(render_hostname)
+    CSRF_TRUSTED_ORIGINS.append(f"https://{render_hostname}")
+
+# HTTPS Security (Hosted Production Only)
+SECURE_SSL_REDIRECT = IS_PRODUCTION_HOST
+SESSION_COOKIE_SECURE = IS_PRODUCTION_HOST
+CSRF_COOKIE_SECURE = IS_PRODUCTION_HOST
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
